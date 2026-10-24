@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Japanese Lantern — Cumulative Build Plan</title>
+<style>
+  body {
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px 80px;
+    color: #1a1a1a;
+    line-height: 1.55;
+  }
+  h1 { font-size: 24px; font-weight: 600; margin-bottom: 4px; }
+  .subtitle { color: #595959; font-size: 14px; margin-top: 0; margin-bottom: 16px; }
+  .home { font-size: 13px; margin-bottom: 18px; }
+  .home a { color: #185FA5; }
+  .infobox {
+    background: #f1efe8;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #444441;
+    margin-bottom: 24px;
+  }
+  .progress {
+    position: sticky;
+    top: 0;
+    background: white;
+    padding: 10px 0;
+    font-size: 13px;
+    color: #595959;
+    border-bottom: 1px solid #d3d1c7;
+    margin-bottom: 8px;
+    z-index: 10;
+  }
+  .step-section {
+    border: 1px solid #d3d1c7;
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin-top: 28px;
+  }
+  .step-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+  .step-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #185FA5;
+  }
+  .step-num {
+    font-size: 12px;
+    font-weight: 600;
+    color: #ffffff;
+    background: #185FA5;
+    border-radius: 10px;
+    padding: 2px 10px;
+  }
+  .whats-new {
+    font-size: 13.5px;
+    color: #595959;
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+  .schematic-wrap {
+    border: 1px solid #e4e2d8;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 16px;
+    overflow-x: auto;
+    background: #fdfdfb;
+  }
+  h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0C447C;
+    margin-top: 18px;
+    margin-bottom: 6px;
+  }
+  .item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 6px 6px;
+    border-radius: 6px;
+  }
+  .item:hover { background: #f7f6f2; }
+  .item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    flex-shrink: 0;
+    accent-color: #185FA5;
+  }
+  .item label { cursor: pointer; font-size: 14px; }
+  .item.checked label .main-text { text-decoration: line-through; color: #9a9890; }
+  .note { color: #595959; font-style: italic; font-size: 13px; }
+  .expect {
+    margin-top: 6px;
+    font-size: 13px;
+    color: #2d5a2d;
+    background: #eef5ee;
+    border-radius: 5px;
+    padding: 7px 11px;
+  }
+  .expect b { color: #1f451f; }
+  pre {
+    background: #f7f6f2;
+    border: 1px solid #d3d1c7;
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-size: 12.5px;
+    overflow-x: auto;
+    margin-top: 6px;
+  }
+  table { border-collapse: collapse; width: 100%; margin-top: 8px; font-size: 13.5px; }
+  th, td { border: 1px solid #d3d1c7; padding: 6px 10px; text-align: left; }
+  th { background: #f1efe8; font-weight: 600; }
+  .reset {
+    font-size: 12.5px;
+    color: #185FA5;
+    text-decoration: underline;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    margin-top: 28px;
+  }
+  footer { margin-top: 30px; font-size: 12.5px; color: #9a9890; }
+</style>
+</head>
+<body>
+
+<div class="home"><a href="index.html">&larr; Lantern home</a></div>
+
+<h1>Japanese Lantern &mdash; Cumulative Build Plan</h1>
+<p class="subtitle">Each step shows the schematic for everything built so far &mdash; by Step 7, the diagram is the complete circuit</p>
+
+<div class="infobox">
+Tap a checkbox to check it off &mdash; progress saves automatically in this browser. Every step's diagram includes every earlier step's components; nothing is ever removed from the drawing except the two explicitly-temporary test parts noted in Steps 1&ndash;3.
+</div>
+
+<div class="progress" id="progress">0 of 0 checked</div>
+
+<div class="step-section">
+<div class="step-header"><span class="step-title">ATtiny85 core</span><span class="step-num">Step 1 of 7</span></div>
+<div class="whats-new">First permanent piece of the circuit: the chip itself, its bypass capacitor, and the power rails everything else will tap into.</div>
+<div class="schematic-wrap"><svg width="820" height="760" viewBox="0 0 820 760" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
+<title>Lantern circuit - cumulative build</title>
+<rect x="0" y="0" width="820" height="760" fill="white"/>
+<!-- ATtiny85 box -->
+<g stroke="#1a1a1a" fill="none">
+<rect x="420" y="200" width="200" height="140" rx="4" stroke-width="1"/>
+</g>
+<text x="520" y="230" font-size="14" font-weight="500" text-anchor="middle" fill="#1a1a1a">ATtiny85</text>
+<text x="520" y="248" font-size="11" text-anchor="middle" fill="#595959">DIP-8</text>
+
+<!-- ATtiny VCC -->
+<line x1="470" y1="70" x2="470" y2="200" stroke="#1a1a1a"/>
+<circle cx="470" cy="70" r="2.5" fill="#1a1a1a"/>
+<circle cx="470" cy="190" r="2.5" fill="#1a1a1a"/>
+<text x="478" y="195" font-size="11" fill="#1a1a1a">VCC</text>
+
+<!-- C3: 100nF bypass cap, directly at ATtiny85 VCC/GND -->
+<line x1="470" y1="190" x2="395" y2="190" stroke="#1a1a1a"/>
+<line x1="395" y1="182" x2="395" y2="198" stroke="#1a1a1a" stroke-width="2"/>
+<line x1="387" y1="182" x2="387" y2="198" stroke="#1a1a1a" stroke-width="2"/>
+<line x1="387" y1="190" x2="380" y2="190" stroke="#1a1a1a"/>
+<line x1="380" y1="190" x2="380" y2="500" stroke="#1a1a1a"/>
+<circle cx="380" cy="500" r="2.5" fill="#1a1a1a"/>
+<text x="395" y="212" font-size="9" text-anchor="middle" fill="#1a1a1a">C3: 100nF</text>
+
+<!-- ATtiny GND -->
+<line x1="460" y1="340" x2="460" y2="500" stroke="#1a1a1a"/>
+<circle cx="460" cy="500" r="2.5" fill="#1a1a1a"/>
+<text x="440" y="335" font-size="11" fill="#1a1a1a">GND</text>
+
+<!-- Common ground bus -->
+<line x1="190" y1="500" x2="780" y2="500" stroke="#1a1a1a"/>
+<text x="700" y="514" font-size="11" fill="#595959">common ground</text>
+
+<!-- BAT+ rail (simple, no fuse yet) -->
+<line x1="310" y1="70" x2="780" y2="70" stroke="#1a1a1a"/>
+<text x="315" y="55" font-size="9" fill="#595959">&#8592; from bench supply (4.2V, simulating battery) for now</text>
+</svg></div>
+<h3>Wire this step</h3>
+<div class="item" data-id="s1-1"><input type="checkbox" id="cb-s1-1"><label for="cb-s1-1"><span class="main-text">Place ATtiny85 in socket, wire VCC and GND to the rails shown</span></label></div>
+<div class="item" data-id="s1-2"><input type="checkbox" id="cb-s1-2"><label for="cb-s1-2"><span class="main-text">Add C3 (100nF ceramic) directly across VCC/GND at the chip</span></label></div>
+<div class="item" data-id="s1-3"><input type="checkbox" id="cb-s1-3"><label for="cb-s1-3"><span class="main-text">Clip bench supply leads directly to the BAT+ rail and GND bus</span> <span class="note">&mdash; this simulates the battery; the real TP4056 + battery replaces this in Step 5</span></label></div>
+<h3>Temporary test rig (not part of the final circuit)</h3>
+<p>To see anything happen, temporarily clip a spare LED + ~220&ndash;330&Omega; resistor from PB0 to the GND rail. This is just for observing the blink test below &mdash; it gets removed in Step 3 when the real white LED channel takes over PB0.</p>
+<h3>ISP wiring and test sketch</h3>
+<pre>void setup() {
+  pinMode(0, OUTPUT); // PB0
+}
+
+void loop() {
+  digitalWrite(0, HIGH);
+  delay(500);
+  digitalWrite(0, LOW);
+  delay(500);
+}</pre>
+<div class="item" data-id="s1-4"><input type="checkbox" id="cb-s1-4"><label for="cb-s1-4"><span class="main-text">Wire Uno-as-ISP to the ATtiny85 (D10&rarr;RST, D11&rarr;PB0, D12&rarr;PB1, D13&rarr;PB2, 5V&rarr;VCC, GND&rarr;GND)</span></label></div>
+<div class="item" data-id="s1-5"><input type="checkbox" id="cb-s1-5"><label for="cb-s1-5"><span class="main-text">Burn Bootloader (sets fuses/clock), then Upload Using Programmer</span></label></div>
+<div class="expect">Test LED blinks steadily twice a second &mdash; confirms the chip is alive, ISP programming works, and the power/decoupling wiring is sound.</div>
+</div>
+<div class="step-section">
+<div class="step-header"><span class="step-title">TTP223 touch sensor</span><span class="step-num">Step 2 of 7</span></div>
+<div class="whats-new">Adds the touch input, wired to PB2 &mdash; the same pin that will later wake the chip from sleep.</div>
+<div class="schematic-wrap"><svg width="820" height="760" viewBox="0 0 820 760" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
+<title>Lantern circuit - cumulative build</title>
+<rect x="0" y="0" width="820" height="760" fill="white"/>
+<!-- ATtiny85 box -->
+<g stroke="#1a1a1a" fill="none">
+<rect x="420" y="200" width="200" height="140" rx="4" stroke-width="1"/>
+</g>
+<text x="520" y="230" font-size="14" font-weight="500" text-anchor="middle" fill="#1a1a1a">ATtiny85</text>
+<text x="520" y="248" font-size="11" text-anchor="middle" fill="#595959">DIP-8</text>
+
+<!-- ATtiny VCC -->
+<line x1="470" y1="70" x2="470" y2="200" stroke="#1a1a1a"/>
+<circle cx="470" cy="70" r="2.5" fill="#1a1a1a"/>
+<circle cx="470" cy="190" r="2.5" fill="#1a1a1a"/>
+<text x="478" y="195" font-size="11" fill="#1a1a1a">VCC</text>
+
+<!-- C3: 100nF bypass cap, directly at ATtiny85 VCC/GND -->
+<line x1="470" y1="190" x2="395" y2="190" stroke="#1a1a1a"/>
+<line x1="395" y1="182" x2="395" y2="198" stroke="#1a1a1a" stroke-width="2"/>
+<line x1="387" y1="182" x2="387" y2="198" stroke="#1a1a1a" stroke-width="2"/>
+<line x1="387" y1="190" x2="380" y2="190" stroke="#1a1a1a"/>
+<line x1="380" y1="190" x2="380" y2="500" stroke="#1a1a1a"/>
+<circle cx="380" cy="500" r="2.5" fill="#1a1a1a"/>
+<text x="395" y="212" font-size="9" text-anchor="middle" fill="#1a1a1a">C3: 100nF</text>
+
+<!-- ATtiny GND -->
+<line x1="460" y1="340" x2="460" y2="500" stroke="#1a1a1a"/>
+<circle cx="460" cy="500" r="2.5" fill="#1a1a1a"/>
+<text x="440" y="335" font-size="11" fill="#1a1a1a">GND</text>
+
+<!-- Common ground bus -->
+<line x1="190" y1="500" x2="780" y2="500" stroke="#1a1a1a"/>
+<text x="700" y="514" font-size="11" fill="#595959">common ground</text>
+
+<!-- BAT+ rail (simple, no fuse yet) -->
+<line x1="310" y1="70" x2="780" y2="70" stroke="#1a1a1a"/>
+<text x="315" y="55" font-size="9" fill="#595959">&#8592; from bench supply (4.2V, simulating battery) for now</text>
+
+<!-- TTP223 box -->
+<g stroke="#1a1a1a" fill="none">
+<rect x="700" y="220" width="110" height="100" rx="4" stroke-width="1"/>
+</g>
+<text x="755" y="335" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">TTP223</text>
+<text x="755" y="349" font-size="10" text-anchor="middle" fill="#595959">momentary mode</text>
+<!-- TTP223 VCC -->
+<line x1="755" y1="70" x2="755" y2="220" stroke="#1a1a1a"/>
+<circle cx="755" cy="70" r="2.5" fill="#1a1a1a"/>
+<text x="763" y="215" font-size="11" fill="#1a1a1a">VCC</text>
+<text x="708" y="255" font-size="11" fill="#1a1a1a">OUT</text>
+<!-- TTP223 GND -->
+<line x1="755" y1="320" x2="755" y2="500" stroke="#1a1a1a"/>
+<circle cx="755" cy="500" r="2.5" fill="#1a1a1a"/>
+<text x="763" y="315" font-size="11" fill="#1a1a1a">GND</text>
+<!-- ATtiny PB2 to TTP223 -->
+<line x1="620" y1="260" x2="700" y2="260" stroke="#1a1a1a"/>
+<text x="628" y="255" font-size="11" fill="#1a1a1a">PB2</text>
+</svg></div>
+<h3>Wire this step</h3>
+<div class="item" data-id="s2-1"><input type="checkbox" id="cb-s2-1"><label for="cb-s2-1"><span class="main-text">Wire TTP223 VCC to the BAT+ rail, GND to the GND bus</span></label></div>
+<div class="item" data-id="s2-2"><input type="checkbox" id="cb-s2-2"><label for="cb-s2-2"><span class="main-text">Wire TTP223 OUT to ATtiny85 PB2</span></label></div>
+<h3>Updated test sketch</h3>
+<pre>void setup() {
+  pinMode(0, OUTPUT); // PB0, still driving the temporary test LED
+  pinMode(2, INPUT);  // PB2, TTP223 OUT
+}
+
+void loop() {
+  digitalWrite(0, digitalRead(2));
+}</pre>
+<div class="item" data-id="s2-3"><input type="checkbox" id="cb-s2-3"><label for="cb-s2-3"><span class="main-text">Re-flash with the touch-controlled sketch above</span></label></div>
+<div class="expect">Test LED lights only while you're touching the sensor, off the instant you release &mdash; confirms momentary mode and PB2 wiring, all on the real chip this time (not the Uno stand-in from earlier).</div>
+</div>
+<div class="step-section">
+<div class="step-header"><span class="step-title">White LED channel</span><span class="step-num">Step 3 of 7</span></div>
+<div class="whats-new">The real MOSFET-driven white channel replaces the temporary test LED on PB0.</div>
+<div class="schematic-wrap"><svg width="820" height="760" viewBox="0 0 820 760" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
+<title>Lantern circuit - cumulative build</title>
+<rect x="0" y="0" width="820" height="760" fill="white"/>
+<!-- ATtiny85 box -->
+<g stroke="#1a1a1a" fill="none">
+<rect x="420" y="200" width="200" height="140" rx="4" stroke-width="1"/>
+</g>
+<text x="520" y="230" font-size="14" font-weight="500" text-anchor="middle" fill="#1a1a1a">ATtiny85</text>
+<text x="520" y="248" font-size="11" text-anchor="middle" fill="#595959">DIP-8</text>
+
+<!-- ATtiny VCC -->
+<line x1="470" y1="70" x2="470" y2="200" stroke="#1a1a1a"/>
+<circle cx="470" cy="70" r="2.5" fill="#1a1a1a"/>
+<circle cx="470" cy="190" r="2.5" fill="#1a1a1a"/>
+<text x="478" y="195" font-size="11" fill="#1a1a1a">VCC</text>
+
+<!-- C3: 100nF bypass cap, directly at ATtiny85 VCC/GND -->
+<line x1="470" y1="190" x2="395" y2="190" stroke="#1a1a1a"/>
+<line x1="395" y1="182" x2="395" y2="198" stroke="#1a1a1a" stroke-width="2"/>
+<line x1="387" y1="182" x2="387" y2="198" stroke="#1a1a1a" stroke-width="2"/>
+<line x1="387" y1="190" x2="380" y2="190" stroke="#1a1a1a"/>
+<line x1="380" y1="190" x2="380" y2="500" stroke="#1a1a1a"/>
+<circle cx="380" cy="500" r="2.5" fill="#1a1a1a"/>
+<text x="395" y="212" font-size="9" text-anchor="middle" fill="#1a1a1a">C3: 100nF</text>
+
+<!-- ATtiny GND -->
+<line x1="460" y1="340" x2="460" y2="500" stroke="#1a1a1a"/>
+<circle cx="460" cy="500" r="2.5" fill="#1a1a1a"/>
+<text x="440" y="335" font-size="11" fill="#1a1a1a">GND</text>
+
+<!-- Common ground bus -->
+<line x1="190" y1="500" x2="780" y2="500" stroke="#1a1a1a"/>
+<text x="700" y="514" font-size="11" fill="#595959">common ground</text>
+
+<!-- BAT+ rail (simple, no fuse yet) -->
+<line x1="310" y1="70" x2="780" y2="70" stroke="#1a1a1a"/>
+<text x="315" y="55" font-size="9" fill="#595959">&#8592; from bench supply (4.2V, simulating battery) for now</text>
+
+<!-- TTP223 box -->
+<g stroke="#1a1a1a" fill="none">
+<rect x="700" y="220" width="110" height="100" rx="4" stroke-width="1"/>
+</g>
+<text x="755" y="335" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">TTP223</text>
+<text x="755" y="349" font-size="10" text-anchor="middle" fill="#595959">momentary mode</text>
+<!-- TTP223 VCC -->
+<line x1="755" y1="70" x2="755" y2="220" stroke="#1a1a1a"/>
+<circle cx="755" cy="70" r="2.5" fill="#1a1a1a"/>
+<text x="763" y="215" font-size="11" fill="#1a1a1a">VCC</text>
+<text x="708" y="255" font-size="11" fill="#1a1a1a">OUT</text>
+<!-- TTP223 GND -->
+<line x1="755" y1="320" x2="755" y2="500" stroke="#1a1a1a"/>
+<circle cx="755" cy="500" r="2.5" fill="#1a1a1a"/>
+<text x="763" y="315" font-size="11" fill="#1a1a1a">GND</text>
+<!-- ATtiny PB2 to TTP223 -->
+<line x1="620" y1="260" x2="700" y2="260" stroke="#1a1a1a"/>
+<text x="628" y="255" font-size="11" fill="#1a1a1a">PB2</text>
+
+<!-- ATtiny PB0 (white channel) -->
+<line x1="520" y1="340" x2="520" y2="410" stroke="#1a1a1a"/>
+<line x1="520" y1="410" x2="430" y2="410" stroke="#1a1a1a"/>
+<text x="500" y="335" font-size="11" fill="#1a1a1a">PB0</text>
+
+<!-- White channel BAT+ tap -->
+<line x1="350" y1="70" x2="350" y2="300" stroke="#1a1a1a"/>
+<circle cx="350" cy="70" r="2.5" fill="#1a1a1a"/>
+
+<!-- C4: 10uF bulk cap near the LED/MOSFET stage -->
+<circle cx="350" cy="170" r="2.5" fill="#1a1a1a"/>
+<line x1="350" y1="170" x2="300" y2="170" stroke="#1a1a1a"/>
+<line x1="300" y1="170" x2="300" y2="500" stroke="#1a1a1a"/>
+<circle cx="300" cy="500" r="2.5" fill="#1a1a1a"/>
+<line x1="292" y1="300" x2="308" y2="300" stroke="#1a1a1a" stroke-width="2"/>
+<line x1="292" y1="308" x2="308" y2="308" stroke="#1a1a1a" stroke-width="2"/>
+<text x="270" y="304" font-size="9" text-anchor="end" fill="#1a1a1a">C4: 10&#181;F</text>
+
+<!-- R6 current-limit resistor -->
+<g stroke="#1a1a1a" fill="none">
+<rect x="335" y="300" width="30" height="24" rx="2" stroke-width="1"/>
+</g>
+<text x="350" y="316" font-size="11" text-anchor="middle" fill="#1a1a1a">R6</text>
+<line x1="350" y1="324" x2="350" y2="350" stroke="#1a1a1a"/>
+
+<!-- LED1 symbol -->
+<path d="M340 350 L360 350 L350 370 Z" fill="#1a1a1a" opacity="0.85"/>
+<line x1="340" y1="372" x2="360" y2="372" stroke="#1a1a1a" stroke-width="2.2"/>
+<line x1="363" y1="355" x2="374" y2="344" stroke="#1a1a1a" stroke-width="0.8"/>
+<line x1="368" y1="362" x2="379" y2="351" stroke="#1a1a1a" stroke-width="0.8"/>
+<text x="390" y="365" font-size="11" fill="#1a1a1a">LED1 (warm white)</text>
+<line x1="350" y1="372" x2="350" y2="390" stroke="#1a1a1a"/>
+
+<!-- Q1 MOSFET -->
+<circle cx="350" cy="410" r="20" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+<text x="378" y="398" font-size="11" fill="#1a1a1a">Q1</text>
+
+<!-- gate lead from resistor R7 into circle right side -->
+<line x1="520" y1="410" x2="430" y2="410" stroke="#1a1a1a"/>
+<g stroke="#1a1a1a" fill="none">
+<rect x="400" y="400" width="30" height="20" rx="2" stroke-width="1"/>
+</g>
+<text x="415" y="411" font-size="11" text-anchor="middle" fill="#1a1a1a">R7</text>
+<text x="415" y="436" font-size="10" text-anchor="middle" fill="#595959">220 ohm</text>
+<line x1="400" y1="410" x2="370" y2="410" stroke="#1a1a1a"/>
+
+<!-- pulldown R8 -->
+<line x1="390" y1="410" x2="390" y2="430" stroke="#1a1a1a"/>
+<g stroke="#1a1a1a" fill="none">
+<rect x="375" y="430" width="30" height="26" rx="2" stroke-width="1"/>
+</g>
+<text x="390" y="443" font-size="11" text-anchor="middle" fill="#1a1a1a">R8</text>
+<text x="390" y="470" font-size="10" text-anchor="middle" fill="#595959">10k</text>
+<line x1="390" y1="456" x2="390" y2="500" stroke="#1a1a1a"/>
+<circle cx="390" cy="500" r="2.5" fill="#1a1a1a"/>
+
+<!-- MOSFET source to ground -->
+<line x1="350" y1="430" x2="350" y2="500" stroke="#1a1a1a"/>
+<circle cx="350" cy="500" r="2.5" fill="#1a1a1a"/>
+</svg></div>
+<h3>Wire this step</h3>
+<div class="item" data-id="s3-1"><input type="checkbox" id="cb-s3-1"><label for="cb-s3-1"><span class="main-text">Remove the temporary test LED/resistor from PB0</span></label></div>
+<div class="item" data-id="s3-2"><input type="checkbox" id="cb-s3-2"><label for="cb-s3-2"><span class="main-text">Wire R6 (150&Omega; for 5V testing / 100&Omega; at 4.2V &mdash; see earlier calc) from BAT+ rail to LED1 anode</span></label></div>
+<div class="item" data-id="s3-3"><input type="checkbox" id="cb-s3-3"><label for="cb-s3-3"><span class="main-text">LED1 cathode to Q1 drain; Q1 source to GND rail</span></label></div>
+<div class="item" data-id="s3-4"><input type="checkbox" id="cb-s3-4"><label for="cb-s3-4"><span class="main-text">Q1 gate through R7 (220&Omega;) to PB0; R8 (10k&Omega;) from gate to GND (pull-down)</span></label></div>
+<div class="item" data-id="s3-5"><input type="checkbox" id="cb-s3-5"><label for="cb-s3-5"><span class="main-text">Add C4 (10&micro;F) across BAT+/GND near this stage</span></label></div>
+<div class="expect">Same touch-lights-up behavior as Step 2, but now it's the real warm-white LED switching through the real MOSFET &mdash; not a substitute part. Same sketch as Step 2, no firmware change needed.</div>
+</div>
+<div class="step-section">
+<div class="step-header"><span class="step-title">Red LED channel</span><span class="step-num">Step 4 of 7</span></div>
+<div class="whats-new">Mirrors the white channel exactly, on PB1. Drawn as a labeled placeholder since it's an identical circuit &mdash; same R6/LED1/Q1/R7/R8 pattern, just R9/LED2/Q2/R10/R11 on PB1.</div>
+<div class="schematic-wrap"><svg width="820" height="760" viewBox="0 0 820 760" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
+<title>Lantern circuit - cumulative build</title>
+<rect x="0" y="0" width="820" height="760" fill="white"/>
+<!-- ATtiny85 box -->
+<g stroke="#1a1a1a" fill="none">
+<rect x="420" y="200" width="200" height="140" rx="4" stroke-width="1"/>
+</g>
+<text x="520" y="230" font-size="14" font-weight="500" text-anchor="middle" fill="#1a1a1a">ATtiny85</text>
+<text x="520" y="248" font-size="11" text-anchor="middle" fill="#595959">DIP-8</text>
+
+<!-- ATtiny VCC -->
+<line x1="470" y1="70" x2="470" y2="200" stroke="#1a1a1a"/>
+<circle cx="470" cy="70" r="2.5" fill="#1a1a1a"/>
+<circle cx="470" cy="190" r="2.5" fill="#1a1a1a"/>
+<text x="478" y="195" font-size="11" fill="#1a1a1a">VCC</text>
+
+<!-- C3: 100nF bypass cap, directly at ATtiny85 VCC/GND -->
+<line x1="470" y1="190" x2="395" y2="190" stroke="#1a1a1a"/>
+<line x1="395" y1="182" x2="395" y2="198" stroke="#1a1a1a" stroke-width="2"/>
+<line x1="387" y1="182" x2="387" y2="198" stroke="#1a1a1a" stroke-width="2"/>
+<line x1="387" y1="190" x2="380" y2="190" stroke="#1a1a1a"/>
+<line x1="380" y1="190" x2="380" y2="500" stroke="#1a1a1a"/>
+<circle cx="380" cy="500" r="2.5" fill="#1a1a1a"/>
+<text x="395" y="212" font-size="9" text-anchor="middle" fill="#1a1a1a">C3: 100nF</text>
+
+<!-- ATtiny GND -->
+<line x1="460" y1="340" x2="460" y2="500" stroke="#1a1a1a"/>
+<circle cx="460" cy="500" r="2.5" fill="#1a1a1a"/>
+<text x="440" y="335" font-size="11" fill="#1a1a1a">GND</text>
+
+<!-- Common ground bus -->
+<line x1="190" y1="500" x2="780" y2="500" stroke="#1a1a1a"/>
+<text x="700" y="514" font-size="11" fill="#595959">common ground</text>
+
+<!-- BAT+ rail (simple, no fuse yet) -->
+<line x1="310" y1="70" x2="780" y2="70" stroke="#1a1a1a"/>
+<text x="315" y="55" font-size="9" fill="#595959">&#8592; from bench supply (4.2V, simulating battery) for now</text>
+
+<!-- TTP223 box -->
+<g stroke="#1a1a1a" fill="none">
+<rect x="700" y="220" width="110" height="100" rx="4" stroke-width="1"/>
+</g>
+<text x="755" y="335" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">TTP223</text>
+<text x="755" y="349" font-size="10" text-anchor="middle" fill="#595959">momentary mode</text>
+<!-- TTP223 VCC -->
+<line x1="755" y1="70" x2="755" y2="220" stroke="#1a1a1a"/>
+<circle cx="755" cy="70" r="2.5" fill="#1a1a1a"/>
+<text x="763" y="215" font-size="11" fill="#1a1a1a">VCC</text>
+<text x="708" y="255" font-size="11" fill="#1a1a1a">OUT</text>
+<!-- TTP223 GND -->
+<line x1="755" y1="320" x2="755" y2="500" stroke="#1a1a1a"/>
+<circle cx="755" cy="500" r="2.5" fill="#1a1a1a"/>
+<text x="763" y="315" font-size="11" fill="#1a1a1a">GND</text>
+<!-- ATtiny PB2 to TTP223 -->
+<line x1="620" y1="260" x2="700" y2="260" stroke="#1a1a1a"/>
+<text x="628" y="255" font-size="11" fill="#1a1a1a">PB2</text>
+
+<!-- ATtiny PB0 (white channel) -->
+<line x1="520" y1="340" x2="520" y2="410" stroke="#1a1a1a"/>
+<line x1="520" y1="410" x2="430" y2="410" stroke="#1a1a1a"/>
+<text x="500" y="335" font-size="11" fill="#1a1a1a">PB0</text>
+
+<!-- White channel BAT+ tap -->
+<line x1="350" y1="70" x2="350" y2="300" stroke="#1a1a1a"/>
+<circle cx="350" cy="70" r="2.5" fill="#1a1a1a"/>
+
+<!-- C4: 10uF bulk cap near the LED/MOSFET stage -->
+<circle cx="350" cy="170" r="2.5" fill="#1a1a1a"/>
+<line x1="350" y1="170" x2="300" y2="170" stroke="#1a1a1a"/>
+<line x1="300" y1="170" x2="300" y2="500" stroke="#1a1a1a"/>
+<circle cx="300" cy="500" r="2.5" fill="#1a1a1a"/>
+<line x1="292" y1="300" x2="308" y2="300" stroke="#1a1a1a" stroke-width="2"/>
+<line x1="292" y1="308" x2="308" y2="308" stroke="#1a1a1a" stroke-width="2"/>
+<text x="270" y="304" font-size="9" text-anchor="end" fill="#1a1a1a">C4: 10&#181;F</text>
+
+<!-- R6 current-limit resistor -->
+<g stroke="#1a1a1a" fill="none">
+<rect x="335" y="300" width="30" height="24" rx="2" stroke-width="1"/>
+</g>
+<text x="350" y="316" font-size="11" text-anchor="middle" fill="#1a1a1a">R6</text>
+<line x1="350" y1="324" x2="350" y2="350" stroke="#1a1a1a"/>
+
+<!-- LED1 symbol -->
+<path d="M340 350 L360 350 L350 370 Z" fill="#1a1a1a" opacity="0.85"/>
+<line x1="340" y1="372" x2="360" y2="372" stroke="#1a1a1a" stroke-width="2.2"/>
+<line x1="363" y1="355" x2="374" y2="344" stroke="#1a1a1a" stroke-width="0.8"/>
+<line x1="368" y1="362" x2="379" y2="351" stroke="#1a1a1a" stroke-width="0.8"/>
+<text x="390" y="365" font-size="11" fill="#1a1a1a">LED1 (warm white)</text>
+<line x1="350" y1="372" x2="350" y2="390" stroke="#1a1a1a"/>
+
+<!-- Q1 MOSFET -->
+<circle cx="350" cy="410" r="20" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+<text x="378" y="398" font-size="11" fill="#1a1a1a">Q1</text>
+
+<!-- gate lead from resistor R7 into circle right side -->
+<line x1="520" y1="410" x2="430" y2="410" stroke="#1a1a1a"/>
+<g stroke="#1a1a1a" fill="none">
+<rect x="400" y="400" width="30" height="20" rx="2" stroke-width="1"/>
+</g>
+<text x="415" y="411" font-size="11" text-anchor="middle" fill="#1a1a1a">R7</text>
+<text x="415" y="436" font-size="10" text-anchor="middle" fill="#595959">220 ohm</text>
+<line x1="400" y1="410" x2="370" y2="410" stroke="#1a1a1a"/>
+
+<!-- pulldown R8 -->
+<line x1="390" y1="410" x2="390" y2="430" stroke="#1a1a1a"/>
+<g stroke="#1a1a1a" fill="none">
+<rect x="375" y="430" width="30" height="26" rx="2" stroke-width="1"/>
+</g>
+<text x="390" y="443" font-size="11" text-anchor="middle" fill="#1a1a1a">R8</text>
+<text x="390" y="470" font-size="10" text-anchor="middle" fill="#595959">10k</text>
+<line x1="390" y1="456" x2="390" y2="500" stroke="#1a1a1a"/>
+<circle cx="390" cy="500" r="2.5" fill="#1a1a1a"/>
+
+<!-- MOSFET source to ground -->
+<line x1="350" y1="430" x2="350" y2="500" stroke="#1a1a1a"/>
+<circle cx="350" cy="500" r="2.5" fill="#1a1a1a"/>
+
+<!-- ATtiny PB1 label (red channel, see dashed box) -->
+<text x="560" y="335" font-size="11" fill="#1a1a1a">PB1</text>
+
+<!-- Red channel dashed placeholder -->
+<rect x="650" y="360" width="160" height="130" rx="6" fill="none" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="5 5"/>
+<text x="730" y="415" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">Red channel</text>
+<text x="730" y="433" font-size="11" text-anchor="middle" fill="#595959">Identical circuit</text>
+<text x="730" y="449" font-size="11" text-anchor="middle" fill="#595959">(R9, LED2, Q2, R10, R11)</text>
+<text x="730" y="465" font-size="11" text-anchor="middle" fill="#595959">driven from PB1</text>
+</svg></div>
+<h3>Wire this step</h3>
+<div class="item" data-id="s4-1"><input type="checkbox" id="cb-s4-1"><label for="cb-s4-1"><span class="main-text">Build the identical channel (R9, LED2, Q2, R10, R11) on PB1</span></label></div>
+<h3>Quick standalone test (not the final gesture logic yet)</h3>
+<pre>void setup() {
+  pinMode(1, OUTPUT); // PB1
+}
+
+void loop() {
+  digitalWrite(1, HIGH);
+  delay(500);
+  digitalWrite(1, LOW);
+  delay(500);
+}</pre>
+<div class="expect">Red LED blinks the same way the white one did in Step 1 &mdash; confirms the second channel's wiring independent of touch logic. Full tap/double-tap/hold gesture logic (including real channel-switching) gets loaded once in Step 7, after everything is wired.</div>
+</div>
+<div class="step-section">
+<div class="step-header"><span class="step-title">Real power: battery + TP4056 + fuse</span><span class="step-num">Step 5 of 7</span></div>
+<div class="whats-new">The bench supply's direct clip-on connection is replaced with the actual battery, charge module, and protection fuse feeding the same rail nodes.</div>
+<div class="schematic-wrap"><svg width="820" height="760" viewBox="0 0 820 760" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
+<title>Lantern circuit - cumulative build</title>
+<rect x="0" y="0" width="820" height="760" fill="white"/>
+<!-- ATtiny85 box -->
+<g stroke="#1a1a1a" fill="none">
+<rect x="420" y="200" width="200" height="140" rx="4" stroke-width="1"/>
+</g>
+<text x="520" y="230" font-size="14" font-weight="500" text-anchor="middle" fill="#1a1a1a">ATtiny85</text>
+<text x="520" y="248" font-size="11" text-anchor="middle" fill="#595959">DIP-8</text>
+
+<!-- ATtiny VCC -->
+<line x1="470" y1="70" x2="470" y2="200" stroke="#1a1a1a"/>
+<circle cx="470" cy="70" r="2.5" fill="#1a1a1a"/>
+<circle cx="470" cy="190" r="2.5" fill="#1a1a1a"/>
+<text x="478" y="195" font-size="11" fill="#1a1a1a">VCC</text>
+
+<!-- C3: 100nF bypass cap, directly at ATtiny85 VCC/GND -->
+<line x1="470" y1="190" x2="395" y2="190" stroke="#1a1a1a"/>
+<line x1="395" y1="182" x2="395" y2="198" stroke="#1a1a1a" stroke-width="2"/>
+<line x1="387" y1="182" x2="387" y2="198" stroke="#1a1a1a" stroke-width="2"/>
+<line x1="387" y1="190" x2="380" y2="190" stroke="#1a1a1a"/>
+<line x1="380" y1="190" x2="380" y2="500" stroke="#1a1a1a"/>
+<circle cx="380" cy="500" r="2.5" fill="#1a1a1a"/>
+<text x="395" y="212" font-size="9" text-anchor="middle" fill="#1a1a1a">C3: 100nF</text>
+
+<!-- ATtiny GND -->
+<line x1="460" y1="340" x2="460" y2="500" stroke="#1a1a1a"/>
+<circle cx="460" cy="500" r="2.5" fill="#1a1a1a"/>
+<text x="440" y="335" font-size="11" fill="#1a1a1a">GND</text>
+
+<!-- Common ground bus -->
+<line x1="190" y1="500" x2="780" y2="500" stroke="#1a1a1a"/>
+<text x="700" y="514" font-size="11" fill="#595959">common ground</text>
+
+<!-- TTP223 box -->
+<g stroke="#1a1a1a" fill="none">
+<rect x="700" y="220" width="110" height="100" rx="4" stroke-width="1"/>
+</g>
+<text x="755" y="335" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">TTP223</text>
+<text x="755" y="349" font-size="10" text-anchor="middle" fill="#595959">momentary mode</text>
+<!-- TTP223 VCC -->
+<line x1="755" y1="70" x2="755" y2="220" stroke="#1a1a1a"/>
+<circle cx="755" cy="70" r="2.5" fill="#1a1a1a"/>
+<text x="763" y="215" font-size="11" fill="#1a1a1a">VCC</text>
+<text x="708" y="255" font-size="11" fill="#1a1a1a">OUT</text>
+<!-- TTP223 GND -->
+<line x1="755" y1="320" x2="755" y2="500" stroke="#1a1a1a"/>
+<circle cx="755" cy="500" r="2.5" fill="#1a1a1a"/>
+<text x="763" y="315" font-size="11" fill="#1a1a1a">GND</text>
+<!-- ATtiny PB2 to TTP223 -->
+<line x1="620" y1="260" x2="700" y2="260" stroke="#1a1a1a"/>
+<text x="628" y="255" font-size="11" fill="#1a1a1a">PB2</text>
+
+<!-- ATtiny PB0 (white channel) -->
+<line x1="520" y1="340" x2="520" y2="410" stroke="#1a1a1a"/>
+<line x1="520" y1="410" x2="430" y2="410" stroke="#1a1a1a"/>
+<text x="500" y="335" font-size="11" fill="#1a1a1a">PB0</text>
+
+<!-- White channel BAT+ tap -->
+<line x1="350" y1="70" x2="350" y2="300" stroke="#1a1a1a"/>
+<circle cx="350" cy="70" r="2.5" fill="#1a1a1a"/>
+
+<!-- C4: 10uF bulk cap near the LED/MOSFET stage -->
+<circle cx="350" cy="170" r="2.5" fill="#1a1a1a"/>
+<line x1="350" y1="170" x2="300" y2="170" stroke="#1a1a1a"/>
+<line x1="300" y1="170" x2="300" y2="500" stroke="#1a1a1a"/>
+<circle cx="300" cy="500" r="2.5" fill="#1a1a1a"/>
+<line x1="292" y1="300" x2="308" y2="300" stroke="#1a1a1a" stroke-width="2"/>
+<line x1="292" y1="308" x2="308" y2="308" stroke="#1a1a1a" stroke-width="2"/>
+<text x="270" y="304" font-size="9" text-anchor="end" fill="#1a1a1a">C4: 10&#181;F</text>
+
+<!-- R6 current-limit resistor -->
+<g stroke="#1a1a1a" fill="none">
+<rect x="335" y="300" width="30" height="24" rx="2" stroke-width="1"/>
+</g>
+<text x="350" y="316" font-size="11" text-anchor="middle" fill="#1a1a1a">R6</text>
+<line x1="350" y1="324" x2="350" y2="350" stroke="#1a1a1a"/>
+
+<!-- LED1 symbol -->
+<path d="M340 350 L360 350 L350 370 Z" fill="#1a1a1a" opacity="0.85"/>
+<line x1="340" y1="372" x2="360" y2="372" stroke="#1a1a1a" stroke-width="2.2"/>
+<line x1="363" y1="355" x2="374" y2="344" stroke="#1a1a1a" stroke-width="0.8"/>
+<line x1="368" y1="362" x2="379" y2="351" stroke="#1a1a1a" stroke-width="0.8"/>
+<text x="390" y="365" font-size="11" fill="#1a1a1a">LED1 (warm white)</text>
+<line x1="350" y1="372" x2="350" y2="390" stroke="#1a1a1a"/>
+
+<!-- Q1 MOSFET -->
+<circle cx="350" cy="410" r="20" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+<text x="378" y="398" font-size="11" fill="#1a1a1a">Q1</text>
+
+<!-- gate lead from resistor R7 into circle right side -->
+<line x1="520" y1="410" x2="430" y2="410" stroke="#1a1a1a"/>
+<g stroke="#1a1a1a" fill="none">
+<rect x="400" y="400" width="30" height="20" rx="2" stroke-width="1"/>
+</g>
+<text x="415" y="411" font-size="11" text-anchor="middle" fill="#1a1a1a">R7</text>
+<text x="415" y="436" font-size="10" text-anchor="middle" fill="#595959">220 ohm</text>
+<line x1="400" y1="410" x2="370" y2="410" stroke="#1a1a1a"/>
+
+<!-- pulldown R8 -->
+<line x1="390" y1="410" x2="390" y2="430" stroke="#1a1a1a"/>
+<g stroke="#1a1a1a" fill="none">
+<rect x="375" y="430" width="30" height="26" rx="2" stroke-width="1"/>
+</g>
+<text x="390" y="443" font-size="11" text-anchor="middle" fill="#1a1a1a">R8</text>
+<text x="390" y="470" font-size="10" text-anchor="middle" fill="#595959">10k</text>
+<line x1="390" y1="456" x2="390" y2="500" stroke="#1a1a1a"/>
+<circle cx="390" cy="500" r="2.5" fill="#1a1a1a"/>
+
+<!-- MOSFET source to ground -->
+<line x1="350" y1="430" x2="350" y2="500" stroke="#1a1a1a"/>
+<circle cx="350" cy="500" r="2.5" fill="#1a1a1a"/>
+
+<!-- ATtiny PB1 label (red channel, see dashed box) -->
+<text x="560" y="335" font-size="11" fill="#1a1a1a">PB1</text>
+
+<!-- Red channel dashed placeholder -->
+<rect x="650" y="360" width="160" height="130" rx="6" fill="none" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="5 5"/>
+<text x="730" y="415" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">Red channel</text>
+<text x="730" y="433" font-size="11" text-anchor="middle" fill="#595959">Identical circuit</text>
+<text x="730" y="449" font-size="11" text-anchor="middle" fill="#595959">(R9, LED2, Q2, R10, R11)</text>
+<text x="730" y="465" font-size="11" text-anchor="middle" fill="#595959">driven from PB1</text>
+
+<!-- Battery -->
+<g stroke="#1a1a1a" fill="none">
+<line x1="40" y1="70" x2="40" y2="90"/>
+<line x1="25" y1="90" x2="55" y2="90" stroke-width="2"/>
+<line x1="30" y1="100" x2="50" y2="100" stroke-width="1"/>
+<line x1="40" y1="100" x2="40" y2="120"/>
+<line x1="40" y1="120" x2="40" y2="140"/>
+<line x1="40" y1="140" x2="140" y2="140"/>
+<line x1="40" y1="70" x2="140" y2="70"/>
+</g>
+<text x="60" y="160" font-size="12" fill="#1a1a1a">LiPo 3.7V (protected cell)</text>
+
+<!-- TP4056 box -->
+<g stroke="#1a1a1a" fill="none">
+<rect x="140" y="50" width="170" height="110" rx="4" stroke-width="1"/>
+</g>
+<text x="225" y="40" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">TP4056 charge module</text>
+<text x="155" y="66" font-size="11" fill="#1a1a1a">BAT+</text>
+<text x="155" y="136" font-size="11" fill="#1a1a1a">BAT-</text>
+<text x="270" y="66" font-size="11" fill="#1a1a1a">OUT+</text>
+<text x="268" y="136" font-size="11" fill="#1a1a1a">OUT-</text>
+
+<!-- TP4056 OUT- to common ground bus -->
+<line x1="310" y1="140" x2="310" y2="500" stroke="#1a1a1a"/>
+
+<!-- USB 5V IN pin -->
+<line x1="170" y1="35" x2="170" y2="50" stroke="#1a1a1a"/>
+<text x="176" y="30" font-size="10" fill="#595959">IN+ (5V, USB)</text>
+
+<!-- CHRG / STDBY pins -->
+<line x1="180" y1="160" x2="180" y2="180" stroke="#1a1a1a"/>
+<text x="150" y="176" font-size="11" fill="#1a1a1a">CHRG</text>
+<line x1="260" y1="160" x2="260" y2="180" stroke="#1a1a1a"/>
+<text x="266" y="176" font-size="11" fill="#1a1a1a">STDBY</text>
+
+<rect x="10" y="185" width="85" height="120" rx="6" fill="none" stroke="#BA7517" stroke-width="1.2" stroke-dasharray="4 4"/>
+<path d="M52 196 L40 218 L64 218 Z" fill="none" stroke="#BA7517" stroke-width="1.3"/>
+<text x="52" y="213" font-size="11" font-weight="700" text-anchor="middle" fill="#BA7517">!</text>
+<text x="52" y="232" font-size="10" text-anchor="middle" fill="#633806">Verify JST</text>
+<text x="52" y="245" font-size="10" text-anchor="middle" fill="#633806">polarity</text>
+<text x="52" y="258" font-size="10" text-anchor="middle" fill="#633806">before</text>
+<text x="52" y="271" font-size="10" text-anchor="middle" fill="#633806">connecting</text>
+<text x="52" y="284" font-size="10" text-anchor="middle" fill="#633806">&#8212; see</text>
+<text x="52" y="297" font-size="10" text-anchor="middle" fill="#633806">checklist</text>
+
+<rect x="10" y="315" width="105" height="95" rx="6" fill="none" stroke="#BA7517" stroke-width="1.2" stroke-dasharray="4 4"/>
+<path d="M62 326 L50 348 L74 348 Z" fill="none" stroke="#BA7517" stroke-width="1.3"/>
+<text x="62" y="343" font-size="11" font-weight="700" text-anchor="middle" fill="#BA7517">!</text>
+<text x="62" y="362" font-size="10" text-anchor="middle" fill="#633806">Turn lantern</text>
+<text x="62" y="375" font-size="10" text-anchor="middle" fill="#633806">OFF while</text>
+<text x="62" y="388" font-size="10" text-anchor="middle" fill="#633806">charging &#8212; no</text>
+<text x="62" y="401" font-size="10" text-anchor="middle" fill="#633806">power-path mgmt</text>
+
+<!-- PTC fuse in the BAT+ rail, right after TP4056 OUT+ -->
+<line x1="310" y1="70" x2="316" y2="70" stroke="#1a1a1a"/>
+<g stroke="#1a1a1a" fill="none">
+<rect x="316" y="62" width="30" height="16" rx="2" stroke-width="1"/>
+</g>
+<text x="331" y="71" font-size="9" text-anchor="middle" fill="#1a1a1a">F1</text>
+<line x1="346" y1="70" x2="780" y2="70" stroke="#1a1a1a"/>
+<text x="316" y="55" font-size="9" text-anchor="middle" fill="#595959">PTC fuse</text>
+</svg></div>
+<h3>Wire this step</h3>
+<div class="item" data-id="s5-1"><input type="checkbox" id="cb-s5-1"><label for="cb-s5-1"><span class="main-text"><b>Verify battery JST polarity with a multimeter in DC voltage mode</b> before connecting anything</span> <span class="note">&mdash; not continuity mode &mdash; see the warning box in the diagram</span></label></div>
+<div class="item" data-id="s5-2"><input type="checkbox" id="cb-s5-2"><label for="cb-s5-2"><span class="main-text">Connect battery to TP4056 BAT+/BAT-</span></label></div>
+<div class="item" data-id="s5-3"><input type="checkbox" id="cb-s5-3"><label for="cb-s5-3"><span class="main-text">Wire F1 (PTC fuse) in series between TP4056 OUT+ and the BAT+ rail</span></label></div>
+<div class="item" data-id="s5-4"><input type="checkbox" id="cb-s5-4"><label for="cb-s5-4"><span class="main-text">Remove the bench supply's direct clip to the rail &mdash; TP4056 OUT+ now feeds it instead</span></label></div>
+<div class="expect">Everything from Steps 1&ndash;4 continues working exactly as before, just now powered through the battery/charger instead of the bench supply directly. <b>Remember the rule: keep the lantern off while charging</b> &mdash; this charger has no power-path management.</div>
+</div>
+<div class="step-section">
+<div class="step-header"><span class="step-title">Charge status indicator</span><span class="step-num">Step 6 of 7</span></div>
+<div class="whats-new">The RGB LED, wired directly to CHRG/STDBY &mdash; entirely independent of the ATtiny85, no firmware involved.</div>
+<div class="schematic-wrap"><svg width="820" height="760" viewBox="0 0 820 760" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
+<title>Lantern circuit - cumulative build</title>
+<rect x="0" y="0" width="820" height="760" fill="white"/>
+<!-- ATtiny85 box -->
+<g stroke="#1a1a1a" fill="none">
+<rect x="420" y="200" width="200" height="140" rx="4" stroke-width="1"/>
+</g>
+<text x="520" y="230" font-size="14" font-weight="500" text-anchor="middle" fill="#1a1a1a">ATtiny85</text>
+<text x="520" y="248" font-size="11" text-anchor="middle" fill="#595959">DIP-8</text>
+
+<!-- ATtiny VCC -->
+<line x1="470" y1="70" x2="470" y2="200" stroke="#1a1a1a"/>
+<circle cx="470" cy="70" r="2.5" fill="#1a1a1a"/>
+<circle cx="470" cy="190" r="2.5" fill="#1a1a1a"/>
+<text x="478" y="195" font-size="11" fill="#1a1a1a">VCC</text>
+
+<!-- C3: 100nF bypass cap, directly at ATtiny85 VCC/GND -->
+<line x1="470" y1="190" x2="395" y2="190" stroke="#1a1a1a"/>
+<line x1="395" y1="182" x2="395" y2="198" stroke="#1a1a1a" stroke-width="2"/>
+<line x1="387" y1="182" x2="387" y2="198" stroke="#1a1a1a" stroke-width="2"/>
+<line x1="387" y1="190" x2="380" y2="190" stroke="#1a1a1a"/>
+<line x1="380" y1="190" x2="380" y2="500" stroke="#1a1a1a"/>
+<circle cx="380" cy="500" r="2.5" fill="#1a1a1a"/>
+<text x="395" y="212" font-size="9" text-anchor="middle" fill="#1a1a1a">C3: 100nF</text>
+
+<!-- ATtiny GND -->
+<line x1="460" y1="340" x2="460" y2="500" stroke="#1a1a1a"/>
+<circle cx="460" cy="500" r="2.5" fill="#1a1a1a"/>
+<text x="440" y="335" font-size="11" fill="#1a1a1a">GND</text>
+
+<!-- Common ground bus -->
+<line x1="190" y1="500" x2="780" y2="500" stroke="#1a1a1a"/>
+<text x="700" y="514" font-size="11" fill="#595959">common ground</text>
+
+<!-- TTP223 box -->
+<g stroke="#1a1a1a" fill="none">
+<rect x="700" y="220" width="110" height="100" rx="4" stroke-width="1"/>
+</g>
+<text x="755" y="335" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">TTP223</text>
+<text x="755" y="349" font-size="10" text-anchor="middle" fill="#595959">momentary mode</text>
+<!-- TTP223 VCC -->
+<line x1="755" y1="70" x2="755" y2="220" stroke="#1a1a1a"/>
+<circle cx="755" cy="70" r="2.5" fill="#1a1a1a"/>
+<text x="763" y="215" font-size="11" fill="#1a1a1a">VCC</text>
+<text x="708" y="255" font-size="11" fill="#1a1a1a">OUT</text>
+<!-- TTP223 GND -->
+<line x1="755" y1="320" x2="755" y2="500" stroke="#1a1a1a"/>
+<circle cx="755" cy="500" r="2.5" fill="#1a1a1a"/>
+<text x="763" y="315" font-size="11" fill="#1a1a1a">GND</text>
+<!-- ATtiny PB2 to TTP223 -->
+<line x1="620" y1="260" x2="700" y2="260" stroke="#1a1a1a"/>
+<text x="628" y="255" font-size="11" fill="#1a1a1a">PB2</text>
+
+<!-- ATtiny PB0 (white channel) -->
+<line x1="520" y1="340" x2="520" y2="410" stroke="#1a1a1a"/>
+<line x1="520" y1="410" x2="430" y2="410" stroke="#1a1a1a"/>
+<text x="500" y="335" font-size="11" fill="#1a1a1a">PB0</text>
+
+<!-- White channel BAT+ tap -->
+<line x1="350" y1="70" x2="350" y2="300" stroke="#1a1a1a"/>
+<circle cx="350" cy="70" r="2.5" fill="#1a1a1a"/>
+
+<!-- C4: 10uF bulk cap near the LED/MOSFET stage -->
+<circle cx="350" cy="170" r="2.5" fill="#1a1a1a"/>
+<line x1="350" y1="170" x2="300" y2="170" stroke="#1a1a1a"/>
+<line x1="300" y1="170" x2="300" y2="500" stroke="#1a1a1a"/>
+<circle cx="300" cy="500" r="2.5" fill="#1a1a1a"/>
+<line x1="292" y1="300" x2="308" y2="300" stroke="#1a1a1a" stroke-width="2"/>
+<line x1="292" y1="308" x2="308" y2="308" stroke="#1a1a1a" stroke-width="2"/>
+<text x="270" y="304" font-size="9" text-anchor="end" fill="#1a1a1a">C4: 10&#181;F</text>
+
+<!-- R6 current-limit resistor -->
+<g stroke="#1a1a1a" fill="none">
+<rect x="335" y="300" width="30" height="24" rx="2" stroke-width="1"/>
+</g>
+<text x="350" y="316" font-size="11" text-anchor="middle" fill="#1a1a1a">R6</text>
+<line x1="350" y1="324" x2="350" y2="350" stroke="#1a1a1a"/>
+
+<!-- LED1 symbol -->
+<path d="M340 350 L360 350 L350 370 Z" fill="#1a1a1a" opacity="0.85"/>
+<line x1="340" y1="372" x2="360" y2="372" stroke="#1a1a1a" stroke-width="2.2"/>
+<line x1="363" y1="355" x2="374" y2="344" stroke="#1a1a1a" stroke-width="0.8"/>
+<line x1="368" y1="362" x2="379" y2="351" stroke="#1a1a1a" stroke-width="0.8"/>
+<text x="390" y="365" font-size="11" fill="#1a1a1a">LED1 (warm white)</text>
+<line x1="350" y1="372" x2="350" y2="390" stroke="#1a1a1a"/>
+
+<!-- Q1 MOSFET -->
+<circle cx="350" cy="410" r="20" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+<text x="378" y="398" font-size="11" fill="#1a1a1a">Q1</text>
+
+<!-- gate lead from resistor R7 into circle right side -->
+<line x1="520" y1="410" x2="430" y2="410" stroke="#1a1a1a"/>
+<g stroke="#1a1a1a" fill="none">
+<rect x="400" y="400" width="30" height="20" rx="2" stroke-width="1"/>
+</g>
+<text x="415" y="411" font-size="11" text-anchor="middle" fill="#1a1a1a">R7</text>
+<text x="415" y="436" font-size="10" text-anchor="middle" fill="#595959">220 ohm</text>
+<line x1="400" y1="410" x2="370" y2="410" stroke="#1a1a1a"/>
+
+<!-- pulldown R8 -->
+<line x1="390" y1="410" x2="390" y2="430" stroke="#1a1a1a"/>
+<g stroke="#1a1a1a" fill="none">
+<rect x="375" y="430" width="30" height="26" rx="2" stroke-width="1"/>
+</g>
+<text x="390" y="443" font-size="11" text-anchor="middle" fill="#1a1a1a">R8</text>
+<text x="390" y="470" font-size="10" text-anchor="middle" fill="#595959">10k</text>
+<line x1="390" y1="456" x2="390" y2="500" stroke="#1a1a1a"/>
+<circle cx="390" cy="500" r="2.5" fill="#1a1a1a"/>
+
+<!-- MOSFET source to ground -->
+<line x1="350" y1="430" x2="350" y2="500" stroke="#1a1a1a"/>
+<circle cx="350" cy="500" r="2.5" fill="#1a1a1a"/>
+
+<!-- ATtiny PB1 label (red channel, see dashed box) -->
+<text x="560" y="335" font-size="11" fill="#1a1a1a">PB1</text>
+
+<!-- Red channel dashed placeholder -->
+<rect x="650" y="360" width="160" height="130" rx="6" fill="none" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="5 5"/>
+<text x="730" y="415" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">Red channel</text>
+<text x="730" y="433" font-size="11" text-anchor="middle" fill="#595959">Identical circuit</text>
+<text x="730" y="449" font-size="11" text-anchor="middle" fill="#595959">(R9, LED2, Q2, R10, R11)</text>
+<text x="730" y="465" font-size="11" text-anchor="middle" fill="#595959">driven from PB1</text>
+
+<!-- Battery -->
+<g stroke="#1a1a1a" fill="none">
+<line x1="40" y1="70" x2="40" y2="90"/>
+<line x1="25" y1="90" x2="55" y2="90" stroke-width="2"/>
+<line x1="30" y1="100" x2="50" y2="100" stroke-width="1"/>
+<line x1="40" y1="100" x2="40" y2="120"/>
+<line x1="40" y1="120" x2="40" y2="140"/>
+<line x1="40" y1="140" x2="140" y2="140"/>
+<line x1="40" y1="70" x2="140" y2="70"/>
+</g>
+<text x="60" y="160" font-size="12" fill="#1a1a1a">LiPo 3.7V (protected cell)</text>
+
+<!-- TP4056 box -->
+<g stroke="#1a1a1a" fill="none">
+<rect x="140" y="50" width="170" height="110" rx="4" stroke-width="1"/>
+</g>
+<text x="225" y="40" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">TP4056 charge module</text>
+<text x="155" y="66" font-size="11" fill="#1a1a1a">BAT+</text>
+<text x="155" y="136" font-size="11" fill="#1a1a1a">BAT-</text>
+<text x="270" y="66" font-size="11" fill="#1a1a1a">OUT+</text>
+<text x="268" y="136" font-size="11" fill="#1a1a1a">OUT-</text>
+
+<!-- TP4056 OUT- to common ground bus -->
+<line x1="310" y1="140" x2="310" y2="500" stroke="#1a1a1a"/>
+
+<!-- USB 5V IN pin -->
+<line x1="170" y1="35" x2="170" y2="50" stroke="#1a1a1a"/>
+<text x="176" y="30" font-size="10" fill="#595959">IN+ (5V, USB)</text>
+
+<!-- CHRG / STDBY pins -->
+<line x1="180" y1="160" x2="180" y2="180" stroke="#1a1a1a"/>
+<text x="150" y="176" font-size="11" fill="#1a1a1a">CHRG</text>
+<line x1="260" y1="160" x2="260" y2="180" stroke="#1a1a1a"/>
+<text x="266" y="176" font-size="11" fill="#1a1a1a">STDBY</text>
+
+<rect x="10" y="185" width="85" height="120" rx="6" fill="none" stroke="#BA7517" stroke-width="1.2" stroke-dasharray="4 4"/>
+<path d="M52 196 L40 218 L64 218 Z" fill="none" stroke="#BA7517" stroke-width="1.3"/>
+<text x="52" y="213" font-size="11" font-weight="700" text-anchor="middle" fill="#BA7517">!</text>
+<text x="52" y="232" font-size="10" text-anchor="middle" fill="#633806">Verify JST</text>
+<text x="52" y="245" font-size="10" text-anchor="middle" fill="#633806">polarity</text>
+<text x="52" y="258" font-size="10" text-anchor="middle" fill="#633806">before</text>
+<text x="52" y="271" font-size="10" text-anchor="middle" fill="#633806">connecting</text>
+<text x="52" y="284" font-size="10" text-anchor="middle" fill="#633806">&#8212; see</text>
+<text x="52" y="297" font-size="10" text-anchor="middle" fill="#633806">checklist</text>
+
+<rect x="10" y="315" width="105" height="95" rx="6" fill="none" stroke="#BA7517" stroke-width="1.2" stroke-dasharray="4 4"/>
+<path d="M62 326 L50 348 L74 348 Z" fill="none" stroke="#BA7517" stroke-width="1.3"/>
+<text x="62" y="343" font-size="11" font-weight="700" text-anchor="middle" fill="#BA7517">!</text>
+<text x="62" y="362" font-size="10" text-anchor="middle" fill="#633806">Turn lantern</text>
+<text x="62" y="375" font-size="10" text-anchor="middle" fill="#633806">OFF while</text>
+<text x="62" y="388" font-size="10" text-anchor="middle" fill="#633806">charging &#8212; no</text>
+<text x="62" y="401" font-size="10" text-anchor="middle" fill="#633806">power-path mgmt</text>
+
+<!-- PTC fuse in the BAT+ rail, right after TP4056 OUT+ -->
+<line x1="310" y1="70" x2="316" y2="70" stroke="#1a1a1a"/>
+<g stroke="#1a1a1a" fill="none">
+<rect x="316" y="62" width="30" height="16" rx="2" stroke-width="1"/>
+</g>
+<text x="331" y="71" font-size="9" text-anchor="middle" fill="#1a1a1a">F1</text>
+<line x1="346" y1="70" x2="780" y2="70" stroke="#1a1a1a"/>
+<text x="316" y="55" font-size="9" text-anchor="middle" fill="#595959">PTC fuse</text>
+
+<!-- Charge status indicator -->
+<text x="40" y="502" font-size="13" font-weight="500" fill="#1a1a1a">Charge status indicator</text>
+<text x="40" y="517" font-size="10" fill="#595959">Steady red while charging, steady green when done &#8212; direct to CHRG/STDBY, no oscillator</text>
+
+<line x1="170" y1="35" x2="100" y2="35" stroke="#1a1a1a"/>
+<line x1="100" y1="35" x2="100" y2="522" stroke="#1a1a1a"/>
+<line x1="100" y1="522" x2="470" y2="522" stroke="#1a1a1a"/>
+
+<line x1="280" y1="522" x2="280" y2="542" stroke="#1a1a1a"/>
+<g stroke="#1a1a1a" fill="none">
+<rect x="235" y="542" width="90" height="40" rx="4" stroke-width="1"/>
+</g>
+<text x="280" y="558" font-size="10" text-anchor="middle" fill="#1a1a1a">RGB LED</text>
+<text x="280" y="571" font-size="9" text-anchor="middle" fill="#595959">common anode</text>
+<text x="317" y="595" font-size="9" text-anchor="middle" fill="#595959">B: N/C</text>
+<line x1="315" y1="582" x2="315" y2="592" stroke="#1a1a1a"/>
+
+<line x1="255" y1="582" x2="255" y2="595" stroke="#1a1a1a"/>
+<g stroke="#1a1a1a" fill="none">
+<rect x="240" y="595" width="30" height="22" rx="2" stroke-width="1"/>
+</g>
+<text x="255" y="609" font-size="10" text-anchor="middle" fill="#1a1a1a">R17</text>
+<line x1="255" y1="617" x2="255" y2="660" stroke="#1a1a1a"/>
+<line x1="220" y1="180" x2="220" y2="660" stroke="#1a1a1a"/>
+<line x1="220" y1="660" x2="255" y2="660" stroke="#1a1a1a"/>
+
+<line x1="295" y1="582" x2="295" y2="595" stroke="#1a1a1a"/>
+<g stroke="#1a1a1a" fill="none">
+<rect x="280" y="595" width="30" height="22" rx="2" stroke-width="1"/>
+</g>
+<text x="295" y="609" font-size="10" text-anchor="middle" fill="#1a1a1a">R18</text>
+<line x1="295" y1="617" x2="295" y2="640" stroke="#1a1a1a"/>
+<line x1="340" y1="180" x2="340" y2="640" stroke="#1a1a1a"/>
+<line x1="340" y1="640" x2="295" y2="640" stroke="#1a1a1a"/>
+
+<text x="500" y="600" font-size="10" fill="#595959">R17, R18: 1k&#8486; each (per TP4056's intended</text>
+<text x="500" y="614" font-size="10" fill="#595959">indicator usage) &#8212; recalc at 4.2V if you want</text>
+<text x="500" y="628" font-size="10" fill="#595959">the red/green brightness better matched</text>
+</svg></div>
+<h3>Wire this step</h3>
+<div class="item" data-id="s6-1"><input type="checkbox" id="cb-s6-1"><label for="cb-s6-1"><span class="main-text">Confirm your TP4056 module exposes CHRG and STDBY as solder pads</span></label></div>
+<div class="item" data-id="s6-2"><input type="checkbox" id="cb-s6-2"><label for="cb-s6-2"><span class="main-text">RGB LED common anode to the 5V USB rail (fed from TP4056 IN+)</span></label></div>
+<div class="item" data-id="s6-3"><input type="checkbox" id="cb-s6-3"><label for="cb-s6-3"><span class="main-text">Red cathode through R17 (1k&Omega;) to CHRG</span></label></div>
+<div class="item" data-id="s6-4"><input type="checkbox" id="cb-s6-4"><label for="cb-s6-4"><span class="main-text">Green cathode through R18 (1k&Omega;) to STDBY</span></label></div>
+<div class="expect">Plug in USB: steady red while charging. Let it finish: switches to steady green. Unplug: both go dark, since this branch is powered from the USB rail, not the battery.</div>
+</div>
+<div class="step-section">
+<div class="step-header"><span class="step-title">ISP header &mdash; complete circuit</span><span class="step-num">Step 7 of 7</span></div>
+<div class="whats-new">The last piece: a permanent programming header, so future firmware updates don't require rebuilding the ISP connections from scratch. Once this step is checked off, the diagram above is the complete circuit.</div>
+<div class="schematic-wrap"><svg width="820" height="760" viewBox="0 0 820 760" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
+<title>Lantern circuit - cumulative build</title>
+<rect x="0" y="0" width="820" height="760" fill="white"/>
+<!-- ATtiny85 box -->
+<g stroke="#1a1a1a" fill="none">
+<rect x="420" y="200" width="200" height="140" rx="4" stroke-width="1"/>
+</g>
+<text x="520" y="230" font-size="14" font-weight="500" text-anchor="middle" fill="#1a1a1a">ATtiny85</text>
+<text x="520" y="248" font-size="11" text-anchor="middle" fill="#595959">DIP-8</text>
+
+<!-- ATtiny VCC -->
+<line x1="470" y1="70" x2="470" y2="200" stroke="#1a1a1a"/>
+<circle cx="470" cy="70" r="2.5" fill="#1a1a1a"/>
+<circle cx="470" cy="190" r="2.5" fill="#1a1a1a"/>
+<text x="478" y="195" font-size="11" fill="#1a1a1a">VCC</text>
+
+<!-- C3: 100nF bypass cap, directly at ATtiny85 VCC/GND -->
+<line x1="470" y1="190" x2="395" y2="190" stroke="#1a1a1a"/>
+<line x1="395" y1="182" x2="395" y2="198" stroke="#1a1a1a" stroke-width="2"/>
+<line x1="387" y1="182" x2="387" y2="198" stroke="#1a1a1a" stroke-width="2"/>
+<line x1="387" y1="190" x2="380" y2="190" stroke="#1a1a1a"/>
+<line x1="380" y1="190" x2="380" y2="500" stroke="#1a1a1a"/>
+<circle cx="380" cy="500" r="2.5" fill="#1a1a1a"/>
+<text x="395" y="212" font-size="9" text-anchor="middle" fill="#1a1a1a">C3: 100nF</text>
+
+<!-- ATtiny GND -->
+<line x1="460" y1="340" x2="460" y2="500" stroke="#1a1a1a"/>
+<circle cx="460" cy="500" r="2.5" fill="#1a1a1a"/>
+<text x="440" y="335" font-size="11" fill="#1a1a1a">GND</text>
+
+<!-- Common ground bus -->
+<line x1="190" y1="500" x2="780" y2="500" stroke="#1a1a1a"/>
+<text x="700" y="514" font-size="11" fill="#595959">common ground</text>
+
+<!-- TTP223 box -->
+<g stroke="#1a1a1a" fill="none">
+<rect x="700" y="220" width="110" height="100" rx="4" stroke-width="1"/>
+</g>
+<text x="755" y="335" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">TTP223</text>
+<text x="755" y="349" font-size="10" text-anchor="middle" fill="#595959">momentary mode</text>
+<!-- TTP223 VCC -->
+<line x1="755" y1="70" x2="755" y2="220" stroke="#1a1a1a"/>
+<circle cx="755" cy="70" r="2.5" fill="#1a1a1a"/>
+<text x="763" y="215" font-size="11" fill="#1a1a1a">VCC</text>
+<text x="708" y="255" font-size="11" fill="#1a1a1a">OUT</text>
+<!-- TTP223 GND -->
+<line x1="755" y1="320" x2="755" y2="500" stroke="#1a1a1a"/>
+<circle cx="755" cy="500" r="2.5" fill="#1a1a1a"/>
+<text x="763" y="315" font-size="11" fill="#1a1a1a">GND</text>
+<!-- ATtiny PB2 to TTP223 -->
+<line x1="620" y1="260" x2="700" y2="260" stroke="#1a1a1a"/>
+<text x="628" y="255" font-size="11" fill="#1a1a1a">PB2</text>
+
+<!-- ATtiny PB0 (white channel) -->
+<line x1="520" y1="340" x2="520" y2="410" stroke="#1a1a1a"/>
+<line x1="520" y1="410" x2="430" y2="410" stroke="#1a1a1a"/>
+<text x="500" y="335" font-size="11" fill="#1a1a1a">PB0</text>
+
+<!-- White channel BAT+ tap -->
+<line x1="350" y1="70" x2="350" y2="300" stroke="#1a1a1a"/>
+<circle cx="350" cy="70" r="2.5" fill="#1a1a1a"/>
+
+<!-- C4: 10uF bulk cap near the LED/MOSFET stage -->
+<circle cx="350" cy="170" r="2.5" fill="#1a1a1a"/>
+<line x1="350" y1="170" x2="300" y2="170" stroke="#1a1a1a"/>
+<line x1="300" y1="170" x2="300" y2="500" stroke="#1a1a1a"/>
+<circle cx="300" cy="500" r="2.5" fill="#1a1a1a"/>
+<line x1="292" y1="300" x2="308" y2="300" stroke="#1a1a1a" stroke-width="2"/>
+<line x1="292" y1="308" x2="308" y2="308" stroke="#1a1a1a" stroke-width="2"/>
+<text x="270" y="304" font-size="9" text-anchor="end" fill="#1a1a1a">C4: 10&#181;F</text>
+
+<!-- R6 current-limit resistor -->
+<g stroke="#1a1a1a" fill="none">
+<rect x="335" y="300" width="30" height="24" rx="2" stroke-width="1"/>
+</g>
+<text x="350" y="316" font-size="11" text-anchor="middle" fill="#1a1a1a">R6</text>
+<line x1="350" y1="324" x2="350" y2="350" stroke="#1a1a1a"/>
+
+<!-- LED1 symbol -->
+<path d="M340 350 L360 350 L350 370 Z" fill="#1a1a1a" opacity="0.85"/>
+<line x1="340" y1="372" x2="360" y2="372" stroke="#1a1a1a" stroke-width="2.2"/>
+<line x1="363" y1="355" x2="374" y2="344" stroke="#1a1a1a" stroke-width="0.8"/>
+<line x1="368" y1="362" x2="379" y2="351" stroke="#1a1a1a" stroke-width="0.8"/>
+<text x="390" y="365" font-size="11" fill="#1a1a1a">LED1 (warm white)</text>
+<line x1="350" y1="372" x2="350" y2="390" stroke="#1a1a1a"/>
+
+<!-- Q1 MOSFET -->
+<circle cx="350" cy="410" r="20" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+<text x="378" y="398" font-size="11" fill="#1a1a1a">Q1</text>
+
+<!-- gate lead from resistor R7 into circle right side -->
+<line x1="520" y1="410" x2="430" y2="410" stroke="#1a1a1a"/>
+<g stroke="#1a1a1a" fill="none">
+<rect x="400" y="400" width="30" height="20" rx="2" stroke-width="1"/>
+</g>
+<text x="415" y="411" font-size="11" text-anchor="middle" fill="#1a1a1a">R7</text>
+<text x="415" y="436" font-size="10" text-anchor="middle" fill="#595959">220 ohm</text>
+<line x1="400" y1="410" x2="370" y2="410" stroke="#1a1a1a"/>
+
+<!-- pulldown R8 -->
+<line x1="390" y1="410" x2="390" y2="430" stroke="#1a1a1a"/>
+<g stroke="#1a1a1a" fill="none">
+<rect x="375" y="430" width="30" height="26" rx="2" stroke-width="1"/>
+</g>
+<text x="390" y="443" font-size="11" text-anchor="middle" fill="#1a1a1a">R8</text>
+<text x="390" y="470" font-size="10" text-anchor="middle" fill="#595959">10k</text>
+<line x1="390" y1="456" x2="390" y2="500" stroke="#1a1a1a"/>
+<circle cx="390" cy="500" r="2.5" fill="#1a1a1a"/>
+
+<!-- MOSFET source to ground -->
+<line x1="350" y1="430" x2="350" y2="500" stroke="#1a1a1a"/>
+<circle cx="350" cy="500" r="2.5" fill="#1a1a1a"/>
+
+<!-- ATtiny PB1 label (red channel, see dashed box) -->
+<text x="560" y="335" font-size="11" fill="#1a1a1a">PB1</text>
+
+<!-- Red channel dashed placeholder -->
+<rect x="650" y="360" width="160" height="130" rx="6" fill="none" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="5 5"/>
+<text x="730" y="415" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">Red channel</text>
+<text x="730" y="433" font-size="11" text-anchor="middle" fill="#595959">Identical circuit</text>
+<text x="730" y="449" font-size="11" text-anchor="middle" fill="#595959">(R9, LED2, Q2, R10, R11)</text>
+<text x="730" y="465" font-size="11" text-anchor="middle" fill="#595959">driven from PB1</text>
+
+<!-- Battery -->
+<g stroke="#1a1a1a" fill="none">
+<line x1="40" y1="70" x2="40" y2="90"/>
+<line x1="25" y1="90" x2="55" y2="90" stroke-width="2"/>
+<line x1="30" y1="100" x2="50" y2="100" stroke-width="1"/>
+<line x1="40" y1="100" x2="40" y2="120"/>
+<line x1="40" y1="120" x2="40" y2="140"/>
+<line x1="40" y1="140" x2="140" y2="140"/>
+<line x1="40" y1="70" x2="140" y2="70"/>
+</g>
+<text x="60" y="160" font-size="12" fill="#1a1a1a">LiPo 3.7V (protected cell)</text>
+
+<!-- TP4056 box -->
+<g stroke="#1a1a1a" fill="none">
+<rect x="140" y="50" width="170" height="110" rx="4" stroke-width="1"/>
+</g>
+<text x="225" y="40" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">TP4056 charge module</text>
+<text x="155" y="66" font-size="11" fill="#1a1a1a">BAT+</text>
+<text x="155" y="136" font-size="11" fill="#1a1a1a">BAT-</text>
+<text x="270" y="66" font-size="11" fill="#1a1a1a">OUT+</text>
+<text x="268" y="136" font-size="11" fill="#1a1a1a">OUT-</text>
+
+<!-- TP4056 OUT- to common ground bus -->
+<line x1="310" y1="140" x2="310" y2="500" stroke="#1a1a1a"/>
+
+<!-- USB 5V IN pin -->
+<line x1="170" y1="35" x2="170" y2="50" stroke="#1a1a1a"/>
+<text x="176" y="30" font-size="10" fill="#595959">IN+ (5V, USB)</text>
+
+<!-- CHRG / STDBY pins -->
+<line x1="180" y1="160" x2="180" y2="180" stroke="#1a1a1a"/>
+<text x="150" y="176" font-size="11" fill="#1a1a1a">CHRG</text>
+<line x1="260" y1="160" x2="260" y2="180" stroke="#1a1a1a"/>
+<text x="266" y="176" font-size="11" fill="#1a1a1a">STDBY</text>
+
+<rect x="10" y="185" width="85" height="120" rx="6" fill="none" stroke="#BA7517" stroke-width="1.2" stroke-dasharray="4 4"/>
+<path d="M52 196 L40 218 L64 218 Z" fill="none" stroke="#BA7517" stroke-width="1.3"/>
+<text x="52" y="213" font-size="11" font-weight="700" text-anchor="middle" fill="#BA7517">!</text>
+<text x="52" y="232" font-size="10" text-anchor="middle" fill="#633806">Verify JST</text>
+<text x="52" y="245" font-size="10" text-anchor="middle" fill="#633806">polarity</text>
+<text x="52" y="258" font-size="10" text-anchor="middle" fill="#633806">before</text>
+<text x="52" y="271" font-size="10" text-anchor="middle" fill="#633806">connecting</text>
+<text x="52" y="284" font-size="10" text-anchor="middle" fill="#633806">&#8212; see</text>
+<text x="52" y="297" font-size="10" text-anchor="middle" fill="#633806">checklist</text>
+
+<rect x="10" y="315" width="105" height="95" rx="6" fill="none" stroke="#BA7517" stroke-width="1.2" stroke-dasharray="4 4"/>
+<path d="M62 326 L50 348 L74 348 Z" fill="none" stroke="#BA7517" stroke-width="1.3"/>
+<text x="62" y="343" font-size="11" font-weight="700" text-anchor="middle" fill="#BA7517">!</text>
+<text x="62" y="362" font-size="10" text-anchor="middle" fill="#633806">Turn lantern</text>
+<text x="62" y="375" font-size="10" text-anchor="middle" fill="#633806">OFF while</text>
+<text x="62" y="388" font-size="10" text-anchor="middle" fill="#633806">charging &#8212; no</text>
+<text x="62" y="401" font-size="10" text-anchor="middle" fill="#633806">power-path mgmt</text>
+
+<!-- PTC fuse in the BAT+ rail, right after TP4056 OUT+ -->
+<line x1="310" y1="70" x2="316" y2="70" stroke="#1a1a1a"/>
+<g stroke="#1a1a1a" fill="none">
+<rect x="316" y="62" width="30" height="16" rx="2" stroke-width="1"/>
+</g>
+<text x="331" y="71" font-size="9" text-anchor="middle" fill="#1a1a1a">F1</text>
+<line x1="346" y1="70" x2="780" y2="70" stroke="#1a1a1a"/>
+<text x="316" y="55" font-size="9" text-anchor="middle" fill="#595959">PTC fuse</text>
+
+<!-- Charge status indicator -->
+<text x="40" y="502" font-size="13" font-weight="500" fill="#1a1a1a">Charge status indicator</text>
+<text x="40" y="517" font-size="10" fill="#595959">Steady red while charging, steady green when done &#8212; direct to CHRG/STDBY, no oscillator</text>
+
+<line x1="170" y1="35" x2="100" y2="35" stroke="#1a1a1a"/>
+<line x1="100" y1="35" x2="100" y2="522" stroke="#1a1a1a"/>
+<line x1="100" y1="522" x2="470" y2="522" stroke="#1a1a1a"/>
+
+<line x1="280" y1="522" x2="280" y2="542" stroke="#1a1a1a"/>
+<g stroke="#1a1a1a" fill="none">
+<rect x="235" y="542" width="90" height="40" rx="4" stroke-width="1"/>
+</g>
+<text x="280" y="558" font-size="10" text-anchor="middle" fill="#1a1a1a">RGB LED</text>
+<text x="280" y="571" font-size="9" text-anchor="middle" fill="#595959">common anode</text>
+<text x="317" y="595" font-size="9" text-anchor="middle" fill="#595959">B: N/C</text>
+<line x1="315" y1="582" x2="315" y2="592" stroke="#1a1a1a"/>
+
+<line x1="255" y1="582" x2="255" y2="595" stroke="#1a1a1a"/>
+<g stroke="#1a1a1a" fill="none">
+<rect x="240" y="595" width="30" height="22" rx="2" stroke-width="1"/>
+</g>
+<text x="255" y="609" font-size="10" text-anchor="middle" fill="#1a1a1a">R17</text>
+<line x1="255" y1="617" x2="255" y2="660" stroke="#1a1a1a"/>
+<line x1="220" y1="180" x2="220" y2="660" stroke="#1a1a1a"/>
+<line x1="220" y1="660" x2="255" y2="660" stroke="#1a1a1a"/>
+
+<line x1="295" y1="582" x2="295" y2="595" stroke="#1a1a1a"/>
+<g stroke="#1a1a1a" fill="none">
+<rect x="280" y="595" width="30" height="22" rx="2" stroke-width="1"/>
+</g>
+<text x="295" y="609" font-size="10" text-anchor="middle" fill="#1a1a1a">R18</text>
+<line x1="295" y1="617" x2="295" y2="640" stroke="#1a1a1a"/>
+<line x1="340" y1="180" x2="340" y2="640" stroke="#1a1a1a"/>
+<line x1="340" y1="640" x2="295" y2="640" stroke="#1a1a1a"/>
+
+<text x="500" y="600" font-size="10" fill="#595959">R17, R18: 1k&#8486; each (per TP4056's intended</text>
+<text x="500" y="614" font-size="10" fill="#595959">indicator usage) &#8212; recalc at 4.2V if you want</text>
+<text x="500" y="628" font-size="10" fill="#595959">the red/green brightness better matched</text>
+
+<!-- ATtiny PB5/RST note -->
+<line x1="400" y1="280" x2="420" y2="280" stroke="#1a1a1a"/>
+<text x="395" y="272" font-size="11" text-anchor="end" fill="#1a1a1a">PB5/RST</text>
+<text x="395" y="286" font-size="10" text-anchor="end" fill="#595959">(reserved for programming)</text>
+
+<!-- ISP header -->
+<g stroke="#1a1a1a" fill="none">
+<rect x="555" y="108" width="150" height="46" rx="4" stroke-width="1" stroke-dasharray="3 3"/>
+</g>
+<text x="630" y="122" font-size="10" text-anchor="middle" fill="#1a1a1a" font-weight="500">ISP header (6-pin)</text>
+<text x="630" y="135" font-size="9" text-anchor="middle" fill="#595959">VCC, GND, RST, PB0, PB1, PB2</text>
+<text x="630" y="147" font-size="8" text-anchor="middle" fill="#595959">disconnect TTP223/PB2 before reprogramming</text>
+</svg></div>
+<h3>Wire this step</h3>
+<div class="item" data-id="s7-1"><input type="checkbox" id="cb-s7-1"><label for="cb-s7-1"><span class="main-text">Add a 6-pin shrouded header: VCC, GND, RST, PB0, PB1, PB2</span></label></div>
+<div class="item" data-id="s7-2"><input type="checkbox" id="cb-s7-2"><label for="cb-s7-2"><span class="main-text">Leave PB5/RST otherwise unconnected elsewhere in the circuit</span></label></div>
+<p>Flash <code>lantern_firmware.ino</code> (the full gesture-logic sketch built earlier: single-tap on/off, double-tap channel switch, hold-to-dim with direction reversing each hold, sleep with wake-on-touch). <b>Disconnect the TTP223 from PB2 before reprogramming</b> &mdash; it shares that pin with SCK during ISP uploads.</p>
+<h3>Final firmware</h3>
+<div class="item" data-id="s7-3"><input type="checkbox" id="cb-s7-3"><label for="cb-s7-3"><span class="main-text">Flash the full lantern firmware via the ISP header</span></label></div>
+<div class="item" data-id="s7-4"><input type="checkbox" id="cb-s7-4"><label for="cb-s7-4"><span class="main-text">Test single tap: toggles current channel on/off</span></label></div>
+<div class="item" data-id="s7-5"><input type="checkbox" id="cb-s7-5"><label for="cb-s7-5"><span class="main-text">Test double tap: switches between white and red</span></label></div>
+<div class="item" data-id="s7-6"><input type="checkbox" id="cb-s7-6"><label for="cb-s7-6"><span class="main-text">Test hold: brightness ramps, direction reverses on next hold</span></label></div>
+<div class="item" data-id="s7-7"><input type="checkbox" id="cb-s7-7"><label for="cb-s7-7"><span class="main-text">Leave untouched: confirm it sleeps, then wakes instantly on touch</span></label></div>
+<div class="item" data-id="s7-8"><input type="checkbox" id="cb-s7-8"><label for="cb-s7-8"><span class="main-text">Bench-supply voltage sweep at 4.2V, 3.7V, and ~3.0&ndash;3.2V: confirm consistent behavior across the range</span></label></div>
+<div class="expect">Full gesture behavior works end to end, at every voltage the battery will actually see. This is the complete circuit &mdash; remaining work from here is soldering it permanently and mounting it in the enclosure.</div>
+</div>
+
+<button class="reset" id="resetBtn">Uncheck everything</button>
+
+<footer>Resistor values assume final 4.2V full-charge sizing except where a step explicitly calls out a different bench-test value.</footer>
+
+<script>
+(function() {
+  const STORAGE_KEY = 'lantern-cumulative-build-v1';
+  const checkboxes = Array.from(document.querySelectorAll('.item input[type="checkbox"]'));
+  const progressEl = document.getElementById('progress');
+
+  function loadState() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
+    catch (e) { return {}; }
+  }
+  function saveState(state) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
+  }
+  function updateProgress() {
+    const total = checkboxes.length;
+    const checked = checkboxes.filter(cb => cb.checked).length;
+    progressEl.textContent = checked + ' of ' + total + ' checked';
+  }
+  function applyCheckedClass(cb) {
+    const item = cb.closest('.item');
+    if (cb.checked) item.classList.add('checked');
+    else item.classList.remove('checked');
+  }
+
+  const state = loadState();
+  checkboxes.forEach(cb => {
+    const id = cb.closest('.item').dataset.id;
+    if (state[id]) cb.checked = true;
+    applyCheckedClass(cb);
+    cb.addEventListener('change', () => {
+      const s = loadState();
+      s[id] = cb.checked;
+      saveState(s);
+      applyCheckedClass(cb);
+      updateProgress();
+    });
+  });
+  updateProgress();
+
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    if (!confirm('Uncheck everything?')) return;
+    checkboxes.forEach(cb => { cb.checked = false; applyCheckedClass(cb); });
+    saveState({});
+    updateProgress();
+  });
+})();
+</script>
+
+</body>
+</html>
