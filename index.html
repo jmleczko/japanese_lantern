@@ -50,6 +50,7 @@
 #sec-schematic .warning strong { display: block; margin-bottom: 6px; }
 #sec-schematic .warning ol { margin: 6px 0 0; padding-left: 20px; }
 #sec-schematic h2 { font-size: 17px; font-weight: 600; margin-top: 32px; }
+#sec-schematic .schematic-wrap svg { max-width: 100%; height: auto; display: block; }
 #sec-build .sec-h1 { font-size: 24px; font-weight: 600; margin-bottom: 4px; }
 #sec-build .subtitle { color: #595959; font-size: 14px; margin-top: 0; margin-bottom: 16px; }
 #sec-build .home { font-size: 13px; margin-bottom: 18px; }
@@ -141,6 +142,7 @@
     padding: 0;
     margin-top: 28px; }
 #sec-build footer { margin-top: 30px; font-size: 12.5px; color: #9a9890; }
+#sec-build .schematic-wrap svg { max-width: 100%; height: auto; display: block; }
 #sec-parts .sec-h1 { font-size: 24px; font-weight: 600; margin-bottom: 4px; }
 #sec-parts .subtitle { color: #595959; font-size: 14px; margin-top: 0; margin-bottom: 16px; }
 #sec-parts .home { font-size: 13px; margin-bottom: 18px; }
@@ -223,9 +225,13 @@ The charge indicator was originally designed with a transistor oscillator for a 
 </div>
 
 <div class="schematic-wrap">
-<svg width="820" height="760" viewBox="0 0 820 760" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
+<svg width="1040" height="760" viewBox="0 0 1040 760" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
 <title>ATtiny85 lantern circuit schematic</title>
-<rect x="0" y="0" width="820" height="760" fill="white"/>
+<rect x="0" y="0" width="1040" height="760" fill="white"/>
+<!-- channel background tints -->
+<path d="M304 292 L415 292 L415 345 L530 345 L530 494 L304 494 Z" fill="#fff3cf" stroke="#e0b84a" stroke-width="1" stroke-dasharray="4 3"/>
+<path d="M632 292 L816 292 L816 494 L548 494 L548 345 L632 345 Z" fill="#fde6e6" stroke="#e08a8a" stroke-width="1" stroke-dasharray="4 3"/>
+
 <g stroke="#1a1a1a" fill="none">
 
 <!-- Battery -->
@@ -261,14 +267,14 @@ The charge indicator was originally designed with a transistor oscillator for a 
 
 <!-- BAT+ rail -->
 <g stroke="#1a1a1a">
-<line x1="310" y1="70" x2="780" y2="70"/>
+<line x1="310" y1="70" x2="1020" y2="70"/>
 <!-- GND drop from TP4056 -->
 <line x1="310" y1="140" x2="310" y2="500"/>
 </g>
 
 <!-- GND bus -->
-<line x1="190" y1="500" x2="780" y2="500" stroke="#1a1a1a"/>
-<text x="700" y="514" font-size="11" fill="#595959">common ground</text>
+<line x1="190" y1="500" x2="1020" y2="500" stroke="#1a1a1a"/>
+<text x="880" y="514" font-size="11" fill="#595959">common ground</text>
 
 <!-- ATtiny85 box -->
 <g stroke="#1a1a1a" fill="none">
@@ -297,48 +303,42 @@ The charge indicator was originally designed with a transistor oscillator for a 
 <circle cx="460" cy="500" r="2.5" fill="#1a1a1a"/>
 <text x="440" y="335" font-size="11" fill="#1a1a1a">GND</text>
 
-<!-- ATtiny PB0 (white channel) -->
-<line x1="520" y1="340" x2="520" y2="410" stroke="#1a1a1a"/>
-<line x1="520" y1="410" x2="430" y2="410" stroke="#1a1a1a"/>
-<text x="500" y="335" font-size="11" fill="#1a1a1a">PB0</text>
 
-<!-- ATtiny PB1 label (red channel, see dashed box) -->
-<text x="560" y="335" font-size="11" fill="#1a1a1a">PB1</text>
 
 <!-- ATtiny PB2 to TTP223 -->
-<line x1="620" y1="260" x2="700" y2="260" stroke="#1a1a1a"/>
+<line x1="620" y1="260" x2="683" y2="260" stroke="#1a1a1a"/>
+<path d="M683 260 A7 7 0 0 1 697 260" fill="none" stroke="#1a1a1a"/>
+<line x1="697" y1="260" x2="920" y2="260" stroke="#1a1a1a"/>
 <text x="628" y="255" font-size="11" fill="#1a1a1a">PB2</text>
 
 <!-- ATtiny PB5/RST note -->
 <line x1="400" y1="280" x2="420" y2="280" stroke="#1a1a1a"/>
-<text x="395" y="272" font-size="11" text-anchor="end" fill="#1a1a1a">PB5/RST</text>
-<text x="395" y="286" font-size="10" text-anchor="end" fill="#595959">(reserved for programming)</text>
+<text x="395" y="262" font-size="11" text-anchor="end" fill="#1a1a1a">PB5/RST</text>
+<text x="395" y="276" font-size="10" text-anchor="end" fill="#595959">(reserved for programming)</text>
 
 <!-- TTP223 box -->
 <g stroke="#1a1a1a" fill="none">
-<rect x="700" y="220" width="110" height="100" rx="4" stroke-width="1"/>
+<rect x="920" y="220" width="110" height="100" rx="4" stroke-width="1"/>
 </g>
-<text x="755" y="335" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">TTP223</text>
-<text x="755" y="349" font-size="10" text-anchor="middle" fill="#595959">momentary mode</text>
+<text x="975" y="335" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">TTP223</text>
+<text x="975" y="349" font-size="10" text-anchor="middle" fill="#595959">momentary mode</text>
 
 <!-- TTP223 VCC -->
-<line x1="755" y1="70" x2="755" y2="220" stroke="#1a1a1a"/>
-<circle cx="755" cy="70" r="2.5" fill="#1a1a1a"/>
-<text x="763" y="215" font-size="11" fill="#1a1a1a">VCC</text>
-<text x="708" y="255" font-size="11" fill="#1a1a1a">OUT</text>
+<line x1="975" y1="70" x2="975" y2="220" stroke="#1a1a1a"/>
+<circle cx="975" cy="70" r="2.5" fill="#1a1a1a"/>
+<text x="983" y="215" font-size="11" fill="#1a1a1a">VCC</text>
+<text x="928" y="255" font-size="11" fill="#1a1a1a">OUT</text>
 
 <!-- TTP223 GND -->
-<line x1="755" y1="320" x2="755" y2="500" stroke="#1a1a1a"/>
-<circle cx="755" cy="500" r="2.5" fill="#1a1a1a"/>
-<text x="763" y="315" font-size="11" fill="#1a1a1a">GND</text>
-
-<!-- White channel BAT+ tap -->
-<line x1="350" y1="70" x2="350" y2="300" stroke="#1a1a1a"/>
-<circle cx="350" cy="70" r="2.5" fill="#1a1a1a"/>
+<line x1="975" y1="320" x2="975" y2="500" stroke="#1a1a1a"/>
+<circle cx="975" cy="500" r="2.5" fill="#1a1a1a"/>
+<text x="983" y="315" font-size="11" fill="#1a1a1a">GND</text>
 
 <!-- C4: 10uF bulk cap near the LED/MOSFET stage -->
 <circle cx="350" cy="170" r="2.5" fill="#1a1a1a"/>
-<line x1="350" y1="170" x2="300" y2="170" stroke="#1a1a1a"/>
+<line x1="350" y1="170" x2="317" y2="170" stroke="#1a1a1a"/>
+<path d="M317 170 A7 7 0 0 0 303 170" fill="none" stroke="#1a1a1a"/>
+<line x1="303" y1="170" x2="300" y2="170" stroke="#1a1a1a"/>
 <line x1="300" y1="170" x2="300" y2="500" stroke="#1a1a1a"/>
 <circle cx="300" cy="500" r="2.5" fill="#1a1a1a"/>
 <line x1="292" y1="300" x2="308" y2="300" stroke="#1a1a1a" stroke-width="2"/>
@@ -346,61 +346,50 @@ The charge indicator was originally designed with a transistor oscillator for a 
 <text x="296" y="298" font-size="12" font-weight="700" text-anchor="end" fill="#1a1a1a">+</text>
 <text x="296" y="318" font-size="12" font-weight="700" text-anchor="end" fill="#1a1a1a">&#8722;</text>
 <text x="286" y="293" font-size="10" font-weight="700" text-anchor="end" fill="#1a1a1a">C4 10&#181;F</text>
-<text x="286" y="305" font-size="9" text-anchor="end" fill="#1a1a1a">+ top = LONG lead</text>
-<text x="286" y="316" font-size="9" text-anchor="end" fill="#1a1a1a">&#8722; bottom = SHORT lead</text>
-<text x="286" y="327" font-size="9" text-anchor="end" fill="#595959">(stripe side)</text>
+<text x="286" y="305" font-size="9" text-anchor="end" fill="#1a1a1a">+ long lead</text>
+<text x="286" y="316" font-size="9" text-anchor="end" fill="#1a1a1a">&#8722; short lead</text>
 
-<!-- R6 current-limit resistor -->
+<!-- ===== WHITE CHANNEL (PB0): gold wires ===== -->
+<line x1="350" y1="70" x2="350" y2="300" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="350" cy="70" r="2.5" fill="#b7791f"/>
+<line x1="520" y1="340" x2="520" y2="410" stroke="#b7791f" stroke-width="1.6"/>
+<line x1="520" y1="410" x2="505" y2="410" stroke="#b7791f" stroke-width="1.6"/>
+<text x="500" y="335" font-size="11" fill="#1a1a1a">PB0</text>
 <rect x="335" y="300" width="30" height="24" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
 <rect x="341" y="301" width="3" height="22" fill="#7b3f00"/>
 <rect x="346" y="301" width="3" height="22" fill="#1a1a1a"/>
 <rect x="351" y="301" width="3" height="22" fill="#7b3f00"/>
 <rect x="358" y="301" width="3" height="22" fill="#c9a227"/>
 <text x="331" y="309" font-size="11" font-weight="700" text-anchor="end" fill="#1a1a1a">R6</text>
-<text x="331" y="320" font-size="10" text-anchor="end" fill="#1a1a1a">100&#937;</text>
+<text x="331" y="320" font-size="9" text-anchor="end" fill="#1a1a1a">100&#937;</text>
 <text x="331" y="331" font-size="8" text-anchor="end" fill="#595959">4.2V</text>
-
-<line x1="350" y1="324" x2="350" y2="350" stroke="#1a1a1a"/>
-
-<!-- LED1 symbol -->
-<path d="M340 350 L360 350 L350 370 Z" fill="#1a1a1a" opacity="0.85"/>
-<line x1="340" y1="372" x2="360" y2="372" stroke="#1a1a1a" stroke-width="2.2"/>
+<line x1="350" y1="324" x2="350" y2="350" stroke="#b7791f" stroke-width="1.6"/>
+<path d="M340 350 L360 350 L350 370 Z" fill="#f3d27a" stroke="#b7791f" stroke-width="1.4"/>
+<line x1="340" y1="372" x2="360" y2="372" stroke="#b7791f" stroke-width="2.4"/>
 <line x1="363" y1="355" x2="374" y2="344" stroke="#1a1a1a" stroke-width="0.8"/>
 <line x1="368" y1="362" x2="379" y2="351" stroke="#1a1a1a" stroke-width="0.8"/>
 <text x="386" y="352" font-size="9" fill="#1a1a1a"><tspan font-weight="700">A</tspan> (+) long</text>
-<text x="386" y="366" font-size="11" fill="#1a1a1a">LED1</text>
+<text x="386" y="366" font-size="11" font-weight="700" fill="#8a5a00">LED1 white</text>
 <text x="386" y="380" font-size="9" fill="#1a1a1a"><tspan font-weight="700">K</tspan> (&#8722;) short</text>
-
-<line x1="350" y1="372" x2="350" y2="390" stroke="#1a1a1a"/>
-
-<!-- Q1 MOSFET (IRLZ44N): D = top, G = right side, S = bottom -->
-<circle cx="350" cy="410" r="20" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+<line x1="350" y1="372" x2="350" y2="390" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="350" cy="410" r="20" fill="white" stroke="#b7791f" stroke-width="1.8"/>
 <text x="350" y="403" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">D</text>
 <text x="350" y="426" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">S</text>
 <text x="362" y="414" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">G</text>
-<text x="328" y="391" font-size="11" text-anchor="end" fill="#1a1a1a">Q1</text>
-
-<!-- PB0 down and left to R7 (right end) -->
-<line x1="520" y1="340" x2="520" y2="410" stroke="#1a1a1a"/>
-<line x1="520" y1="410" x2="505" y2="410" stroke="#1a1a1a"/>
+<text x="328" y="391" font-size="11" font-weight="700" text-anchor="end" fill="#8a5a00">Q1</text>
 <rect x="475" y="400" width="30" height="20" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
 <rect x="481" y="401" width="3" height="18" fill="#d62828"/>
 <rect x="486" y="401" width="3" height="18" fill="#d62828"/>
 <rect x="491" y="401" width="3" height="18" fill="#7b3f00"/>
 <rect x="498" y="401" width="3" height="18" fill="#c9a227"/>
 <text x="490" y="392" font-size="10" text-anchor="middle" fill="#1a1a1a"><tspan font-weight="700">R7</tspan> 220&#937;</text>
-
-<!-- R7 to gate. The two small humps are wires that CROSS WITHOUT CONNECTING
-     (ATtiny GND line at x=460 and C3 ground line at x=380). Only dots are connections. -->
-<line x1="475" y1="410" x2="467" y2="410" stroke="#1a1a1a"/>
-<path d="M467 410 A7 7 0 0 0 453 410" fill="none" stroke="#1a1a1a"/>
-<line x1="453" y1="410" x2="387" y2="410" stroke="#1a1a1a"/>
-<path d="M387 410 A7 7 0 0 0 373 410" fill="none" stroke="#1a1a1a"/>
-<line x1="373" y1="410" x2="370" y2="410" stroke="#1a1a1a"/>
-
-<!-- pull-down R8: from the gate wire (dot) down to ground -->
-<circle cx="420" cy="410" r="2.5" fill="#1a1a1a"/>
-<line x1="420" y1="410" x2="420" y2="430" stroke="#1a1a1a"/>
+<line x1="475" y1="410" x2="467" y2="410" stroke="#b7791f" stroke-width="1.6"/>
+<path d="M467 410 A7 7 0 0 0 453 410" fill="none" stroke="#b7791f" stroke-width="1.6"/>
+<line x1="453" y1="410" x2="387" y2="410" stroke="#b7791f" stroke-width="1.6"/>
+<path d="M387 410 A7 7 0 0 0 373 410" fill="none" stroke="#b7791f" stroke-width="1.6"/>
+<line x1="373" y1="410" x2="370" y2="410" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="420" cy="410" r="2.5" fill="#b7791f"/>
+<line x1="420" y1="410" x2="420" y2="430" stroke="#b7791f" stroke-width="1.6"/>
 <rect x="405" y="430" width="30" height="26" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
 <rect x="411" y="431" width="3" height="24" fill="#7b3f00"/>
 <rect x="416" y="431" width="3" height="24" fill="#1a1a1a"/>
@@ -408,30 +397,59 @@ The charge indicator was originally designed with a transistor oscillator for a 
 <rect x="428" y="431" width="3" height="24" fill="#c9a227"/>
 <text x="401" y="441" font-size="11" font-weight="700" text-anchor="end" fill="#1a1a1a">R8</text>
 <text x="401" y="453" font-size="10" text-anchor="end" fill="#1a1a1a">10k&#937;</text>
-<line x1="420" y1="456" x2="420" y2="500" stroke="#1a1a1a"/>
-<circle cx="420" cy="500" r="2.5" fill="#1a1a1a"/>
+<line x1="420" y1="456" x2="420" y2="500" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="420" cy="500" r="2.5" fill="#b7791f"/>
+<line x1="350" y1="430" x2="350" y2="500" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="350" cy="500" r="2.5" fill="#b7791f"/>
+<!-- ===== RED CHANNEL (PB1): red wires ===== -->
+<line x1="690" y1="70" x2="690" y2="300" stroke="#c62828" stroke-width="1.6"/>
+<circle cx="690" cy="70" r="2.5" fill="#c62828"/>
+<line x1="560" y1="340" x2="560" y2="410" stroke="#c62828" stroke-width="1.6"/>
+<line x1="560" y1="410" x2="580" y2="410" stroke="#c62828" stroke-width="1.6"/>
+<text x="560" y="335" font-size="11" fill="#1a1a1a">PB1</text>
+<rect x="675" y="300" width="30" height="24" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
+<rect x="681" y="301" width="3" height="22" fill="#7b3f00"/>
+<rect x="686" y="301" width="3" height="22" fill="#2e8b3a"/>
+<rect x="691" y="301" width="3" height="22" fill="#7b3f00"/>
+<rect x="698" y="301" width="3" height="22" fill="#c9a227"/>
+<text x="711" y="309" font-size="11" font-weight="700" fill="#1a1a1a">R9</text>
+<text x="711" y="320" font-size="10" fill="#1a1a1a">150&#937;</text>
+<text x="711" y="331" font-size="8" fill="#595959">4.2V</text>
+<line x1="690" y1="324" x2="690" y2="350" stroke="#c62828" stroke-width="1.6"/>
+<path d="M680 350 L700 350 L690 370 Z" fill="#e57373" stroke="#c62828" stroke-width="1.4"/>
+<line x1="680" y1="372" x2="700" y2="372" stroke="#c62828" stroke-width="2.4"/>
+<line x1="703" y1="355" x2="714" y2="344" stroke="#1a1a1a" stroke-width="0.8"/>
+<line x1="708" y1="362" x2="719" y2="351" stroke="#1a1a1a" stroke-width="0.8"/>
+<text x="726" y="352" font-size="9" fill="#1a1a1a"><tspan font-weight="700">A</tspan> (+) long</text>
+<text x="726" y="366" font-size="11" font-weight="700" fill="#a31515">LED2 red</text>
+<text x="726" y="380" font-size="9" fill="#1a1a1a"><tspan font-weight="700">K</tspan> (&#8722;) short</text>
+<line x1="690" y1="372" x2="690" y2="390" stroke="#c62828" stroke-width="1.6"/>
+<circle cx="690" cy="410" r="20" fill="white" stroke="#c62828" stroke-width="1.8"/>
+<text x="690" y="403" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">D</text>
+<text x="690" y="426" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">S</text>
+<text x="678" y="414" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">G</text>
+<text x="718" y="398" font-size="11" font-weight="700" fill="#a31515">Q2</text>
+<rect x="580" y="400" width="30" height="20" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
+<rect x="586" y="401" width="3" height="18" fill="#d62828"/>
+<rect x="591" y="401" width="3" height="18" fill="#d62828"/>
+<rect x="596" y="401" width="3" height="18" fill="#7b3f00"/>
+<rect x="603" y="401" width="3" height="18" fill="#c9a227"/>
+<text x="595" y="392" font-size="10" text-anchor="middle" fill="#1a1a1a"><tspan font-weight="700">R10</tspan> 220&#937;</text>
+<line x1="610" y1="410" x2="670" y2="410" stroke="#c62828" stroke-width="1.6"/>
+<circle cx="640" cy="410" r="2.5" fill="#c62828"/>
+<line x1="640" y1="410" x2="640" y2="430" stroke="#c62828" stroke-width="1.6"/>
+<rect x="625" y="430" width="30" height="26" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
+<rect x="631" y="431" width="3" height="24" fill="#7b3f00"/>
+<rect x="636" y="431" width="3" height="24" fill="#1a1a1a"/>
+<rect x="641" y="431" width="3" height="24" fill="#f4811f"/>
+<rect x="648" y="431" width="3" height="24" fill="#c9a227"/>
+<text x="621" y="441" font-size="11" font-weight="700" text-anchor="end" fill="#1a1a1a">R11</text>
+<text x="621" y="453" font-size="10" text-anchor="end" fill="#1a1a1a">10k&#937;</text>
+<line x1="640" y1="456" x2="640" y2="500" stroke="#c62828" stroke-width="1.6"/>
+<circle cx="640" cy="500" r="2.5" fill="#c62828"/>
+<line x1="690" y1="430" x2="690" y2="500" stroke="#c62828" stroke-width="1.6"/>
+<circle cx="690" cy="500" r="2.5" fill="#c62828"/>
 
-<!-- MOSFET source (bottom) to ground -->
-<line x1="350" y1="430" x2="350" y2="500" stroke="#1a1a1a"/>
-<circle cx="350" cy="500" r="2.5" fill="#1a1a1a"/>
-
-<!-- Pin key for Q1 -->
-<g stroke="#1a1a1a" fill="white">
-<rect x="533" y="352" width="112" height="112" rx="4" stroke-width="1"/>
-</g>
-<text x="589" y="368" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">Q1 = IRLZ44N pins</text>
-<text x="589" y="382" font-size="9" text-anchor="middle" fill="#595959">writing facing you,</text>
-<text x="589" y="393" font-size="9" text-anchor="middle" fill="#595959">metal tab up, leads down</text>
-<text x="541" y="414" font-size="10" fill="#1a1a1a"><tspan font-weight="700">LEFT</tspan> = Gate (G)</text>
-<text x="541" y="430" font-size="10" fill="#1a1a1a"><tspan font-weight="700">MIDDLE</tspan> = Drain (D)</text>
-<text x="541" y="446" font-size="10" fill="#1a1a1a"><tspan font-weight="700">RIGHT</tspan> = Source (S)</text>
-
-<!-- Red channel dashed placeholder -->
-<rect x="650" y="360" width="160" height="130" rx="6" fill="none" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="5 5"/>
-<text x="730" y="415" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">Red channel</text>
-<text x="730" y="433" font-size="11" text-anchor="middle" fill="#595959">Identical circuit</text>
-<text x="730" y="449" font-size="11" text-anchor="middle" fill="#595959">(R9, LED2, Q2, R10, R11)</text>
-<text x="730" y="465" font-size="11" text-anchor="middle" fill="#595959">driven from PB1</text>
 
 <!-- ============ Charge status indicator (simple, steady-color, per TP4056's intended usage) ============ -->
 <text x="40" y="502" font-size="13" font-weight="500" fill="#1a1a1a">Charge status indicator</text>
@@ -482,16 +500,16 @@ The charge indicator was originally designed with a transistor oscillator for a 
 <rect x="316" y="62" width="30" height="16" rx="2" stroke-width="1"/>
 </g>
 <text x="331" y="71" font-size="9" text-anchor="middle" fill="#1a1a1a">F1</text>
-<line x1="346" y1="70" x2="780" y2="70" stroke="#1a1a1a"/>
+<line x1="346" y1="70" x2="1020" y2="70" stroke="#1a1a1a"/>
 <text x="316" y="55" font-size="9" text-anchor="middle" fill="#595959">PTC fuse</text>
 
 <!-- ISP header, wired in parallel to the existing VCC/GND/PB5/PB0/PB1/PB2 nodes above -->
 <g stroke="#1a1a1a" fill="none">
-<rect x="555" y="108" width="150" height="46" rx="4" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="490" y="108" width="150" height="46" rx="4" stroke-width="1" stroke-dasharray="3 3"/>
 </g>
-<text x="630" y="122" font-size="10" text-anchor="middle" fill="#1a1a1a" font-weight="500">ISP header (6-pin)</text>
-<text x="630" y="135" font-size="9" text-anchor="middle" fill="#595959">VCC, GND, RST, PB0, PB1, PB2</text>
-<text x="630" y="147" font-size="8" text-anchor="middle" fill="#595959">disconnect TTP223/PB2 before reprogramming</text>
+<text x="565" y="122" font-size="10" text-anchor="middle" fill="#1a1a1a" font-weight="500">ISP header (6-pin)</text>
+<text x="565" y="135" font-size="9" text-anchor="middle" fill="#595959">VCC, GND, RST, PB0, PB1, PB2</text>
+<text x="565" y="147" font-size="8" text-anchor="middle" fill="#595959">disconnect TTP223/PB2 before reprogramming</text>
 
 <rect x="10" y="185" width="85" height="120" rx="6" fill="none" stroke="#BA7517" stroke-width="1.2" stroke-dasharray="4 4"/>
 <path d="M52 196 L40 218 L64 218 Z" fill="none" stroke="#BA7517" stroke-width="1.3"/>
@@ -511,6 +529,22 @@ The charge indicator was originally designed with a transistor oscillator for a 
 <text x="62" y="388" font-size="10" text-anchor="middle" fill="#633806">charging &#8212; no</text>
 <text x="62" y="401" font-size="10" text-anchor="middle" fill="#633806">power-path mgmt</text>
 
+<g>
+<rect x="735" y="530" width="290" height="180" rx="6" fill="white" stroke="#1a1a1a"/>
+<text x="747" y="548" font-size="11" font-weight="700" fill="#1a1a1a">How to read this schematic</text>
+<line x1="747" y1="562" x2="777" y2="562" stroke="#b7791f" stroke-width="3"/>
+<text x="785" y="566" font-size="10" fill="#1a1a1a"><tspan font-weight="700">WHITE channel:</tspan> PB0 (pin 5), LED1, Q1</text>
+<line x1="747" y1="578" x2="777" y2="578" stroke="#c62828" stroke-width="3"/>
+<text x="785" y="582" font-size="10" fill="#1a1a1a"><tspan font-weight="700">RED channel:</tspan> PB1 (pin 6), LED2, Q2</text>
+<line x1="747" y1="594" x2="777" y2="594" stroke="#1a1a1a" stroke-width="2"/>
+<text x="785" y="598" font-size="10" fill="#1a1a1a">Black: shared power, ground, touch sensor</text>
+<text x="747" y="618" font-size="10" fill="#1a1a1a">A dot = connected. A hump = wires cross, <tspan font-weight="700">NOT</tspan> connected.</text>
+<text x="747" y="640" font-size="10" font-weight="700" fill="#1a1a1a">Q1 and Q2 (IRLZ44N) pins</text>
+<text x="747" y="653" font-size="9" fill="#595959">writing facing you, metal tab up, leads down:</text>
+<text x="747" y="668" font-size="10" fill="#1a1a1a"><tspan font-weight="700">LEFT</tspan> = Gate (G)</text>
+<text x="747" y="683" font-size="10" fill="#1a1a1a"><tspan font-weight="700">MIDDLE</tspan> = Drain (D)</text>
+<text x="747" y="698" font-size="10" fill="#1a1a1a"><tspan font-weight="700">RIGHT</tspan> = Source (S)</text>
+</g>
 </svg>
 
 </div>
@@ -559,7 +593,7 @@ A bare TP4056 module has no power-path management. If the LED load draws current
 </table>
 
 <div class="note">
-The red lantern channel is drawn as a labeled placeholder &mdash; it is electrically identical to the white channel shown, just driven from PB1 instead of PB0, with its own R9&ndash;R11, LED2, and Q2.
+Both lantern channels are drawn in full: the white channel (PB0) in gold and the red channel (PB1) in red, with Q1 and Q2 (IRLZ44N) shown with their gate, drain and source marked. Black wires are shared power, ground and the touch sensor.
 <br><br>
 Charging current: many bargain TP4056 modules ship configured for ~1A via a 1.2k&Omega; PROG resistor. In a confined wooden enclosure, swapping to a 2.4k&Omega; PROG resistor brings this down to ~500mA and meaningfully reduces heat &mdash; note this is a small SMD component you'd need to desolder and replace, not a simple setting.
 <br><br>
@@ -579,9 +613,9 @@ Tap a checkbox to check it off &mdash; progress saves automatically in this brow
 <div class="step-section">
 <div class="step-header"><span class="step-title">ATtiny85 core</span><span class="step-num">Step 1 of 7</span></div>
 <div class="whats-new">First permanent piece of the circuit: the chip itself, its bypass capacitor, and the power rails everything else will tap into.</div>
-<div class="schematic-wrap"><svg width="820" height="760" viewBox="0 0 820 760" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
+<div class="schematic-wrap"><svg width="1040" height="760" viewBox="0 0 1040 760" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
 <title>Lantern circuit - cumulative build</title>
-<rect x="0" y="0" width="820" height="760" fill="white"/>
+<rect x="0" y="0" width="1040" height="760" fill="white"/>
 <!-- ATtiny85 box -->
 <g stroke="#1a1a1a" fill="none">
 <rect x="420" y="200" width="200" height="140" rx="4" stroke-width="1"/>
@@ -610,11 +644,11 @@ Tap a checkbox to check it off &mdash; progress saves automatically in this brow
 <text x="440" y="335" font-size="11" fill="#1a1a1a">GND</text>
 
 <!-- Common ground bus -->
-<line x1="190" y1="500" x2="780" y2="500" stroke="#1a1a1a"/>
-<text x="700" y="514" font-size="11" fill="#595959">common ground</text>
+<line x1="190" y1="500" x2="1020" y2="500" stroke="#1a1a1a"/>
+<text x="880" y="514" font-size="11" fill="#595959">common ground</text>
 
 <!-- BAT+ rail (simple, no fuse yet) -->
-<line x1="310" y1="70" x2="780" y2="70" stroke="#1a1a1a"/>
+<line x1="310" y1="70" x2="1020" y2="70" stroke="#1a1a1a"/>
 <text x="315" y="55" font-size="9" fill="#595959">&#8592; BAT+ rail: while testing, power it from the Uno 5V pin (no battery yet)</text>
 </svg></div>
 <h3>Wire this step</h3>
@@ -641,9 +675,9 @@ void loop() {
 <div class="step-section">
 <div class="step-header"><span class="step-title">TTP223 touch sensor</span><span class="step-num">Step 2 of 7</span></div>
 <div class="whats-new">Adds the touch input, wired to PB2 &mdash; the same pin that will later wake the chip from sleep.</div>
-<div class="schematic-wrap"><svg width="820" height="760" viewBox="0 0 820 760" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
+<div class="schematic-wrap"><svg width="1040" height="760" viewBox="0 0 1040 760" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
 <title>Lantern circuit - cumulative build</title>
-<rect x="0" y="0" width="820" height="760" fill="white"/>
+<rect x="0" y="0" width="1040" height="760" fill="white"/>
 <!-- ATtiny85 box -->
 <g stroke="#1a1a1a" fill="none">
 <rect x="420" y="200" width="200" height="140" rx="4" stroke-width="1"/>
@@ -672,30 +706,30 @@ void loop() {
 <text x="440" y="335" font-size="11" fill="#1a1a1a">GND</text>
 
 <!-- Common ground bus -->
-<line x1="190" y1="500" x2="780" y2="500" stroke="#1a1a1a"/>
-<text x="700" y="514" font-size="11" fill="#595959">common ground</text>
+<line x1="190" y1="500" x2="1020" y2="500" stroke="#1a1a1a"/>
+<text x="880" y="514" font-size="11" fill="#595959">common ground</text>
 
 <!-- BAT+ rail (simple, no fuse yet) -->
-<line x1="310" y1="70" x2="780" y2="70" stroke="#1a1a1a"/>
+<line x1="310" y1="70" x2="1020" y2="70" stroke="#1a1a1a"/>
 <text x="315" y="55" font-size="9" fill="#595959">&#8592; BAT+ rail: while testing, power it from the Uno 5V pin (no battery yet)</text>
 
 <!-- TTP223 box -->
 <g stroke="#1a1a1a" fill="none">
-<rect x="700" y="220" width="110" height="100" rx="4" stroke-width="1"/>
+<rect x="920" y="220" width="110" height="100" rx="4" stroke-width="1"/>
 </g>
-<text x="755" y="335" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">TTP223</text>
-<text x="755" y="349" font-size="10" text-anchor="middle" fill="#595959">momentary mode</text>
+<text x="975" y="335" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">TTP223</text>
+<text x="975" y="349" font-size="10" text-anchor="middle" fill="#595959">momentary mode</text>
 <!-- TTP223 VCC -->
-<line x1="755" y1="70" x2="755" y2="220" stroke="#1a1a1a"/>
-<circle cx="755" cy="70" r="2.5" fill="#1a1a1a"/>
-<text x="763" y="215" font-size="11" fill="#1a1a1a">VCC</text>
-<text x="708" y="255" font-size="11" fill="#1a1a1a">OUT</text>
+<line x1="975" y1="70" x2="975" y2="220" stroke="#1a1a1a"/>
+<circle cx="975" cy="70" r="2.5" fill="#1a1a1a"/>
+<text x="983" y="215" font-size="11" fill="#1a1a1a">VCC</text>
+<text x="928" y="255" font-size="11" fill="#1a1a1a">OUT</text>
 <!-- TTP223 GND -->
-<line x1="755" y1="320" x2="755" y2="500" stroke="#1a1a1a"/>
-<circle cx="755" cy="500" r="2.5" fill="#1a1a1a"/>
-<text x="763" y="315" font-size="11" fill="#1a1a1a">GND</text>
+<line x1="975" y1="320" x2="975" y2="500" stroke="#1a1a1a"/>
+<circle cx="975" cy="500" r="2.5" fill="#1a1a1a"/>
+<text x="983" y="315" font-size="11" fill="#1a1a1a">GND</text>
 <!-- ATtiny PB2 to TTP223 -->
-<line x1="620" y1="260" x2="700" y2="260" stroke="#1a1a1a"/>
+<line x1="620" y1="260" x2="920" y2="260" stroke="#1a1a1a"/>
 <text x="628" y="255" font-size="11" fill="#1a1a1a">PB2</text>
 </svg></div>
 <h3>Wire this step</h3>
@@ -716,9 +750,12 @@ void loop() {
 <div class="step-section">
 <div class="step-header"><span class="step-title">White LED channel</span><span class="step-num">Step 3 of 7</span></div>
 <div class="whats-new">The real MOSFET-driven white channel replaces the temporary test LED on PB0.</div>
-<div class="schematic-wrap"><svg width="820" height="760" viewBox="0 0 820 760" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
+<div class="schematic-wrap"><svg width="1040" height="760" viewBox="0 0 1040 760" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
 <title>Lantern circuit - cumulative build</title>
-<rect x="0" y="0" width="820" height="760" fill="white"/>
+<rect x="0" y="0" width="1040" height="760" fill="white"/>
+<!-- channel background tints -->
+<path d="M304 292 L415 292 L415 345 L530 345 L530 494 L304 494 Z" fill="#fff3cf" stroke="#e0b84a" stroke-width="1" stroke-dasharray="4 3"/>
+
 <!-- ATtiny85 box -->
 <g stroke="#1a1a1a" fill="none">
 <rect x="420" y="200" width="200" height="140" rx="4" stroke-width="1"/>
@@ -747,41 +784,38 @@ void loop() {
 <text x="440" y="335" font-size="11" fill="#1a1a1a">GND</text>
 
 <!-- Common ground bus -->
-<line x1="190" y1="500" x2="780" y2="500" stroke="#1a1a1a"/>
-<text x="700" y="514" font-size="11" fill="#595959">common ground</text>
+<line x1="190" y1="500" x2="1020" y2="500" stroke="#1a1a1a"/>
+<text x="880" y="514" font-size="11" fill="#595959">common ground</text>
 
 <!-- BAT+ rail (simple, no fuse yet) -->
-<line x1="310" y1="70" x2="780" y2="70" stroke="#1a1a1a"/>
+<line x1="310" y1="70" x2="1020" y2="70" stroke="#1a1a1a"/>
 <text x="315" y="55" font-size="9" fill="#595959">&#8592; BAT+ rail: while testing, power it from the Uno 5V pin (no battery yet)</text>
 
 <!-- TTP223 box -->
 <g stroke="#1a1a1a" fill="none">
-<rect x="700" y="220" width="110" height="100" rx="4" stroke-width="1"/>
+<rect x="920" y="220" width="110" height="100" rx="4" stroke-width="1"/>
 </g>
-<text x="755" y="335" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">TTP223</text>
-<text x="755" y="349" font-size="10" text-anchor="middle" fill="#595959">momentary mode</text>
+<text x="975" y="335" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">TTP223</text>
+<text x="975" y="349" font-size="10" text-anchor="middle" fill="#595959">momentary mode</text>
 <!-- TTP223 VCC -->
-<line x1="755" y1="70" x2="755" y2="220" stroke="#1a1a1a"/>
-<circle cx="755" cy="70" r="2.5" fill="#1a1a1a"/>
-<text x="763" y="215" font-size="11" fill="#1a1a1a">VCC</text>
-<text x="708" y="255" font-size="11" fill="#1a1a1a">OUT</text>
+<line x1="975" y1="70" x2="975" y2="220" stroke="#1a1a1a"/>
+<circle cx="975" cy="70" r="2.5" fill="#1a1a1a"/>
+<text x="983" y="215" font-size="11" fill="#1a1a1a">VCC</text>
+<text x="928" y="255" font-size="11" fill="#1a1a1a">OUT</text>
 <!-- TTP223 GND -->
-<line x1="755" y1="320" x2="755" y2="500" stroke="#1a1a1a"/>
-<circle cx="755" cy="500" r="2.5" fill="#1a1a1a"/>
-<text x="763" y="315" font-size="11" fill="#1a1a1a">GND</text>
+<line x1="975" y1="320" x2="975" y2="500" stroke="#1a1a1a"/>
+<circle cx="975" cy="500" r="2.5" fill="#1a1a1a"/>
+<text x="983" y="315" font-size="11" fill="#1a1a1a">GND</text>
 <!-- ATtiny PB2 to TTP223 -->
-<line x1="620" y1="260" x2="700" y2="260" stroke="#1a1a1a"/>
+<line x1="620" y1="260" x2="920" y2="260" stroke="#1a1a1a"/>
 <text x="628" y="255" font-size="11" fill="#1a1a1a">PB2</text>
 
-<!-- ATtiny PB0 (white channel) -->
-<line x1="520" y1="340" x2="520" y2="410" stroke="#1a1a1a"/>
-<line x1="520" y1="410" x2="430" y2="410" stroke="#1a1a1a"/>
+<!-- ===== WHITE CHANNEL (PB0): gold wires ===== -->
+<line x1="350" y1="70" x2="350" y2="300" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="350" cy="70" r="2.5" fill="#b7791f"/>
+<line x1="520" y1="340" x2="520" y2="410" stroke="#b7791f" stroke-width="1.6"/>
+<line x1="520" y1="410" x2="505" y2="410" stroke="#b7791f" stroke-width="1.6"/>
 <text x="500" y="335" font-size="11" fill="#1a1a1a">PB0</text>
-
-<!-- White channel BAT+ tap -->
-<line x1="350" y1="70" x2="350" y2="300" stroke="#1a1a1a"/>
-<circle cx="350" cy="70" r="2.5" fill="#1a1a1a"/>
-
 <!-- C4: 10uF bulk cap near the LED/MOSFET stage -->
 <circle cx="350" cy="170" r="2.5" fill="#1a1a1a"/>
 <line x1="350" y1="170" x2="300" y2="170" stroke="#1a1a1a"/>
@@ -792,59 +826,44 @@ void loop() {
 <text x="296" y="298" font-size="12" font-weight="700" text-anchor="end" fill="#1a1a1a">+</text>
 <text x="296" y="318" font-size="12" font-weight="700" text-anchor="end" fill="#1a1a1a">&#8722;</text>
 <text x="286" y="293" font-size="10" font-weight="700" text-anchor="end" fill="#1a1a1a">C4 10&#181;F</text>
-<text x="286" y="305" font-size="9" text-anchor="end" fill="#1a1a1a">+ top = LONG lead</text>
-<text x="286" y="316" font-size="9" text-anchor="end" fill="#1a1a1a">&#8722; bottom = SHORT lead</text>
-<text x="286" y="327" font-size="9" text-anchor="end" fill="#595959">(stripe side)</text>
+<text x="286" y="305" font-size="9" text-anchor="end" fill="#1a1a1a">+ long lead</text>
+<text x="286" y="316" font-size="9" text-anchor="end" fill="#1a1a1a">&#8722; short lead</text>
 
-<!-- R6 current-limit resistor -->
 <rect x="335" y="300" width="30" height="24" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
 <rect x="341" y="301" width="3" height="22" fill="#7b3f00"/>
 <rect x="346" y="301" width="3" height="22" fill="#2e8b3a"/>
 <rect x="351" y="301" width="3" height="22" fill="#7b3f00"/>
 <rect x="358" y="301" width="3" height="22" fill="#c9a227"/>
 <text x="331" y="309" font-size="11" font-weight="700" text-anchor="end" fill="#1a1a1a">R6</text>
-<text x="331" y="320" font-size="10" text-anchor="end" fill="#1a1a1a">150&#937;</text>
+<text x="331" y="320" font-size="9" text-anchor="end" fill="#1a1a1a">150&#937;</text>
 <text x="331" y="331" font-size="8" text-anchor="end" fill="#595959">5V test</text>
-<line x1="350" y1="324" x2="350" y2="350" stroke="#1a1a1a"/>
-
-<!-- LED1 symbol -->
-<path d="M340 350 L360 350 L350 370 Z" fill="#1a1a1a" opacity="0.85"/>
-<line x1="340" y1="372" x2="360" y2="372" stroke="#1a1a1a" stroke-width="2.2"/>
+<line x1="350" y1="324" x2="350" y2="350" stroke="#b7791f" stroke-width="1.6"/>
+<path d="M340 350 L360 350 L350 370 Z" fill="#f3d27a" stroke="#b7791f" stroke-width="1.4"/>
+<line x1="340" y1="372" x2="360" y2="372" stroke="#b7791f" stroke-width="2.4"/>
 <line x1="363" y1="355" x2="374" y2="344" stroke="#1a1a1a" stroke-width="0.8"/>
 <line x1="368" y1="362" x2="379" y2="351" stroke="#1a1a1a" stroke-width="0.8"/>
 <text x="386" y="352" font-size="9" fill="#1a1a1a"><tspan font-weight="700">A</tspan> (+) long</text>
-<text x="386" y="366" font-size="11" fill="#1a1a1a">LED1</text>
+<text x="386" y="366" font-size="11" font-weight="700" fill="#8a5a00">LED1 white</text>
 <text x="386" y="380" font-size="9" fill="#1a1a1a"><tspan font-weight="700">K</tspan> (&#8722;) short</text>
-<line x1="350" y1="372" x2="350" y2="390" stroke="#1a1a1a"/>
-
-<!-- Q1 MOSFET (IRLZ44N): D = top, G = right side, S = bottom -->
-<circle cx="350" cy="410" r="20" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+<line x1="350" y1="372" x2="350" y2="390" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="350" cy="410" r="20" fill="white" stroke="#b7791f" stroke-width="1.8"/>
 <text x="350" y="403" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">D</text>
 <text x="350" y="426" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">S</text>
 <text x="362" y="414" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">G</text>
-<text x="328" y="391" font-size="11" text-anchor="end" fill="#1a1a1a">Q1</text>
-
-<!-- PB0 down and left to R7 (right end) -->
-<line x1="520" y1="340" x2="520" y2="410" stroke="#1a1a1a"/>
-<line x1="520" y1="410" x2="505" y2="410" stroke="#1a1a1a"/>
+<text x="328" y="391" font-size="11" font-weight="700" text-anchor="end" fill="#8a5a00">Q1</text>
 <rect x="475" y="400" width="30" height="20" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
 <rect x="481" y="401" width="3" height="18" fill="#d62828"/>
 <rect x="486" y="401" width="3" height="18" fill="#d62828"/>
 <rect x="491" y="401" width="3" height="18" fill="#7b3f00"/>
 <rect x="498" y="401" width="3" height="18" fill="#c9a227"/>
 <text x="490" y="392" font-size="10" text-anchor="middle" fill="#1a1a1a"><tspan font-weight="700">R7</tspan> 220&#937;</text>
-
-<!-- R7 to gate. The two small humps are wires that CROSS WITHOUT CONNECTING
-     (ATtiny GND line at x=460 and C3 ground line at x=380). Only dots are connections. -->
-<line x1="475" y1="410" x2="467" y2="410" stroke="#1a1a1a"/>
-<path d="M467 410 A7 7 0 0 0 453 410" fill="none" stroke="#1a1a1a"/>
-<line x1="453" y1="410" x2="387" y2="410" stroke="#1a1a1a"/>
-<path d="M387 410 A7 7 0 0 0 373 410" fill="none" stroke="#1a1a1a"/>
-<line x1="373" y1="410" x2="370" y2="410" stroke="#1a1a1a"/>
-
-<!-- pull-down R8: from the gate wire (dot) down to ground -->
-<circle cx="420" cy="410" r="2.5" fill="#1a1a1a"/>
-<line x1="420" y1="410" x2="420" y2="430" stroke="#1a1a1a"/>
+<line x1="475" y1="410" x2="467" y2="410" stroke="#b7791f" stroke-width="1.6"/>
+<path d="M467 410 A7 7 0 0 0 453 410" fill="none" stroke="#b7791f" stroke-width="1.6"/>
+<line x1="453" y1="410" x2="387" y2="410" stroke="#b7791f" stroke-width="1.6"/>
+<path d="M387 410 A7 7 0 0 0 373 410" fill="none" stroke="#b7791f" stroke-width="1.6"/>
+<line x1="373" y1="410" x2="370" y2="410" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="420" cy="410" r="2.5" fill="#b7791f"/>
+<line x1="420" y1="410" x2="420" y2="430" stroke="#b7791f" stroke-width="1.6"/>
 <rect x="405" y="430" width="30" height="26" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
 <rect x="411" y="431" width="3" height="24" fill="#7b3f00"/>
 <rect x="416" y="431" width="3" height="24" fill="#1a1a1a"/>
@@ -852,23 +871,24 @@ void loop() {
 <rect x="428" y="431" width="3" height="24" fill="#c9a227"/>
 <text x="401" y="441" font-size="11" font-weight="700" text-anchor="end" fill="#1a1a1a">R8</text>
 <text x="401" y="453" font-size="10" text-anchor="end" fill="#1a1a1a">10k&#937;</text>
-<line x1="420" y1="456" x2="420" y2="500" stroke="#1a1a1a"/>
-<circle cx="420" cy="500" r="2.5" fill="#1a1a1a"/>
-
-<!-- MOSFET source (bottom) to ground -->
-<line x1="350" y1="430" x2="350" y2="500" stroke="#1a1a1a"/>
-<circle cx="350" cy="500" r="2.5" fill="#1a1a1a"/>
-
-<!-- Pin key for Q1 -->
-<g stroke="#1a1a1a" fill="white">
-<rect x="533" y="352" width="112" height="112" rx="4" stroke-width="1"/>
+<line x1="420" y1="456" x2="420" y2="500" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="420" cy="500" r="2.5" fill="#b7791f"/>
+<line x1="350" y1="430" x2="350" y2="500" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="350" cy="500" r="2.5" fill="#b7791f"/>
+<g>
+<rect x="735" y="530" width="290" height="164" rx="6" fill="white" stroke="#1a1a1a"/>
+<text x="747" y="548" font-size="11" font-weight="700" fill="#1a1a1a">How to read this schematic</text>
+<line x1="747" y1="562" x2="777" y2="562" stroke="#b7791f" stroke-width="3"/>
+<text x="785" y="566" font-size="10" fill="#1a1a1a"><tspan font-weight="700">WHITE channel:</tspan> PB0 (pin 5), LED1, Q1</text>
+<line x1="747" y1="578" x2="777" y2="578" stroke="#1a1a1a" stroke-width="2"/>
+<text x="785" y="582" font-size="10" fill="#1a1a1a">Black: shared power, ground, touch sensor</text>
+<text x="747" y="602" font-size="10" fill="#1a1a1a">A dot = connected. A hump = wires cross, <tspan font-weight="700">NOT</tspan> connected.</text>
+<text x="747" y="624" font-size="10" font-weight="700" fill="#1a1a1a">Q1 (IRLZ44N) pins</text>
+<text x="747" y="637" font-size="9" fill="#595959">writing facing you, metal tab up, leads down:</text>
+<text x="747" y="652" font-size="10" fill="#1a1a1a"><tspan font-weight="700">LEFT</tspan> = Gate (G)</text>
+<text x="747" y="667" font-size="10" fill="#1a1a1a"><tspan font-weight="700">MIDDLE</tspan> = Drain (D)</text>
+<text x="747" y="682" font-size="10" fill="#1a1a1a"><tspan font-weight="700">RIGHT</tspan> = Source (S)</text>
 </g>
-<text x="589" y="368" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">Q1 = IRLZ44N pins</text>
-<text x="589" y="382" font-size="9" text-anchor="middle" fill="#595959">writing facing you,</text>
-<text x="589" y="393" font-size="9" text-anchor="middle" fill="#595959">metal tab up, leads down</text>
-<text x="541" y="414" font-size="10" fill="#1a1a1a"><tspan font-weight="700">LEFT</tspan> = Gate (G)</text>
-<text x="541" y="430" font-size="10" fill="#1a1a1a"><tspan font-weight="700">MIDDLE</tspan> = Drain (D)</text>
-<text x="541" y="446" font-size="10" fill="#1a1a1a"><tspan font-weight="700">RIGHT</tspan> = Source (S)</text>
 </svg></div>
 <div style="display:flex;flex-wrap:wrap;gap:14px;">
 <div class="part-key" style="margin:14px 0 6px;padding:12px 14px;border:1px solid #d3d1c7;border-radius:8px;background:#faf9f5;">
@@ -974,10 +994,14 @@ void loop() {
 </div>
 <div class="step-section">
 <div class="step-header"><span class="step-title">Red LED channel</span><span class="step-num">Step 4 of 7</span></div>
-<div class="whats-new">Mirrors the white channel exactly, on PB1. Drawn as a labeled placeholder since it's an identical circuit &mdash; same R6/LED1/Q1/R7/R8 pattern, just R9/LED2/Q2/R10/R11 on PB1.</div>
-<div class="schematic-wrap"><svg width="820" height="760" viewBox="0 0 820 760" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
+<div class="whats-new">The red channel, drawn in full on PB1 (pin 6): R9, LED2, Q2, R10, R11. It is the same circuit as the white channel, kept apart on the diagram: <b>gold wires = white channel (PB0)</b>, <b>red wires = red channel (PB1)</b>, black = shared. R9 is sized for the red LED's label (V<sub>F</sub> 2.0&ndash;2.2&nbsp;V, 20&nbsp;mA): 220&Omega; on the Uno's 5V is about 13&nbsp;mA, and 150&Omega; on the 4.2V battery is about 13&ndash;15&nbsp;mA (calculated, not measured).</div>
+<div class="schematic-wrap"><svg width="1040" height="760" viewBox="0 0 1040 760" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
 <title>Lantern circuit - cumulative build</title>
-<rect x="0" y="0" width="820" height="760" fill="white"/>
+<rect x="0" y="0" width="1040" height="760" fill="white"/>
+<!-- channel background tints -->
+<path d="M304 292 L415 292 L415 345 L530 345 L530 494 L304 494 Z" fill="#fff3cf" stroke="#e0b84a" stroke-width="1" stroke-dasharray="4 3"/>
+<path d="M632 292 L816 292 L816 494 L548 494 L548 345 L632 345 Z" fill="#fde6e6" stroke="#e08a8a" stroke-width="1" stroke-dasharray="4 3"/>
+
 <!-- ATtiny85 box -->
 <g stroke="#1a1a1a" fill="none">
 <rect x="420" y="200" width="200" height="140" rx="4" stroke-width="1"/>
@@ -1006,41 +1030,40 @@ void loop() {
 <text x="440" y="335" font-size="11" fill="#1a1a1a">GND</text>
 
 <!-- Common ground bus -->
-<line x1="190" y1="500" x2="780" y2="500" stroke="#1a1a1a"/>
-<text x="700" y="514" font-size="11" fill="#595959">common ground</text>
+<line x1="190" y1="500" x2="1020" y2="500" stroke="#1a1a1a"/>
+<text x="880" y="514" font-size="11" fill="#595959">common ground</text>
 
 <!-- BAT+ rail (simple, no fuse yet) -->
-<line x1="310" y1="70" x2="780" y2="70" stroke="#1a1a1a"/>
+<line x1="310" y1="70" x2="1020" y2="70" stroke="#1a1a1a"/>
 <text x="315" y="55" font-size="9" fill="#595959">&#8592; BAT+ rail: while testing, power it from the Uno 5V pin (no battery yet)</text>
 
 <!-- TTP223 box -->
 <g stroke="#1a1a1a" fill="none">
-<rect x="700" y="220" width="110" height="100" rx="4" stroke-width="1"/>
+<rect x="920" y="220" width="110" height="100" rx="4" stroke-width="1"/>
 </g>
-<text x="755" y="335" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">TTP223</text>
-<text x="755" y="349" font-size="10" text-anchor="middle" fill="#595959">momentary mode</text>
+<text x="975" y="335" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">TTP223</text>
+<text x="975" y="349" font-size="10" text-anchor="middle" fill="#595959">momentary mode</text>
 <!-- TTP223 VCC -->
-<line x1="755" y1="70" x2="755" y2="220" stroke="#1a1a1a"/>
-<circle cx="755" cy="70" r="2.5" fill="#1a1a1a"/>
-<text x="763" y="215" font-size="11" fill="#1a1a1a">VCC</text>
-<text x="708" y="255" font-size="11" fill="#1a1a1a">OUT</text>
+<line x1="975" y1="70" x2="975" y2="220" stroke="#1a1a1a"/>
+<circle cx="975" cy="70" r="2.5" fill="#1a1a1a"/>
+<text x="983" y="215" font-size="11" fill="#1a1a1a">VCC</text>
+<text x="928" y="255" font-size="11" fill="#1a1a1a">OUT</text>
 <!-- TTP223 GND -->
-<line x1="755" y1="320" x2="755" y2="500" stroke="#1a1a1a"/>
-<circle cx="755" cy="500" r="2.5" fill="#1a1a1a"/>
-<text x="763" y="315" font-size="11" fill="#1a1a1a">GND</text>
+<line x1="975" y1="320" x2="975" y2="500" stroke="#1a1a1a"/>
+<circle cx="975" cy="500" r="2.5" fill="#1a1a1a"/>
+<text x="983" y="315" font-size="11" fill="#1a1a1a">GND</text>
 <!-- ATtiny PB2 to TTP223 -->
-<line x1="620" y1="260" x2="700" y2="260" stroke="#1a1a1a"/>
+<line x1="620" y1="260" x2="683" y2="260" stroke="#1a1a1a"/>
+<path d="M683 260 A7 7 0 0 1 697 260" fill="none" stroke="#1a1a1a"/>
+<line x1="697" y1="260" x2="920" y2="260" stroke="#1a1a1a"/>
 <text x="628" y="255" font-size="11" fill="#1a1a1a">PB2</text>
 
-<!-- ATtiny PB0 (white channel) -->
-<line x1="520" y1="340" x2="520" y2="410" stroke="#1a1a1a"/>
-<line x1="520" y1="410" x2="430" y2="410" stroke="#1a1a1a"/>
+<!-- ===== WHITE CHANNEL (PB0): gold wires ===== -->
+<line x1="350" y1="70" x2="350" y2="300" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="350" cy="70" r="2.5" fill="#b7791f"/>
+<line x1="520" y1="340" x2="520" y2="410" stroke="#b7791f" stroke-width="1.6"/>
+<line x1="520" y1="410" x2="505" y2="410" stroke="#b7791f" stroke-width="1.6"/>
 <text x="500" y="335" font-size="11" fill="#1a1a1a">PB0</text>
-
-<!-- White channel BAT+ tap -->
-<line x1="350" y1="70" x2="350" y2="300" stroke="#1a1a1a"/>
-<circle cx="350" cy="70" r="2.5" fill="#1a1a1a"/>
-
 <!-- C4: 10uF bulk cap near the LED/MOSFET stage -->
 <circle cx="350" cy="170" r="2.5" fill="#1a1a1a"/>
 <line x1="350" y1="170" x2="300" y2="170" stroke="#1a1a1a"/>
@@ -1051,59 +1074,44 @@ void loop() {
 <text x="296" y="298" font-size="12" font-weight="700" text-anchor="end" fill="#1a1a1a">+</text>
 <text x="296" y="318" font-size="12" font-weight="700" text-anchor="end" fill="#1a1a1a">&#8722;</text>
 <text x="286" y="293" font-size="10" font-weight="700" text-anchor="end" fill="#1a1a1a">C4 10&#181;F</text>
-<text x="286" y="305" font-size="9" text-anchor="end" fill="#1a1a1a">+ top = LONG lead</text>
-<text x="286" y="316" font-size="9" text-anchor="end" fill="#1a1a1a">&#8722; bottom = SHORT lead</text>
-<text x="286" y="327" font-size="9" text-anchor="end" fill="#595959">(stripe side)</text>
+<text x="286" y="305" font-size="9" text-anchor="end" fill="#1a1a1a">+ long lead</text>
+<text x="286" y="316" font-size="9" text-anchor="end" fill="#1a1a1a">&#8722; short lead</text>
 
-<!-- R6 current-limit resistor -->
 <rect x="335" y="300" width="30" height="24" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
 <rect x="341" y="301" width="3" height="22" fill="#7b3f00"/>
 <rect x="346" y="301" width="3" height="22" fill="#2e8b3a"/>
 <rect x="351" y="301" width="3" height="22" fill="#7b3f00"/>
 <rect x="358" y="301" width="3" height="22" fill="#c9a227"/>
 <text x="331" y="309" font-size="11" font-weight="700" text-anchor="end" fill="#1a1a1a">R6</text>
-<text x="331" y="320" font-size="10" text-anchor="end" fill="#1a1a1a">150&#937;</text>
+<text x="331" y="320" font-size="9" text-anchor="end" fill="#1a1a1a">150&#937;</text>
 <text x="331" y="331" font-size="8" text-anchor="end" fill="#595959">5V test</text>
-<line x1="350" y1="324" x2="350" y2="350" stroke="#1a1a1a"/>
-
-<!-- LED1 symbol -->
-<path d="M340 350 L360 350 L350 370 Z" fill="#1a1a1a" opacity="0.85"/>
-<line x1="340" y1="372" x2="360" y2="372" stroke="#1a1a1a" stroke-width="2.2"/>
+<line x1="350" y1="324" x2="350" y2="350" stroke="#b7791f" stroke-width="1.6"/>
+<path d="M340 350 L360 350 L350 370 Z" fill="#f3d27a" stroke="#b7791f" stroke-width="1.4"/>
+<line x1="340" y1="372" x2="360" y2="372" stroke="#b7791f" stroke-width="2.4"/>
 <line x1="363" y1="355" x2="374" y2="344" stroke="#1a1a1a" stroke-width="0.8"/>
 <line x1="368" y1="362" x2="379" y2="351" stroke="#1a1a1a" stroke-width="0.8"/>
 <text x="386" y="352" font-size="9" fill="#1a1a1a"><tspan font-weight="700">A</tspan> (+) long</text>
-<text x="386" y="366" font-size="11" fill="#1a1a1a">LED1</text>
+<text x="386" y="366" font-size="11" font-weight="700" fill="#8a5a00">LED1 white</text>
 <text x="386" y="380" font-size="9" fill="#1a1a1a"><tspan font-weight="700">K</tspan> (&#8722;) short</text>
-<line x1="350" y1="372" x2="350" y2="390" stroke="#1a1a1a"/>
-
-<!-- Q1 MOSFET (IRLZ44N): D = top, G = right side, S = bottom -->
-<circle cx="350" cy="410" r="20" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+<line x1="350" y1="372" x2="350" y2="390" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="350" cy="410" r="20" fill="white" stroke="#b7791f" stroke-width="1.8"/>
 <text x="350" y="403" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">D</text>
 <text x="350" y="426" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">S</text>
 <text x="362" y="414" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">G</text>
-<text x="328" y="391" font-size="11" text-anchor="end" fill="#1a1a1a">Q1</text>
-
-<!-- PB0 down and left to R7 (right end) -->
-<line x1="520" y1="340" x2="520" y2="410" stroke="#1a1a1a"/>
-<line x1="520" y1="410" x2="505" y2="410" stroke="#1a1a1a"/>
+<text x="328" y="391" font-size="11" font-weight="700" text-anchor="end" fill="#8a5a00">Q1</text>
 <rect x="475" y="400" width="30" height="20" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
 <rect x="481" y="401" width="3" height="18" fill="#d62828"/>
 <rect x="486" y="401" width="3" height="18" fill="#d62828"/>
 <rect x="491" y="401" width="3" height="18" fill="#7b3f00"/>
 <rect x="498" y="401" width="3" height="18" fill="#c9a227"/>
 <text x="490" y="392" font-size="10" text-anchor="middle" fill="#1a1a1a"><tspan font-weight="700">R7</tspan> 220&#937;</text>
-
-<!-- R7 to gate. The two small humps are wires that CROSS WITHOUT CONNECTING
-     (ATtiny GND line at x=460 and C3 ground line at x=380). Only dots are connections. -->
-<line x1="475" y1="410" x2="467" y2="410" stroke="#1a1a1a"/>
-<path d="M467 410 A7 7 0 0 0 453 410" fill="none" stroke="#1a1a1a"/>
-<line x1="453" y1="410" x2="387" y2="410" stroke="#1a1a1a"/>
-<path d="M387 410 A7 7 0 0 0 373 410" fill="none" stroke="#1a1a1a"/>
-<line x1="373" y1="410" x2="370" y2="410" stroke="#1a1a1a"/>
-
-<!-- pull-down R8: from the gate wire (dot) down to ground -->
-<circle cx="420" cy="410" r="2.5" fill="#1a1a1a"/>
-<line x1="420" y1="410" x2="420" y2="430" stroke="#1a1a1a"/>
+<line x1="475" y1="410" x2="467" y2="410" stroke="#b7791f" stroke-width="1.6"/>
+<path d="M467 410 A7 7 0 0 0 453 410" fill="none" stroke="#b7791f" stroke-width="1.6"/>
+<line x1="453" y1="410" x2="387" y2="410" stroke="#b7791f" stroke-width="1.6"/>
+<path d="M387 410 A7 7 0 0 0 373 410" fill="none" stroke="#b7791f" stroke-width="1.6"/>
+<line x1="373" y1="410" x2="370" y2="410" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="420" cy="410" r="2.5" fill="#b7791f"/>
+<line x1="420" y1="410" x2="420" y2="430" stroke="#b7791f" stroke-width="1.6"/>
 <rect x="405" y="430" width="30" height="26" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
 <rect x="411" y="431" width="3" height="24" fill="#7b3f00"/>
 <rect x="416" y="431" width="3" height="24" fill="#1a1a1a"/>
@@ -1111,37 +1119,83 @@ void loop() {
 <rect x="428" y="431" width="3" height="24" fill="#c9a227"/>
 <text x="401" y="441" font-size="11" font-weight="700" text-anchor="end" fill="#1a1a1a">R8</text>
 <text x="401" y="453" font-size="10" text-anchor="end" fill="#1a1a1a">10k&#937;</text>
-<line x1="420" y1="456" x2="420" y2="500" stroke="#1a1a1a"/>
-<circle cx="420" cy="500" r="2.5" fill="#1a1a1a"/>
-
-<!-- MOSFET source (bottom) to ground -->
-<line x1="350" y1="430" x2="350" y2="500" stroke="#1a1a1a"/>
-<circle cx="350" cy="500" r="2.5" fill="#1a1a1a"/>
-
-<!-- Pin key for Q1 -->
-<g stroke="#1a1a1a" fill="white">
-<rect x="533" y="352" width="112" height="112" rx="4" stroke-width="1"/>
-</g>
-<text x="589" y="368" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">Q1 = IRLZ44N pins</text>
-<text x="589" y="382" font-size="9" text-anchor="middle" fill="#595959">writing facing you,</text>
-<text x="589" y="393" font-size="9" text-anchor="middle" fill="#595959">metal tab up, leads down</text>
-<text x="541" y="414" font-size="10" fill="#1a1a1a"><tspan font-weight="700">LEFT</tspan> = Gate (G)</text>
-<text x="541" y="430" font-size="10" fill="#1a1a1a"><tspan font-weight="700">MIDDLE</tspan> = Drain (D)</text>
-<text x="541" y="446" font-size="10" fill="#1a1a1a"><tspan font-weight="700">RIGHT</tspan> = Source (S)</text>
-
-<!-- ATtiny PB1 label (red channel, see dashed box) -->
+<line x1="420" y1="456" x2="420" y2="500" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="420" cy="500" r="2.5" fill="#b7791f"/>
+<line x1="350" y1="430" x2="350" y2="500" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="350" cy="500" r="2.5" fill="#b7791f"/>
+<!-- ===== RED CHANNEL (PB1): red wires ===== -->
+<line x1="690" y1="70" x2="690" y2="300" stroke="#c62828" stroke-width="1.6"/>
+<circle cx="690" cy="70" r="2.5" fill="#c62828"/>
+<line x1="560" y1="340" x2="560" y2="410" stroke="#c62828" stroke-width="1.6"/>
+<line x1="560" y1="410" x2="580" y2="410" stroke="#c62828" stroke-width="1.6"/>
 <text x="560" y="335" font-size="11" fill="#1a1a1a">PB1</text>
+<rect x="675" y="300" width="30" height="24" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
+<rect x="681" y="301" width="3" height="22" fill="#d62828"/>
+<rect x="686" y="301" width="3" height="22" fill="#d62828"/>
+<rect x="691" y="301" width="3" height="22" fill="#7b3f00"/>
+<rect x="698" y="301" width="3" height="22" fill="#c9a227"/>
+<text x="711" y="309" font-size="11" font-weight="700" fill="#1a1a1a">R9</text>
+<text x="711" y="320" font-size="10" fill="#1a1a1a">220&#937;</text>
+<text x="711" y="331" font-size="8" fill="#595959">5V test</text>
+<line x1="690" y1="324" x2="690" y2="350" stroke="#c62828" stroke-width="1.6"/>
+<path d="M680 350 L700 350 L690 370 Z" fill="#e57373" stroke="#c62828" stroke-width="1.4"/>
+<line x1="680" y1="372" x2="700" y2="372" stroke="#c62828" stroke-width="2.4"/>
+<line x1="703" y1="355" x2="714" y2="344" stroke="#1a1a1a" stroke-width="0.8"/>
+<line x1="708" y1="362" x2="719" y2="351" stroke="#1a1a1a" stroke-width="0.8"/>
+<text x="726" y="352" font-size="9" fill="#1a1a1a"><tspan font-weight="700">A</tspan> (+) long</text>
+<text x="726" y="366" font-size="11" font-weight="700" fill="#a31515">LED2 red</text>
+<text x="726" y="380" font-size="9" fill="#1a1a1a"><tspan font-weight="700">K</tspan> (&#8722;) short</text>
+<line x1="690" y1="372" x2="690" y2="390" stroke="#c62828" stroke-width="1.6"/>
+<circle cx="690" cy="410" r="20" fill="white" stroke="#c62828" stroke-width="1.8"/>
+<text x="690" y="403" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">D</text>
+<text x="690" y="426" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">S</text>
+<text x="678" y="414" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">G</text>
+<text x="718" y="398" font-size="11" font-weight="700" fill="#a31515">Q2</text>
+<rect x="580" y="400" width="30" height="20" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
+<rect x="586" y="401" width="3" height="18" fill="#d62828"/>
+<rect x="591" y="401" width="3" height="18" fill="#d62828"/>
+<rect x="596" y="401" width="3" height="18" fill="#7b3f00"/>
+<rect x="603" y="401" width="3" height="18" fill="#c9a227"/>
+<text x="595" y="392" font-size="10" text-anchor="middle" fill="#1a1a1a"><tspan font-weight="700">R10</tspan> 220&#937;</text>
+<line x1="610" y1="410" x2="670" y2="410" stroke="#c62828" stroke-width="1.6"/>
+<circle cx="640" cy="410" r="2.5" fill="#c62828"/>
+<line x1="640" y1="410" x2="640" y2="430" stroke="#c62828" stroke-width="1.6"/>
+<rect x="625" y="430" width="30" height="26" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
+<rect x="631" y="431" width="3" height="24" fill="#7b3f00"/>
+<rect x="636" y="431" width="3" height="24" fill="#1a1a1a"/>
+<rect x="641" y="431" width="3" height="24" fill="#f4811f"/>
+<rect x="648" y="431" width="3" height="24" fill="#c9a227"/>
+<text x="621" y="441" font-size="11" font-weight="700" text-anchor="end" fill="#1a1a1a">R11</text>
+<text x="621" y="453" font-size="10" text-anchor="end" fill="#1a1a1a">10k&#937;</text>
+<line x1="640" y1="456" x2="640" y2="500" stroke="#c62828" stroke-width="1.6"/>
+<circle cx="640" cy="500" r="2.5" fill="#c62828"/>
+<line x1="690" y1="430" x2="690" y2="500" stroke="#c62828" stroke-width="1.6"/>
+<circle cx="690" cy="500" r="2.5" fill="#c62828"/>
 
-<!-- Red channel dashed placeholder -->
-<rect x="650" y="360" width="160" height="130" rx="6" fill="none" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="5 5"/>
-<text x="730" y="415" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">Red channel</text>
-<text x="730" y="433" font-size="11" text-anchor="middle" fill="#595959">Identical circuit</text>
-<text x="730" y="449" font-size="11" text-anchor="middle" fill="#595959">(R9, LED2, Q2, R10, R11)</text>
-<text x="730" y="465" font-size="11" text-anchor="middle" fill="#595959">driven from PB1</text>
+<g>
+<rect x="735" y="530" width="290" height="180" rx="6" fill="white" stroke="#1a1a1a"/>
+<text x="747" y="548" font-size="11" font-weight="700" fill="#1a1a1a">How to read this schematic</text>
+<line x1="747" y1="562" x2="777" y2="562" stroke="#b7791f" stroke-width="3"/>
+<text x="785" y="566" font-size="10" fill="#1a1a1a"><tspan font-weight="700">WHITE channel:</tspan> PB0 (pin 5), LED1, Q1</text>
+<line x1="747" y1="578" x2="777" y2="578" stroke="#c62828" stroke-width="3"/>
+<text x="785" y="582" font-size="10" fill="#1a1a1a"><tspan font-weight="700">RED channel:</tspan> PB1 (pin 6), LED2, Q2</text>
+<line x1="747" y1="594" x2="777" y2="594" stroke="#1a1a1a" stroke-width="2"/>
+<text x="785" y="598" font-size="10" fill="#1a1a1a">Black: shared power, ground, touch sensor</text>
+<text x="747" y="618" font-size="10" fill="#1a1a1a">A dot = connected. A hump = wires cross, <tspan font-weight="700">NOT</tspan> connected.</text>
+<text x="747" y="640" font-size="10" font-weight="700" fill="#1a1a1a">Q1 and Q2 (IRLZ44N) pins</text>
+<text x="747" y="653" font-size="9" fill="#595959">writing facing you, metal tab up, leads down:</text>
+<text x="747" y="668" font-size="10" fill="#1a1a1a"><tspan font-weight="700">LEFT</tspan> = Gate (G)</text>
+<text x="747" y="683" font-size="10" fill="#1a1a1a"><tspan font-weight="700">MIDDLE</tspan> = Drain (D)</text>
+<text x="747" y="698" font-size="10" fill="#1a1a1a"><tspan font-weight="700">RIGHT</tspan> = Source (S)</text>
+</g>
 </svg></div>
 <h3>Wire this step</h3>
-<div class="item" data-id="s4-1"><input type="checkbox" id="cb-s4-1"><label for="cb-s4-1"><span class="main-text">Build the identical channel (R9, LED2, Q2, R10, R11) on PB1</span></label></div>
+<div class="item" data-id="s4-1"><input type="checkbox" id="cb-s4-1"><label for="cb-s4-1"><span class="main-text">Gather the parts: a second IRLZ44N (Q2), a red LED (LED2), R9 (220&Omega;), R10 (220&Omega;), R11 (10k&Omega;)</span></label></div>
+<div class="item" data-id="s4-2"><input type="checkbox" id="cb-s4-2"><label for="cb-s4-2"><span class="main-text">R9 (220&Omega; while testing on the Uno 5V; 150&Omega; once on the battery) from the BAT+ rail (Uno 5V) to LED2 anode (<b>long lead</b>)</span></label></div>
+<div class="item" data-id="s4-3"><input type="checkbox" id="cb-s4-3"><label for="cb-s4-3"><span class="main-text">LED2 cathode (<b>short lead</b>) to Q2 <b>MIDDLE</b> lead (drain); Q2 <b>RIGHT</b> lead (source) to the GND rail</span></label></div>
+<div class="item" data-id="s4-4"><input type="checkbox" id="cb-s4-4"><label for="cb-s4-4"><span class="main-text">Q2 <b>LEFT</b> lead (gate) through R10 (220&Omega;) to ATtiny <b>pin 6 (PB1)</b>; R11 (10k&Omega;) from the <b>LEFT</b> lead (gate) to GND (pull-down)</span></label></div>
 <h3>Quick standalone test (not the final gesture logic yet)</h3>
+<p><b>Before you upload this:</b> disconnect the TTP223 OUT wire from pin 7 (PB2) &mdash; that pin is also the programming clock. Wire Arduino-as-ISP the same way as Step 1 (D10&rarr;pin 1, D11&rarr;pin 5, D12&rarr;pin 6, D13&rarr;pin 7), keep the 10&micro;F cap from RESET to GND on the Uno, and make sure the ArduinoISP sketch is still on the Uno. Then use <b>Upload Using Programmer</b> (not Burn Bootloader). Reconnect the TTP223 wire to pin 7 afterward.</p>
 <pre>void setup() {
   pinMode(1, OUTPUT); // PB1
 }
@@ -1157,9 +1211,13 @@ void loop() {
 <div class="step-section">
 <div class="step-header"><span class="step-title">Real power: battery + TP4056 + fuse</span><span class="step-num">Step 5 of 7</span></div>
 <div class="whats-new">The bench supply's direct clip-on connection is replaced with the actual battery, charge module, and protection fuse feeding the same rail nodes.</div>
-<div class="schematic-wrap"><svg width="820" height="760" viewBox="0 0 820 760" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
+<div class="schematic-wrap"><svg width="1040" height="760" viewBox="0 0 1040 760" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
 <title>Lantern circuit - cumulative build</title>
-<rect x="0" y="0" width="820" height="760" fill="white"/>
+<rect x="0" y="0" width="1040" height="760" fill="white"/>
+<!-- channel background tints -->
+<path d="M304 292 L415 292 L415 345 L530 345 L530 494 L304 494 Z" fill="#fff3cf" stroke="#e0b84a" stroke-width="1" stroke-dasharray="4 3"/>
+<path d="M632 292 L816 292 L816 494 L548 494 L548 345 L632 345 Z" fill="#fde6e6" stroke="#e08a8a" stroke-width="1" stroke-dasharray="4 3"/>
+
 <!-- ATtiny85 box -->
 <g stroke="#1a1a1a" fill="none">
 <rect x="420" y="200" width="200" height="140" rx="4" stroke-width="1"/>
@@ -1188,40 +1246,41 @@ void loop() {
 <text x="440" y="335" font-size="11" fill="#1a1a1a">GND</text>
 
 <!-- Common ground bus -->
-<line x1="190" y1="500" x2="780" y2="500" stroke="#1a1a1a"/>
-<text x="700" y="514" font-size="11" fill="#595959">common ground</text>
+<line x1="190" y1="500" x2="1020" y2="500" stroke="#1a1a1a"/>
+<text x="880" y="514" font-size="11" fill="#595959">common ground</text>
 
 <!-- TTP223 box -->
 <g stroke="#1a1a1a" fill="none">
-<rect x="700" y="220" width="110" height="100" rx="4" stroke-width="1"/>
+<rect x="920" y="220" width="110" height="100" rx="4" stroke-width="1"/>
 </g>
-<text x="755" y="335" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">TTP223</text>
-<text x="755" y="349" font-size="10" text-anchor="middle" fill="#595959">momentary mode</text>
+<text x="975" y="335" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">TTP223</text>
+<text x="975" y="349" font-size="10" text-anchor="middle" fill="#595959">momentary mode</text>
 <!-- TTP223 VCC -->
-<line x1="755" y1="70" x2="755" y2="220" stroke="#1a1a1a"/>
-<circle cx="755" cy="70" r="2.5" fill="#1a1a1a"/>
-<text x="763" y="215" font-size="11" fill="#1a1a1a">VCC</text>
-<text x="708" y="255" font-size="11" fill="#1a1a1a">OUT</text>
+<line x1="975" y1="70" x2="975" y2="220" stroke="#1a1a1a"/>
+<circle cx="975" cy="70" r="2.5" fill="#1a1a1a"/>
+<text x="983" y="215" font-size="11" fill="#1a1a1a">VCC</text>
+<text x="928" y="255" font-size="11" fill="#1a1a1a">OUT</text>
 <!-- TTP223 GND -->
-<line x1="755" y1="320" x2="755" y2="500" stroke="#1a1a1a"/>
-<circle cx="755" cy="500" r="2.5" fill="#1a1a1a"/>
-<text x="763" y="315" font-size="11" fill="#1a1a1a">GND</text>
+<line x1="975" y1="320" x2="975" y2="500" stroke="#1a1a1a"/>
+<circle cx="975" cy="500" r="2.5" fill="#1a1a1a"/>
+<text x="983" y="315" font-size="11" fill="#1a1a1a">GND</text>
 <!-- ATtiny PB2 to TTP223 -->
-<line x1="620" y1="260" x2="700" y2="260" stroke="#1a1a1a"/>
+<line x1="620" y1="260" x2="683" y2="260" stroke="#1a1a1a"/>
+<path d="M683 260 A7 7 0 0 1 697 260" fill="none" stroke="#1a1a1a"/>
+<line x1="697" y1="260" x2="920" y2="260" stroke="#1a1a1a"/>
 <text x="628" y="255" font-size="11" fill="#1a1a1a">PB2</text>
 
-<!-- ATtiny PB0 (white channel) -->
-<line x1="520" y1="340" x2="520" y2="410" stroke="#1a1a1a"/>
-<line x1="520" y1="410" x2="430" y2="410" stroke="#1a1a1a"/>
+<!-- ===== WHITE CHANNEL (PB0): gold wires ===== -->
+<line x1="350" y1="70" x2="350" y2="300" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="350" cy="70" r="2.5" fill="#b7791f"/>
+<line x1="520" y1="340" x2="520" y2="410" stroke="#b7791f" stroke-width="1.6"/>
+<line x1="520" y1="410" x2="505" y2="410" stroke="#b7791f" stroke-width="1.6"/>
 <text x="500" y="335" font-size="11" fill="#1a1a1a">PB0</text>
-
-<!-- White channel BAT+ tap -->
-<line x1="350" y1="70" x2="350" y2="300" stroke="#1a1a1a"/>
-<circle cx="350" cy="70" r="2.5" fill="#1a1a1a"/>
-
 <!-- C4: 10uF bulk cap near the LED/MOSFET stage -->
 <circle cx="350" cy="170" r="2.5" fill="#1a1a1a"/>
-<line x1="350" y1="170" x2="300" y2="170" stroke="#1a1a1a"/>
+<line x1="350" y1="170" x2="317" y2="170" stroke="#1a1a1a"/>
+<path d="M317 170 A7 7 0 0 0 303 170" fill="none" stroke="#1a1a1a"/>
+<line x1="303" y1="170" x2="300" y2="170" stroke="#1a1a1a"/>
 <line x1="300" y1="170" x2="300" y2="500" stroke="#1a1a1a"/>
 <circle cx="300" cy="500" r="2.5" fill="#1a1a1a"/>
 <line x1="292" y1="300" x2="308" y2="300" stroke="#1a1a1a" stroke-width="2"/>
@@ -1229,59 +1288,44 @@ void loop() {
 <text x="296" y="298" font-size="12" font-weight="700" text-anchor="end" fill="#1a1a1a">+</text>
 <text x="296" y="318" font-size="12" font-weight="700" text-anchor="end" fill="#1a1a1a">&#8722;</text>
 <text x="286" y="293" font-size="10" font-weight="700" text-anchor="end" fill="#1a1a1a">C4 10&#181;F</text>
-<text x="286" y="305" font-size="9" text-anchor="end" fill="#1a1a1a">+ top = LONG lead</text>
-<text x="286" y="316" font-size="9" text-anchor="end" fill="#1a1a1a">&#8722; bottom = SHORT lead</text>
-<text x="286" y="327" font-size="9" text-anchor="end" fill="#595959">(stripe side)</text>
+<text x="286" y="305" font-size="9" text-anchor="end" fill="#1a1a1a">+ long lead</text>
+<text x="286" y="316" font-size="9" text-anchor="end" fill="#1a1a1a">&#8722; short lead</text>
 
-<!-- R6 current-limit resistor -->
 <rect x="335" y="300" width="30" height="24" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
 <rect x="341" y="301" width="3" height="22" fill="#7b3f00"/>
 <rect x="346" y="301" width="3" height="22" fill="#1a1a1a"/>
 <rect x="351" y="301" width="3" height="22" fill="#7b3f00"/>
 <rect x="358" y="301" width="3" height="22" fill="#c9a227"/>
 <text x="331" y="309" font-size="11" font-weight="700" text-anchor="end" fill="#1a1a1a">R6</text>
-<text x="331" y="320" font-size="10" text-anchor="end" fill="#1a1a1a">100&#937;</text>
+<text x="331" y="320" font-size="9" text-anchor="end" fill="#1a1a1a">100&#937;</text>
 <text x="331" y="331" font-size="8" text-anchor="end" fill="#595959">4.2V</text>
-<line x1="350" y1="324" x2="350" y2="350" stroke="#1a1a1a"/>
-
-<!-- LED1 symbol -->
-<path d="M340 350 L360 350 L350 370 Z" fill="#1a1a1a" opacity="0.85"/>
-<line x1="340" y1="372" x2="360" y2="372" stroke="#1a1a1a" stroke-width="2.2"/>
+<line x1="350" y1="324" x2="350" y2="350" stroke="#b7791f" stroke-width="1.6"/>
+<path d="M340 350 L360 350 L350 370 Z" fill="#f3d27a" stroke="#b7791f" stroke-width="1.4"/>
+<line x1="340" y1="372" x2="360" y2="372" stroke="#b7791f" stroke-width="2.4"/>
 <line x1="363" y1="355" x2="374" y2="344" stroke="#1a1a1a" stroke-width="0.8"/>
 <line x1="368" y1="362" x2="379" y2="351" stroke="#1a1a1a" stroke-width="0.8"/>
 <text x="386" y="352" font-size="9" fill="#1a1a1a"><tspan font-weight="700">A</tspan> (+) long</text>
-<text x="386" y="366" font-size="11" fill="#1a1a1a">LED1</text>
+<text x="386" y="366" font-size="11" font-weight="700" fill="#8a5a00">LED1 white</text>
 <text x="386" y="380" font-size="9" fill="#1a1a1a"><tspan font-weight="700">K</tspan> (&#8722;) short</text>
-<line x1="350" y1="372" x2="350" y2="390" stroke="#1a1a1a"/>
-
-<!-- Q1 MOSFET (IRLZ44N): D = top, G = right side, S = bottom -->
-<circle cx="350" cy="410" r="20" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+<line x1="350" y1="372" x2="350" y2="390" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="350" cy="410" r="20" fill="white" stroke="#b7791f" stroke-width="1.8"/>
 <text x="350" y="403" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">D</text>
 <text x="350" y="426" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">S</text>
 <text x="362" y="414" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">G</text>
-<text x="328" y="391" font-size="11" text-anchor="end" fill="#1a1a1a">Q1</text>
-
-<!-- PB0 down and left to R7 (right end) -->
-<line x1="520" y1="340" x2="520" y2="410" stroke="#1a1a1a"/>
-<line x1="520" y1="410" x2="505" y2="410" stroke="#1a1a1a"/>
+<text x="328" y="391" font-size="11" font-weight="700" text-anchor="end" fill="#8a5a00">Q1</text>
 <rect x="475" y="400" width="30" height="20" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
 <rect x="481" y="401" width="3" height="18" fill="#d62828"/>
 <rect x="486" y="401" width="3" height="18" fill="#d62828"/>
 <rect x="491" y="401" width="3" height="18" fill="#7b3f00"/>
 <rect x="498" y="401" width="3" height="18" fill="#c9a227"/>
 <text x="490" y="392" font-size="10" text-anchor="middle" fill="#1a1a1a"><tspan font-weight="700">R7</tspan> 220&#937;</text>
-
-<!-- R7 to gate. The two small humps are wires that CROSS WITHOUT CONNECTING
-     (ATtiny GND line at x=460 and C3 ground line at x=380). Only dots are connections. -->
-<line x1="475" y1="410" x2="467" y2="410" stroke="#1a1a1a"/>
-<path d="M467 410 A7 7 0 0 0 453 410" fill="none" stroke="#1a1a1a"/>
-<line x1="453" y1="410" x2="387" y2="410" stroke="#1a1a1a"/>
-<path d="M387 410 A7 7 0 0 0 373 410" fill="none" stroke="#1a1a1a"/>
-<line x1="373" y1="410" x2="370" y2="410" stroke="#1a1a1a"/>
-
-<!-- pull-down R8: from the gate wire (dot) down to ground -->
-<circle cx="420" cy="410" r="2.5" fill="#1a1a1a"/>
-<line x1="420" y1="410" x2="420" y2="430" stroke="#1a1a1a"/>
+<line x1="475" y1="410" x2="467" y2="410" stroke="#b7791f" stroke-width="1.6"/>
+<path d="M467 410 A7 7 0 0 0 453 410" fill="none" stroke="#b7791f" stroke-width="1.6"/>
+<line x1="453" y1="410" x2="387" y2="410" stroke="#b7791f" stroke-width="1.6"/>
+<path d="M387 410 A7 7 0 0 0 373 410" fill="none" stroke="#b7791f" stroke-width="1.6"/>
+<line x1="373" y1="410" x2="370" y2="410" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="420" cy="410" r="2.5" fill="#b7791f"/>
+<line x1="420" y1="410" x2="420" y2="430" stroke="#b7791f" stroke-width="1.6"/>
 <rect x="405" y="430" width="30" height="26" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
 <rect x="411" y="431" width="3" height="24" fill="#7b3f00"/>
 <rect x="416" y="431" width="3" height="24" fill="#1a1a1a"/>
@@ -1289,33 +1333,59 @@ void loop() {
 <rect x="428" y="431" width="3" height="24" fill="#c9a227"/>
 <text x="401" y="441" font-size="11" font-weight="700" text-anchor="end" fill="#1a1a1a">R8</text>
 <text x="401" y="453" font-size="10" text-anchor="end" fill="#1a1a1a">10k&#937;</text>
-<line x1="420" y1="456" x2="420" y2="500" stroke="#1a1a1a"/>
-<circle cx="420" cy="500" r="2.5" fill="#1a1a1a"/>
-
-<!-- MOSFET source (bottom) to ground -->
-<line x1="350" y1="430" x2="350" y2="500" stroke="#1a1a1a"/>
-<circle cx="350" cy="500" r="2.5" fill="#1a1a1a"/>
-
-<!-- Pin key for Q1 -->
-<g stroke="#1a1a1a" fill="white">
-<rect x="533" y="352" width="112" height="112" rx="4" stroke-width="1"/>
-</g>
-<text x="589" y="368" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">Q1 = IRLZ44N pins</text>
-<text x="589" y="382" font-size="9" text-anchor="middle" fill="#595959">writing facing you,</text>
-<text x="589" y="393" font-size="9" text-anchor="middle" fill="#595959">metal tab up, leads down</text>
-<text x="541" y="414" font-size="10" fill="#1a1a1a"><tspan font-weight="700">LEFT</tspan> = Gate (G)</text>
-<text x="541" y="430" font-size="10" fill="#1a1a1a"><tspan font-weight="700">MIDDLE</tspan> = Drain (D)</text>
-<text x="541" y="446" font-size="10" fill="#1a1a1a"><tspan font-weight="700">RIGHT</tspan> = Source (S)</text>
-
-<!-- ATtiny PB1 label (red channel, see dashed box) -->
+<line x1="420" y1="456" x2="420" y2="500" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="420" cy="500" r="2.5" fill="#b7791f"/>
+<line x1="350" y1="430" x2="350" y2="500" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="350" cy="500" r="2.5" fill="#b7791f"/>
+<!-- ===== RED CHANNEL (PB1): red wires ===== -->
+<line x1="690" y1="70" x2="690" y2="300" stroke="#c62828" stroke-width="1.6"/>
+<circle cx="690" cy="70" r="2.5" fill="#c62828"/>
+<line x1="560" y1="340" x2="560" y2="410" stroke="#c62828" stroke-width="1.6"/>
+<line x1="560" y1="410" x2="580" y2="410" stroke="#c62828" stroke-width="1.6"/>
 <text x="560" y="335" font-size="11" fill="#1a1a1a">PB1</text>
+<rect x="675" y="300" width="30" height="24" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
+<rect x="681" y="301" width="3" height="22" fill="#7b3f00"/>
+<rect x="686" y="301" width="3" height="22" fill="#2e8b3a"/>
+<rect x="691" y="301" width="3" height="22" fill="#7b3f00"/>
+<rect x="698" y="301" width="3" height="22" fill="#c9a227"/>
+<text x="711" y="309" font-size="11" font-weight="700" fill="#1a1a1a">R9</text>
+<text x="711" y="320" font-size="10" fill="#1a1a1a">150&#937;</text>
+<text x="711" y="331" font-size="8" fill="#595959">4.2V</text>
+<line x1="690" y1="324" x2="690" y2="350" stroke="#c62828" stroke-width="1.6"/>
+<path d="M680 350 L700 350 L690 370 Z" fill="#e57373" stroke="#c62828" stroke-width="1.4"/>
+<line x1="680" y1="372" x2="700" y2="372" stroke="#c62828" stroke-width="2.4"/>
+<line x1="703" y1="355" x2="714" y2="344" stroke="#1a1a1a" stroke-width="0.8"/>
+<line x1="708" y1="362" x2="719" y2="351" stroke="#1a1a1a" stroke-width="0.8"/>
+<text x="726" y="352" font-size="9" fill="#1a1a1a"><tspan font-weight="700">A</tspan> (+) long</text>
+<text x="726" y="366" font-size="11" font-weight="700" fill="#a31515">LED2 red</text>
+<text x="726" y="380" font-size="9" fill="#1a1a1a"><tspan font-weight="700">K</tspan> (&#8722;) short</text>
+<line x1="690" y1="372" x2="690" y2="390" stroke="#c62828" stroke-width="1.6"/>
+<circle cx="690" cy="410" r="20" fill="white" stroke="#c62828" stroke-width="1.8"/>
+<text x="690" y="403" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">D</text>
+<text x="690" y="426" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">S</text>
+<text x="678" y="414" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">G</text>
+<text x="718" y="398" font-size="11" font-weight="700" fill="#a31515">Q2</text>
+<rect x="580" y="400" width="30" height="20" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
+<rect x="586" y="401" width="3" height="18" fill="#d62828"/>
+<rect x="591" y="401" width="3" height="18" fill="#d62828"/>
+<rect x="596" y="401" width="3" height="18" fill="#7b3f00"/>
+<rect x="603" y="401" width="3" height="18" fill="#c9a227"/>
+<text x="595" y="392" font-size="10" text-anchor="middle" fill="#1a1a1a"><tspan font-weight="700">R10</tspan> 220&#937;</text>
+<line x1="610" y1="410" x2="670" y2="410" stroke="#c62828" stroke-width="1.6"/>
+<circle cx="640" cy="410" r="2.5" fill="#c62828"/>
+<line x1="640" y1="410" x2="640" y2="430" stroke="#c62828" stroke-width="1.6"/>
+<rect x="625" y="430" width="30" height="26" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
+<rect x="631" y="431" width="3" height="24" fill="#7b3f00"/>
+<rect x="636" y="431" width="3" height="24" fill="#1a1a1a"/>
+<rect x="641" y="431" width="3" height="24" fill="#f4811f"/>
+<rect x="648" y="431" width="3" height="24" fill="#c9a227"/>
+<text x="621" y="441" font-size="11" font-weight="700" text-anchor="end" fill="#1a1a1a">R11</text>
+<text x="621" y="453" font-size="10" text-anchor="end" fill="#1a1a1a">10k&#937;</text>
+<line x1="640" y1="456" x2="640" y2="500" stroke="#c62828" stroke-width="1.6"/>
+<circle cx="640" cy="500" r="2.5" fill="#c62828"/>
+<line x1="690" y1="430" x2="690" y2="500" stroke="#c62828" stroke-width="1.6"/>
+<circle cx="690" cy="500" r="2.5" fill="#c62828"/>
 
-<!-- Red channel dashed placeholder -->
-<rect x="650" y="360" width="160" height="130" rx="6" fill="none" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="5 5"/>
-<text x="730" y="415" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">Red channel</text>
-<text x="730" y="433" font-size="11" text-anchor="middle" fill="#595959">Identical circuit</text>
-<text x="730" y="449" font-size="11" text-anchor="middle" fill="#595959">(R9, LED2, Q2, R10, R11)</text>
-<text x="730" y="465" font-size="11" text-anchor="middle" fill="#595959">driven from PB1</text>
 
 <!-- Battery -->
 <g stroke="#1a1a1a" fill="none">
@@ -1376,8 +1446,24 @@ void loop() {
 <rect x="316" y="62" width="30" height="16" rx="2" stroke-width="1"/>
 </g>
 <text x="331" y="71" font-size="9" text-anchor="middle" fill="#1a1a1a">F1</text>
-<line x1="346" y1="70" x2="780" y2="70" stroke="#1a1a1a"/>
+<line x1="346" y1="70" x2="1020" y2="70" stroke="#1a1a1a"/>
 <text x="316" y="55" font-size="9" text-anchor="middle" fill="#595959">PTC fuse</text>
+<g>
+<rect x="735" y="530" width="290" height="180" rx="6" fill="white" stroke="#1a1a1a"/>
+<text x="747" y="548" font-size="11" font-weight="700" fill="#1a1a1a">How to read this schematic</text>
+<line x1="747" y1="562" x2="777" y2="562" stroke="#b7791f" stroke-width="3"/>
+<text x="785" y="566" font-size="10" fill="#1a1a1a"><tspan font-weight="700">WHITE channel:</tspan> PB0 (pin 5), LED1, Q1</text>
+<line x1="747" y1="578" x2="777" y2="578" stroke="#c62828" stroke-width="3"/>
+<text x="785" y="582" font-size="10" fill="#1a1a1a"><tspan font-weight="700">RED channel:</tspan> PB1 (pin 6), LED2, Q2</text>
+<line x1="747" y1="594" x2="777" y2="594" stroke="#1a1a1a" stroke-width="2"/>
+<text x="785" y="598" font-size="10" fill="#1a1a1a">Black: shared power, ground, touch sensor</text>
+<text x="747" y="618" font-size="10" fill="#1a1a1a">A dot = connected. A hump = wires cross, <tspan font-weight="700">NOT</tspan> connected.</text>
+<text x="747" y="640" font-size="10" font-weight="700" fill="#1a1a1a">Q1 and Q2 (IRLZ44N) pins</text>
+<text x="747" y="653" font-size="9" fill="#595959">writing facing you, metal tab up, leads down:</text>
+<text x="747" y="668" font-size="10" fill="#1a1a1a"><tspan font-weight="700">LEFT</tspan> = Gate (G)</text>
+<text x="747" y="683" font-size="10" fill="#1a1a1a"><tspan font-weight="700">MIDDLE</tspan> = Drain (D)</text>
+<text x="747" y="698" font-size="10" fill="#1a1a1a"><tspan font-weight="700">RIGHT</tspan> = Source (S)</text>
+</g>
 </svg></div>
 <h3>Wire this step</h3>
 <div class="item" data-id="s5-1"><input type="checkbox" id="cb-s5-1"><label for="cb-s5-1"><span class="main-text"><b>Verify battery JST polarity with a multimeter in DC voltage mode</b> before connecting anything</span> <span class="note">&mdash; not continuity mode &mdash; see the warning box in the diagram</span></label></div>
@@ -1389,9 +1475,13 @@ void loop() {
 <div class="step-section">
 <div class="step-header"><span class="step-title">Charge status indicator</span><span class="step-num">Step 6 of 7</span></div>
 <div class="whats-new">The RGB LED, wired directly to CHRG/STDBY &mdash; entirely independent of the ATtiny85, no firmware involved.</div>
-<div class="schematic-wrap"><svg width="820" height="760" viewBox="0 0 820 760" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
+<div class="schematic-wrap"><svg width="1040" height="760" viewBox="0 0 1040 760" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
 <title>Lantern circuit - cumulative build</title>
-<rect x="0" y="0" width="820" height="760" fill="white"/>
+<rect x="0" y="0" width="1040" height="760" fill="white"/>
+<!-- channel background tints -->
+<path d="M304 292 L415 292 L415 345 L530 345 L530 494 L304 494 Z" fill="#fff3cf" stroke="#e0b84a" stroke-width="1" stroke-dasharray="4 3"/>
+<path d="M632 292 L816 292 L816 494 L548 494 L548 345 L632 345 Z" fill="#fde6e6" stroke="#e08a8a" stroke-width="1" stroke-dasharray="4 3"/>
+
 <!-- ATtiny85 box -->
 <g stroke="#1a1a1a" fill="none">
 <rect x="420" y="200" width="200" height="140" rx="4" stroke-width="1"/>
@@ -1420,40 +1510,41 @@ void loop() {
 <text x="440" y="335" font-size="11" fill="#1a1a1a">GND</text>
 
 <!-- Common ground bus -->
-<line x1="190" y1="500" x2="780" y2="500" stroke="#1a1a1a"/>
-<text x="700" y="514" font-size="11" fill="#595959">common ground</text>
+<line x1="190" y1="500" x2="1020" y2="500" stroke="#1a1a1a"/>
+<text x="880" y="514" font-size="11" fill="#595959">common ground</text>
 
 <!-- TTP223 box -->
 <g stroke="#1a1a1a" fill="none">
-<rect x="700" y="220" width="110" height="100" rx="4" stroke-width="1"/>
+<rect x="920" y="220" width="110" height="100" rx="4" stroke-width="1"/>
 </g>
-<text x="755" y="335" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">TTP223</text>
-<text x="755" y="349" font-size="10" text-anchor="middle" fill="#595959">momentary mode</text>
+<text x="975" y="335" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">TTP223</text>
+<text x="975" y="349" font-size="10" text-anchor="middle" fill="#595959">momentary mode</text>
 <!-- TTP223 VCC -->
-<line x1="755" y1="70" x2="755" y2="220" stroke="#1a1a1a"/>
-<circle cx="755" cy="70" r="2.5" fill="#1a1a1a"/>
-<text x="763" y="215" font-size="11" fill="#1a1a1a">VCC</text>
-<text x="708" y="255" font-size="11" fill="#1a1a1a">OUT</text>
+<line x1="975" y1="70" x2="975" y2="220" stroke="#1a1a1a"/>
+<circle cx="975" cy="70" r="2.5" fill="#1a1a1a"/>
+<text x="983" y="215" font-size="11" fill="#1a1a1a">VCC</text>
+<text x="928" y="255" font-size="11" fill="#1a1a1a">OUT</text>
 <!-- TTP223 GND -->
-<line x1="755" y1="320" x2="755" y2="500" stroke="#1a1a1a"/>
-<circle cx="755" cy="500" r="2.5" fill="#1a1a1a"/>
-<text x="763" y="315" font-size="11" fill="#1a1a1a">GND</text>
+<line x1="975" y1="320" x2="975" y2="500" stroke="#1a1a1a"/>
+<circle cx="975" cy="500" r="2.5" fill="#1a1a1a"/>
+<text x="983" y="315" font-size="11" fill="#1a1a1a">GND</text>
 <!-- ATtiny PB2 to TTP223 -->
-<line x1="620" y1="260" x2="700" y2="260" stroke="#1a1a1a"/>
+<line x1="620" y1="260" x2="683" y2="260" stroke="#1a1a1a"/>
+<path d="M683 260 A7 7 0 0 1 697 260" fill="none" stroke="#1a1a1a"/>
+<line x1="697" y1="260" x2="920" y2="260" stroke="#1a1a1a"/>
 <text x="628" y="255" font-size="11" fill="#1a1a1a">PB2</text>
 
-<!-- ATtiny PB0 (white channel) -->
-<line x1="520" y1="340" x2="520" y2="410" stroke="#1a1a1a"/>
-<line x1="520" y1="410" x2="430" y2="410" stroke="#1a1a1a"/>
+<!-- ===== WHITE CHANNEL (PB0): gold wires ===== -->
+<line x1="350" y1="70" x2="350" y2="300" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="350" cy="70" r="2.5" fill="#b7791f"/>
+<line x1="520" y1="340" x2="520" y2="410" stroke="#b7791f" stroke-width="1.6"/>
+<line x1="520" y1="410" x2="505" y2="410" stroke="#b7791f" stroke-width="1.6"/>
 <text x="500" y="335" font-size="11" fill="#1a1a1a">PB0</text>
-
-<!-- White channel BAT+ tap -->
-<line x1="350" y1="70" x2="350" y2="300" stroke="#1a1a1a"/>
-<circle cx="350" cy="70" r="2.5" fill="#1a1a1a"/>
-
 <!-- C4: 10uF bulk cap near the LED/MOSFET stage -->
 <circle cx="350" cy="170" r="2.5" fill="#1a1a1a"/>
-<line x1="350" y1="170" x2="300" y2="170" stroke="#1a1a1a"/>
+<line x1="350" y1="170" x2="317" y2="170" stroke="#1a1a1a"/>
+<path d="M317 170 A7 7 0 0 0 303 170" fill="none" stroke="#1a1a1a"/>
+<line x1="303" y1="170" x2="300" y2="170" stroke="#1a1a1a"/>
 <line x1="300" y1="170" x2="300" y2="500" stroke="#1a1a1a"/>
 <circle cx="300" cy="500" r="2.5" fill="#1a1a1a"/>
 <line x1="292" y1="300" x2="308" y2="300" stroke="#1a1a1a" stroke-width="2"/>
@@ -1461,59 +1552,44 @@ void loop() {
 <text x="296" y="298" font-size="12" font-weight="700" text-anchor="end" fill="#1a1a1a">+</text>
 <text x="296" y="318" font-size="12" font-weight="700" text-anchor="end" fill="#1a1a1a">&#8722;</text>
 <text x="286" y="293" font-size="10" font-weight="700" text-anchor="end" fill="#1a1a1a">C4 10&#181;F</text>
-<text x="286" y="305" font-size="9" text-anchor="end" fill="#1a1a1a">+ top = LONG lead</text>
-<text x="286" y="316" font-size="9" text-anchor="end" fill="#1a1a1a">&#8722; bottom = SHORT lead</text>
-<text x="286" y="327" font-size="9" text-anchor="end" fill="#595959">(stripe side)</text>
+<text x="286" y="305" font-size="9" text-anchor="end" fill="#1a1a1a">+ long lead</text>
+<text x="286" y="316" font-size="9" text-anchor="end" fill="#1a1a1a">&#8722; short lead</text>
 
-<!-- R6 current-limit resistor -->
 <rect x="335" y="300" width="30" height="24" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
 <rect x="341" y="301" width="3" height="22" fill="#7b3f00"/>
 <rect x="346" y="301" width="3" height="22" fill="#1a1a1a"/>
 <rect x="351" y="301" width="3" height="22" fill="#7b3f00"/>
 <rect x="358" y="301" width="3" height="22" fill="#c9a227"/>
 <text x="331" y="309" font-size="11" font-weight="700" text-anchor="end" fill="#1a1a1a">R6</text>
-<text x="331" y="320" font-size="10" text-anchor="end" fill="#1a1a1a">100&#937;</text>
+<text x="331" y="320" font-size="9" text-anchor="end" fill="#1a1a1a">100&#937;</text>
 <text x="331" y="331" font-size="8" text-anchor="end" fill="#595959">4.2V</text>
-<line x1="350" y1="324" x2="350" y2="350" stroke="#1a1a1a"/>
-
-<!-- LED1 symbol -->
-<path d="M340 350 L360 350 L350 370 Z" fill="#1a1a1a" opacity="0.85"/>
-<line x1="340" y1="372" x2="360" y2="372" stroke="#1a1a1a" stroke-width="2.2"/>
+<line x1="350" y1="324" x2="350" y2="350" stroke="#b7791f" stroke-width="1.6"/>
+<path d="M340 350 L360 350 L350 370 Z" fill="#f3d27a" stroke="#b7791f" stroke-width="1.4"/>
+<line x1="340" y1="372" x2="360" y2="372" stroke="#b7791f" stroke-width="2.4"/>
 <line x1="363" y1="355" x2="374" y2="344" stroke="#1a1a1a" stroke-width="0.8"/>
 <line x1="368" y1="362" x2="379" y2="351" stroke="#1a1a1a" stroke-width="0.8"/>
 <text x="386" y="352" font-size="9" fill="#1a1a1a"><tspan font-weight="700">A</tspan> (+) long</text>
-<text x="386" y="366" font-size="11" fill="#1a1a1a">LED1</text>
+<text x="386" y="366" font-size="11" font-weight="700" fill="#8a5a00">LED1 white</text>
 <text x="386" y="380" font-size="9" fill="#1a1a1a"><tspan font-weight="700">K</tspan> (&#8722;) short</text>
-<line x1="350" y1="372" x2="350" y2="390" stroke="#1a1a1a"/>
-
-<!-- Q1 MOSFET (IRLZ44N): D = top, G = right side, S = bottom -->
-<circle cx="350" cy="410" r="20" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+<line x1="350" y1="372" x2="350" y2="390" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="350" cy="410" r="20" fill="white" stroke="#b7791f" stroke-width="1.8"/>
 <text x="350" y="403" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">D</text>
 <text x="350" y="426" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">S</text>
 <text x="362" y="414" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">G</text>
-<text x="328" y="391" font-size="11" text-anchor="end" fill="#1a1a1a">Q1</text>
-
-<!-- PB0 down and left to R7 (right end) -->
-<line x1="520" y1="340" x2="520" y2="410" stroke="#1a1a1a"/>
-<line x1="520" y1="410" x2="505" y2="410" stroke="#1a1a1a"/>
+<text x="328" y="391" font-size="11" font-weight="700" text-anchor="end" fill="#8a5a00">Q1</text>
 <rect x="475" y="400" width="30" height="20" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
 <rect x="481" y="401" width="3" height="18" fill="#d62828"/>
 <rect x="486" y="401" width="3" height="18" fill="#d62828"/>
 <rect x="491" y="401" width="3" height="18" fill="#7b3f00"/>
 <rect x="498" y="401" width="3" height="18" fill="#c9a227"/>
 <text x="490" y="392" font-size="10" text-anchor="middle" fill="#1a1a1a"><tspan font-weight="700">R7</tspan> 220&#937;</text>
-
-<!-- R7 to gate. The two small humps are wires that CROSS WITHOUT CONNECTING
-     (ATtiny GND line at x=460 and C3 ground line at x=380). Only dots are connections. -->
-<line x1="475" y1="410" x2="467" y2="410" stroke="#1a1a1a"/>
-<path d="M467 410 A7 7 0 0 0 453 410" fill="none" stroke="#1a1a1a"/>
-<line x1="453" y1="410" x2="387" y2="410" stroke="#1a1a1a"/>
-<path d="M387 410 A7 7 0 0 0 373 410" fill="none" stroke="#1a1a1a"/>
-<line x1="373" y1="410" x2="370" y2="410" stroke="#1a1a1a"/>
-
-<!-- pull-down R8: from the gate wire (dot) down to ground -->
-<circle cx="420" cy="410" r="2.5" fill="#1a1a1a"/>
-<line x1="420" y1="410" x2="420" y2="430" stroke="#1a1a1a"/>
+<line x1="475" y1="410" x2="467" y2="410" stroke="#b7791f" stroke-width="1.6"/>
+<path d="M467 410 A7 7 0 0 0 453 410" fill="none" stroke="#b7791f" stroke-width="1.6"/>
+<line x1="453" y1="410" x2="387" y2="410" stroke="#b7791f" stroke-width="1.6"/>
+<path d="M387 410 A7 7 0 0 0 373 410" fill="none" stroke="#b7791f" stroke-width="1.6"/>
+<line x1="373" y1="410" x2="370" y2="410" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="420" cy="410" r="2.5" fill="#b7791f"/>
+<line x1="420" y1="410" x2="420" y2="430" stroke="#b7791f" stroke-width="1.6"/>
 <rect x="405" y="430" width="30" height="26" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
 <rect x="411" y="431" width="3" height="24" fill="#7b3f00"/>
 <rect x="416" y="431" width="3" height="24" fill="#1a1a1a"/>
@@ -1521,33 +1597,59 @@ void loop() {
 <rect x="428" y="431" width="3" height="24" fill="#c9a227"/>
 <text x="401" y="441" font-size="11" font-weight="700" text-anchor="end" fill="#1a1a1a">R8</text>
 <text x="401" y="453" font-size="10" text-anchor="end" fill="#1a1a1a">10k&#937;</text>
-<line x1="420" y1="456" x2="420" y2="500" stroke="#1a1a1a"/>
-<circle cx="420" cy="500" r="2.5" fill="#1a1a1a"/>
-
-<!-- MOSFET source (bottom) to ground -->
-<line x1="350" y1="430" x2="350" y2="500" stroke="#1a1a1a"/>
-<circle cx="350" cy="500" r="2.5" fill="#1a1a1a"/>
-
-<!-- Pin key for Q1 -->
-<g stroke="#1a1a1a" fill="white">
-<rect x="533" y="352" width="112" height="112" rx="4" stroke-width="1"/>
-</g>
-<text x="589" y="368" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">Q1 = IRLZ44N pins</text>
-<text x="589" y="382" font-size="9" text-anchor="middle" fill="#595959">writing facing you,</text>
-<text x="589" y="393" font-size="9" text-anchor="middle" fill="#595959">metal tab up, leads down</text>
-<text x="541" y="414" font-size="10" fill="#1a1a1a"><tspan font-weight="700">LEFT</tspan> = Gate (G)</text>
-<text x="541" y="430" font-size="10" fill="#1a1a1a"><tspan font-weight="700">MIDDLE</tspan> = Drain (D)</text>
-<text x="541" y="446" font-size="10" fill="#1a1a1a"><tspan font-weight="700">RIGHT</tspan> = Source (S)</text>
-
-<!-- ATtiny PB1 label (red channel, see dashed box) -->
+<line x1="420" y1="456" x2="420" y2="500" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="420" cy="500" r="2.5" fill="#b7791f"/>
+<line x1="350" y1="430" x2="350" y2="500" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="350" cy="500" r="2.5" fill="#b7791f"/>
+<!-- ===== RED CHANNEL (PB1): red wires ===== -->
+<line x1="690" y1="70" x2="690" y2="300" stroke="#c62828" stroke-width="1.6"/>
+<circle cx="690" cy="70" r="2.5" fill="#c62828"/>
+<line x1="560" y1="340" x2="560" y2="410" stroke="#c62828" stroke-width="1.6"/>
+<line x1="560" y1="410" x2="580" y2="410" stroke="#c62828" stroke-width="1.6"/>
 <text x="560" y="335" font-size="11" fill="#1a1a1a">PB1</text>
+<rect x="675" y="300" width="30" height="24" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
+<rect x="681" y="301" width="3" height="22" fill="#7b3f00"/>
+<rect x="686" y="301" width="3" height="22" fill="#2e8b3a"/>
+<rect x="691" y="301" width="3" height="22" fill="#7b3f00"/>
+<rect x="698" y="301" width="3" height="22" fill="#c9a227"/>
+<text x="711" y="309" font-size="11" font-weight="700" fill="#1a1a1a">R9</text>
+<text x="711" y="320" font-size="10" fill="#1a1a1a">150&#937;</text>
+<text x="711" y="331" font-size="8" fill="#595959">4.2V</text>
+<line x1="690" y1="324" x2="690" y2="350" stroke="#c62828" stroke-width="1.6"/>
+<path d="M680 350 L700 350 L690 370 Z" fill="#e57373" stroke="#c62828" stroke-width="1.4"/>
+<line x1="680" y1="372" x2="700" y2="372" stroke="#c62828" stroke-width="2.4"/>
+<line x1="703" y1="355" x2="714" y2="344" stroke="#1a1a1a" stroke-width="0.8"/>
+<line x1="708" y1="362" x2="719" y2="351" stroke="#1a1a1a" stroke-width="0.8"/>
+<text x="726" y="352" font-size="9" fill="#1a1a1a"><tspan font-weight="700">A</tspan> (+) long</text>
+<text x="726" y="366" font-size="11" font-weight="700" fill="#a31515">LED2 red</text>
+<text x="726" y="380" font-size="9" fill="#1a1a1a"><tspan font-weight="700">K</tspan> (&#8722;) short</text>
+<line x1="690" y1="372" x2="690" y2="390" stroke="#c62828" stroke-width="1.6"/>
+<circle cx="690" cy="410" r="20" fill="white" stroke="#c62828" stroke-width="1.8"/>
+<text x="690" y="403" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">D</text>
+<text x="690" y="426" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">S</text>
+<text x="678" y="414" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">G</text>
+<text x="718" y="398" font-size="11" font-weight="700" fill="#a31515">Q2</text>
+<rect x="580" y="400" width="30" height="20" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
+<rect x="586" y="401" width="3" height="18" fill="#d62828"/>
+<rect x="591" y="401" width="3" height="18" fill="#d62828"/>
+<rect x="596" y="401" width="3" height="18" fill="#7b3f00"/>
+<rect x="603" y="401" width="3" height="18" fill="#c9a227"/>
+<text x="595" y="392" font-size="10" text-anchor="middle" fill="#1a1a1a"><tspan font-weight="700">R10</tspan> 220&#937;</text>
+<line x1="610" y1="410" x2="670" y2="410" stroke="#c62828" stroke-width="1.6"/>
+<circle cx="640" cy="410" r="2.5" fill="#c62828"/>
+<line x1="640" y1="410" x2="640" y2="430" stroke="#c62828" stroke-width="1.6"/>
+<rect x="625" y="430" width="30" height="26" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
+<rect x="631" y="431" width="3" height="24" fill="#7b3f00"/>
+<rect x="636" y="431" width="3" height="24" fill="#1a1a1a"/>
+<rect x="641" y="431" width="3" height="24" fill="#f4811f"/>
+<rect x="648" y="431" width="3" height="24" fill="#c9a227"/>
+<text x="621" y="441" font-size="11" font-weight="700" text-anchor="end" fill="#1a1a1a">R11</text>
+<text x="621" y="453" font-size="10" text-anchor="end" fill="#1a1a1a">10k&#937;</text>
+<line x1="640" y1="456" x2="640" y2="500" stroke="#c62828" stroke-width="1.6"/>
+<circle cx="640" cy="500" r="2.5" fill="#c62828"/>
+<line x1="690" y1="430" x2="690" y2="500" stroke="#c62828" stroke-width="1.6"/>
+<circle cx="690" cy="500" r="2.5" fill="#c62828"/>
 
-<!-- Red channel dashed placeholder -->
-<rect x="650" y="360" width="160" height="130" rx="6" fill="none" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="5 5"/>
-<text x="730" y="415" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">Red channel</text>
-<text x="730" y="433" font-size="11" text-anchor="middle" fill="#595959">Identical circuit</text>
-<text x="730" y="449" font-size="11" text-anchor="middle" fill="#595959">(R9, LED2, Q2, R10, R11)</text>
-<text x="730" y="465" font-size="11" text-anchor="middle" fill="#595959">driven from PB1</text>
 
 <!-- Battery -->
 <g stroke="#1a1a1a" fill="none">
@@ -1608,7 +1710,7 @@ void loop() {
 <rect x="316" y="62" width="30" height="16" rx="2" stroke-width="1"/>
 </g>
 <text x="331" y="71" font-size="9" text-anchor="middle" fill="#1a1a1a">F1</text>
-<line x1="346" y1="70" x2="780" y2="70" stroke="#1a1a1a"/>
+<line x1="346" y1="70" x2="1020" y2="70" stroke="#1a1a1a"/>
 <text x="316" y="55" font-size="9" text-anchor="middle" fill="#595959">PTC fuse</text>
 
 <!-- Charge status indicator -->
@@ -1649,6 +1751,22 @@ void loop() {
 <text x="500" y="600" font-size="10" fill="#595959">R17, R18: 1k&#8486; each (per TP4056's intended</text>
 <text x="500" y="614" font-size="10" fill="#595959">indicator usage) &#8212; recalc at 4.2V if you want</text>
 <text x="500" y="628" font-size="10" fill="#595959">the red/green brightness better matched</text>
+<g>
+<rect x="735" y="530" width="290" height="180" rx="6" fill="white" stroke="#1a1a1a"/>
+<text x="747" y="548" font-size="11" font-weight="700" fill="#1a1a1a">How to read this schematic</text>
+<line x1="747" y1="562" x2="777" y2="562" stroke="#b7791f" stroke-width="3"/>
+<text x="785" y="566" font-size="10" fill="#1a1a1a"><tspan font-weight="700">WHITE channel:</tspan> PB0 (pin 5), LED1, Q1</text>
+<line x1="747" y1="578" x2="777" y2="578" stroke="#c62828" stroke-width="3"/>
+<text x="785" y="582" font-size="10" fill="#1a1a1a"><tspan font-weight="700">RED channel:</tspan> PB1 (pin 6), LED2, Q2</text>
+<line x1="747" y1="594" x2="777" y2="594" stroke="#1a1a1a" stroke-width="2"/>
+<text x="785" y="598" font-size="10" fill="#1a1a1a">Black: shared power, ground, touch sensor</text>
+<text x="747" y="618" font-size="10" fill="#1a1a1a">A dot = connected. A hump = wires cross, <tspan font-weight="700">NOT</tspan> connected.</text>
+<text x="747" y="640" font-size="10" font-weight="700" fill="#1a1a1a">Q1 and Q2 (IRLZ44N) pins</text>
+<text x="747" y="653" font-size="9" fill="#595959">writing facing you, metal tab up, leads down:</text>
+<text x="747" y="668" font-size="10" fill="#1a1a1a"><tspan font-weight="700">LEFT</tspan> = Gate (G)</text>
+<text x="747" y="683" font-size="10" fill="#1a1a1a"><tspan font-weight="700">MIDDLE</tspan> = Drain (D)</text>
+<text x="747" y="698" font-size="10" fill="#1a1a1a"><tspan font-weight="700">RIGHT</tspan> = Source (S)</text>
+</g>
 </svg></div>
 <h3>Wire this step</h3>
 <div class="item" data-id="s6-1"><input type="checkbox" id="cb-s6-1"><label for="cb-s6-1"><span class="main-text">Confirm your TP4056 module exposes CHRG and STDBY as solder pads</span></label></div>
@@ -1660,9 +1778,13 @@ void loop() {
 <div class="step-section">
 <div class="step-header"><span class="step-title">ISP header &mdash; complete circuit</span><span class="step-num">Step 7 of 7</span></div>
 <div class="whats-new">The last piece: a permanent programming header, so future firmware updates don't require rebuilding the ISP connections from scratch. Once this step is checked off, the diagram above is the complete circuit.</div>
-<div class="schematic-wrap"><svg width="820" height="760" viewBox="0 0 820 760" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
+<div class="schematic-wrap"><svg width="1040" height="760" viewBox="0 0 1040 760" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
 <title>Lantern circuit - cumulative build</title>
-<rect x="0" y="0" width="820" height="760" fill="white"/>
+<rect x="0" y="0" width="1040" height="760" fill="white"/>
+<!-- channel background tints -->
+<path d="M304 292 L415 292 L415 345 L530 345 L530 494 L304 494 Z" fill="#fff3cf" stroke="#e0b84a" stroke-width="1" stroke-dasharray="4 3"/>
+<path d="M632 292 L816 292 L816 494 L548 494 L548 345 L632 345 Z" fill="#fde6e6" stroke="#e08a8a" stroke-width="1" stroke-dasharray="4 3"/>
+
 <!-- ATtiny85 box -->
 <g stroke="#1a1a1a" fill="none">
 <rect x="420" y="200" width="200" height="140" rx="4" stroke-width="1"/>
@@ -1691,40 +1813,41 @@ void loop() {
 <text x="440" y="335" font-size="11" fill="#1a1a1a">GND</text>
 
 <!-- Common ground bus -->
-<line x1="190" y1="500" x2="780" y2="500" stroke="#1a1a1a"/>
-<text x="700" y="514" font-size="11" fill="#595959">common ground</text>
+<line x1="190" y1="500" x2="1020" y2="500" stroke="#1a1a1a"/>
+<text x="880" y="514" font-size="11" fill="#595959">common ground</text>
 
 <!-- TTP223 box -->
 <g stroke="#1a1a1a" fill="none">
-<rect x="700" y="220" width="110" height="100" rx="4" stroke-width="1"/>
+<rect x="920" y="220" width="110" height="100" rx="4" stroke-width="1"/>
 </g>
-<text x="755" y="335" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">TTP223</text>
-<text x="755" y="349" font-size="10" text-anchor="middle" fill="#595959">momentary mode</text>
+<text x="975" y="335" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">TTP223</text>
+<text x="975" y="349" font-size="10" text-anchor="middle" fill="#595959">momentary mode</text>
 <!-- TTP223 VCC -->
-<line x1="755" y1="70" x2="755" y2="220" stroke="#1a1a1a"/>
-<circle cx="755" cy="70" r="2.5" fill="#1a1a1a"/>
-<text x="763" y="215" font-size="11" fill="#1a1a1a">VCC</text>
-<text x="708" y="255" font-size="11" fill="#1a1a1a">OUT</text>
+<line x1="975" y1="70" x2="975" y2="220" stroke="#1a1a1a"/>
+<circle cx="975" cy="70" r="2.5" fill="#1a1a1a"/>
+<text x="983" y="215" font-size="11" fill="#1a1a1a">VCC</text>
+<text x="928" y="255" font-size="11" fill="#1a1a1a">OUT</text>
 <!-- TTP223 GND -->
-<line x1="755" y1="320" x2="755" y2="500" stroke="#1a1a1a"/>
-<circle cx="755" cy="500" r="2.5" fill="#1a1a1a"/>
-<text x="763" y="315" font-size="11" fill="#1a1a1a">GND</text>
+<line x1="975" y1="320" x2="975" y2="500" stroke="#1a1a1a"/>
+<circle cx="975" cy="500" r="2.5" fill="#1a1a1a"/>
+<text x="983" y="315" font-size="11" fill="#1a1a1a">GND</text>
 <!-- ATtiny PB2 to TTP223 -->
-<line x1="620" y1="260" x2="700" y2="260" stroke="#1a1a1a"/>
+<line x1="620" y1="260" x2="683" y2="260" stroke="#1a1a1a"/>
+<path d="M683 260 A7 7 0 0 1 697 260" fill="none" stroke="#1a1a1a"/>
+<line x1="697" y1="260" x2="920" y2="260" stroke="#1a1a1a"/>
 <text x="628" y="255" font-size="11" fill="#1a1a1a">PB2</text>
 
-<!-- ATtiny PB0 (white channel) -->
-<line x1="520" y1="340" x2="520" y2="410" stroke="#1a1a1a"/>
-<line x1="520" y1="410" x2="430" y2="410" stroke="#1a1a1a"/>
+<!-- ===== WHITE CHANNEL (PB0): gold wires ===== -->
+<line x1="350" y1="70" x2="350" y2="300" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="350" cy="70" r="2.5" fill="#b7791f"/>
+<line x1="520" y1="340" x2="520" y2="410" stroke="#b7791f" stroke-width="1.6"/>
+<line x1="520" y1="410" x2="505" y2="410" stroke="#b7791f" stroke-width="1.6"/>
 <text x="500" y="335" font-size="11" fill="#1a1a1a">PB0</text>
-
-<!-- White channel BAT+ tap -->
-<line x1="350" y1="70" x2="350" y2="300" stroke="#1a1a1a"/>
-<circle cx="350" cy="70" r="2.5" fill="#1a1a1a"/>
-
 <!-- C4: 10uF bulk cap near the LED/MOSFET stage -->
 <circle cx="350" cy="170" r="2.5" fill="#1a1a1a"/>
-<line x1="350" y1="170" x2="300" y2="170" stroke="#1a1a1a"/>
+<line x1="350" y1="170" x2="317" y2="170" stroke="#1a1a1a"/>
+<path d="M317 170 A7 7 0 0 0 303 170" fill="none" stroke="#1a1a1a"/>
+<line x1="303" y1="170" x2="300" y2="170" stroke="#1a1a1a"/>
 <line x1="300" y1="170" x2="300" y2="500" stroke="#1a1a1a"/>
 <circle cx="300" cy="500" r="2.5" fill="#1a1a1a"/>
 <line x1="292" y1="300" x2="308" y2="300" stroke="#1a1a1a" stroke-width="2"/>
@@ -1732,59 +1855,44 @@ void loop() {
 <text x="296" y="298" font-size="12" font-weight="700" text-anchor="end" fill="#1a1a1a">+</text>
 <text x="296" y="318" font-size="12" font-weight="700" text-anchor="end" fill="#1a1a1a">&#8722;</text>
 <text x="286" y="293" font-size="10" font-weight="700" text-anchor="end" fill="#1a1a1a">C4 10&#181;F</text>
-<text x="286" y="305" font-size="9" text-anchor="end" fill="#1a1a1a">+ top = LONG lead</text>
-<text x="286" y="316" font-size="9" text-anchor="end" fill="#1a1a1a">&#8722; bottom = SHORT lead</text>
-<text x="286" y="327" font-size="9" text-anchor="end" fill="#595959">(stripe side)</text>
+<text x="286" y="305" font-size="9" text-anchor="end" fill="#1a1a1a">+ long lead</text>
+<text x="286" y="316" font-size="9" text-anchor="end" fill="#1a1a1a">&#8722; short lead</text>
 
-<!-- R6 current-limit resistor -->
 <rect x="335" y="300" width="30" height="24" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
 <rect x="341" y="301" width="3" height="22" fill="#7b3f00"/>
 <rect x="346" y="301" width="3" height="22" fill="#1a1a1a"/>
 <rect x="351" y="301" width="3" height="22" fill="#7b3f00"/>
 <rect x="358" y="301" width="3" height="22" fill="#c9a227"/>
 <text x="331" y="309" font-size="11" font-weight="700" text-anchor="end" fill="#1a1a1a">R6</text>
-<text x="331" y="320" font-size="10" text-anchor="end" fill="#1a1a1a">100&#937;</text>
+<text x="331" y="320" font-size="9" text-anchor="end" fill="#1a1a1a">100&#937;</text>
 <text x="331" y="331" font-size="8" text-anchor="end" fill="#595959">4.2V</text>
-<line x1="350" y1="324" x2="350" y2="350" stroke="#1a1a1a"/>
-
-<!-- LED1 symbol -->
-<path d="M340 350 L360 350 L350 370 Z" fill="#1a1a1a" opacity="0.85"/>
-<line x1="340" y1="372" x2="360" y2="372" stroke="#1a1a1a" stroke-width="2.2"/>
+<line x1="350" y1="324" x2="350" y2="350" stroke="#b7791f" stroke-width="1.6"/>
+<path d="M340 350 L360 350 L350 370 Z" fill="#f3d27a" stroke="#b7791f" stroke-width="1.4"/>
+<line x1="340" y1="372" x2="360" y2="372" stroke="#b7791f" stroke-width="2.4"/>
 <line x1="363" y1="355" x2="374" y2="344" stroke="#1a1a1a" stroke-width="0.8"/>
 <line x1="368" y1="362" x2="379" y2="351" stroke="#1a1a1a" stroke-width="0.8"/>
 <text x="386" y="352" font-size="9" fill="#1a1a1a"><tspan font-weight="700">A</tspan> (+) long</text>
-<text x="386" y="366" font-size="11" fill="#1a1a1a">LED1</text>
+<text x="386" y="366" font-size="11" font-weight="700" fill="#8a5a00">LED1 white</text>
 <text x="386" y="380" font-size="9" fill="#1a1a1a"><tspan font-weight="700">K</tspan> (&#8722;) short</text>
-<line x1="350" y1="372" x2="350" y2="390" stroke="#1a1a1a"/>
-
-<!-- Q1 MOSFET (IRLZ44N): D = top, G = right side, S = bottom -->
-<circle cx="350" cy="410" r="20" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+<line x1="350" y1="372" x2="350" y2="390" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="350" cy="410" r="20" fill="white" stroke="#b7791f" stroke-width="1.8"/>
 <text x="350" y="403" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">D</text>
 <text x="350" y="426" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">S</text>
 <text x="362" y="414" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">G</text>
-<text x="328" y="391" font-size="11" text-anchor="end" fill="#1a1a1a">Q1</text>
-
-<!-- PB0 down and left to R7 (right end) -->
-<line x1="520" y1="340" x2="520" y2="410" stroke="#1a1a1a"/>
-<line x1="520" y1="410" x2="505" y2="410" stroke="#1a1a1a"/>
+<text x="328" y="391" font-size="11" font-weight="700" text-anchor="end" fill="#8a5a00">Q1</text>
 <rect x="475" y="400" width="30" height="20" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
 <rect x="481" y="401" width="3" height="18" fill="#d62828"/>
 <rect x="486" y="401" width="3" height="18" fill="#d62828"/>
 <rect x="491" y="401" width="3" height="18" fill="#7b3f00"/>
 <rect x="498" y="401" width="3" height="18" fill="#c9a227"/>
 <text x="490" y="392" font-size="10" text-anchor="middle" fill="#1a1a1a"><tspan font-weight="700">R7</tspan> 220&#937;</text>
-
-<!-- R7 to gate. The two small humps are wires that CROSS WITHOUT CONNECTING
-     (ATtiny GND line at x=460 and C3 ground line at x=380). Only dots are connections. -->
-<line x1="475" y1="410" x2="467" y2="410" stroke="#1a1a1a"/>
-<path d="M467 410 A7 7 0 0 0 453 410" fill="none" stroke="#1a1a1a"/>
-<line x1="453" y1="410" x2="387" y2="410" stroke="#1a1a1a"/>
-<path d="M387 410 A7 7 0 0 0 373 410" fill="none" stroke="#1a1a1a"/>
-<line x1="373" y1="410" x2="370" y2="410" stroke="#1a1a1a"/>
-
-<!-- pull-down R8: from the gate wire (dot) down to ground -->
-<circle cx="420" cy="410" r="2.5" fill="#1a1a1a"/>
-<line x1="420" y1="410" x2="420" y2="430" stroke="#1a1a1a"/>
+<line x1="475" y1="410" x2="467" y2="410" stroke="#b7791f" stroke-width="1.6"/>
+<path d="M467 410 A7 7 0 0 0 453 410" fill="none" stroke="#b7791f" stroke-width="1.6"/>
+<line x1="453" y1="410" x2="387" y2="410" stroke="#b7791f" stroke-width="1.6"/>
+<path d="M387 410 A7 7 0 0 0 373 410" fill="none" stroke="#b7791f" stroke-width="1.6"/>
+<line x1="373" y1="410" x2="370" y2="410" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="420" cy="410" r="2.5" fill="#b7791f"/>
+<line x1="420" y1="410" x2="420" y2="430" stroke="#b7791f" stroke-width="1.6"/>
 <rect x="405" y="430" width="30" height="26" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
 <rect x="411" y="431" width="3" height="24" fill="#7b3f00"/>
 <rect x="416" y="431" width="3" height="24" fill="#1a1a1a"/>
@@ -1792,33 +1900,59 @@ void loop() {
 <rect x="428" y="431" width="3" height="24" fill="#c9a227"/>
 <text x="401" y="441" font-size="11" font-weight="700" text-anchor="end" fill="#1a1a1a">R8</text>
 <text x="401" y="453" font-size="10" text-anchor="end" fill="#1a1a1a">10k&#937;</text>
-<line x1="420" y1="456" x2="420" y2="500" stroke="#1a1a1a"/>
-<circle cx="420" cy="500" r="2.5" fill="#1a1a1a"/>
-
-<!-- MOSFET source (bottom) to ground -->
-<line x1="350" y1="430" x2="350" y2="500" stroke="#1a1a1a"/>
-<circle cx="350" cy="500" r="2.5" fill="#1a1a1a"/>
-
-<!-- Pin key for Q1 -->
-<g stroke="#1a1a1a" fill="white">
-<rect x="533" y="352" width="112" height="112" rx="4" stroke-width="1"/>
-</g>
-<text x="589" y="368" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">Q1 = IRLZ44N pins</text>
-<text x="589" y="382" font-size="9" text-anchor="middle" fill="#595959">writing facing you,</text>
-<text x="589" y="393" font-size="9" text-anchor="middle" fill="#595959">metal tab up, leads down</text>
-<text x="541" y="414" font-size="10" fill="#1a1a1a"><tspan font-weight="700">LEFT</tspan> = Gate (G)</text>
-<text x="541" y="430" font-size="10" fill="#1a1a1a"><tspan font-weight="700">MIDDLE</tspan> = Drain (D)</text>
-<text x="541" y="446" font-size="10" fill="#1a1a1a"><tspan font-weight="700">RIGHT</tspan> = Source (S)</text>
-
-<!-- ATtiny PB1 label (red channel, see dashed box) -->
+<line x1="420" y1="456" x2="420" y2="500" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="420" cy="500" r="2.5" fill="#b7791f"/>
+<line x1="350" y1="430" x2="350" y2="500" stroke="#b7791f" stroke-width="1.6"/>
+<circle cx="350" cy="500" r="2.5" fill="#b7791f"/>
+<!-- ===== RED CHANNEL (PB1): red wires ===== -->
+<line x1="690" y1="70" x2="690" y2="300" stroke="#c62828" stroke-width="1.6"/>
+<circle cx="690" cy="70" r="2.5" fill="#c62828"/>
+<line x1="560" y1="340" x2="560" y2="410" stroke="#c62828" stroke-width="1.6"/>
+<line x1="560" y1="410" x2="580" y2="410" stroke="#c62828" stroke-width="1.6"/>
 <text x="560" y="335" font-size="11" fill="#1a1a1a">PB1</text>
+<rect x="675" y="300" width="30" height="24" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
+<rect x="681" y="301" width="3" height="22" fill="#7b3f00"/>
+<rect x="686" y="301" width="3" height="22" fill="#2e8b3a"/>
+<rect x="691" y="301" width="3" height="22" fill="#7b3f00"/>
+<rect x="698" y="301" width="3" height="22" fill="#c9a227"/>
+<text x="711" y="309" font-size="11" font-weight="700" fill="#1a1a1a">R9</text>
+<text x="711" y="320" font-size="10" fill="#1a1a1a">150&#937;</text>
+<text x="711" y="331" font-size="8" fill="#595959">4.2V</text>
+<line x1="690" y1="324" x2="690" y2="350" stroke="#c62828" stroke-width="1.6"/>
+<path d="M680 350 L700 350 L690 370 Z" fill="#e57373" stroke="#c62828" stroke-width="1.4"/>
+<line x1="680" y1="372" x2="700" y2="372" stroke="#c62828" stroke-width="2.4"/>
+<line x1="703" y1="355" x2="714" y2="344" stroke="#1a1a1a" stroke-width="0.8"/>
+<line x1="708" y1="362" x2="719" y2="351" stroke="#1a1a1a" stroke-width="0.8"/>
+<text x="726" y="352" font-size="9" fill="#1a1a1a"><tspan font-weight="700">A</tspan> (+) long</text>
+<text x="726" y="366" font-size="11" font-weight="700" fill="#a31515">LED2 red</text>
+<text x="726" y="380" font-size="9" fill="#1a1a1a"><tspan font-weight="700">K</tspan> (&#8722;) short</text>
+<line x1="690" y1="372" x2="690" y2="390" stroke="#c62828" stroke-width="1.6"/>
+<circle cx="690" cy="410" r="20" fill="white" stroke="#c62828" stroke-width="1.8"/>
+<text x="690" y="403" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">D</text>
+<text x="690" y="426" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">S</text>
+<text x="678" y="414" font-size="10" font-weight="700" text-anchor="middle" fill="#1a1a1a">G</text>
+<text x="718" y="398" font-size="11" font-weight="700" fill="#a31515">Q2</text>
+<rect x="580" y="400" width="30" height="20" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
+<rect x="586" y="401" width="3" height="18" fill="#d62828"/>
+<rect x="591" y="401" width="3" height="18" fill="#d62828"/>
+<rect x="596" y="401" width="3" height="18" fill="#7b3f00"/>
+<rect x="603" y="401" width="3" height="18" fill="#c9a227"/>
+<text x="595" y="392" font-size="10" text-anchor="middle" fill="#1a1a1a"><tspan font-weight="700">R10</tspan> 220&#937;</text>
+<line x1="610" y1="410" x2="670" y2="410" stroke="#c62828" stroke-width="1.6"/>
+<circle cx="640" cy="410" r="2.5" fill="#c62828"/>
+<line x1="640" y1="410" x2="640" y2="430" stroke="#c62828" stroke-width="1.6"/>
+<rect x="625" y="430" width="30" height="26" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
+<rect x="631" y="431" width="3" height="24" fill="#7b3f00"/>
+<rect x="636" y="431" width="3" height="24" fill="#1a1a1a"/>
+<rect x="641" y="431" width="3" height="24" fill="#f4811f"/>
+<rect x="648" y="431" width="3" height="24" fill="#c9a227"/>
+<text x="621" y="441" font-size="11" font-weight="700" text-anchor="end" fill="#1a1a1a">R11</text>
+<text x="621" y="453" font-size="10" text-anchor="end" fill="#1a1a1a">10k&#937;</text>
+<line x1="640" y1="456" x2="640" y2="500" stroke="#c62828" stroke-width="1.6"/>
+<circle cx="640" cy="500" r="2.5" fill="#c62828"/>
+<line x1="690" y1="430" x2="690" y2="500" stroke="#c62828" stroke-width="1.6"/>
+<circle cx="690" cy="500" r="2.5" fill="#c62828"/>
 
-<!-- Red channel dashed placeholder -->
-<rect x="650" y="360" width="160" height="130" rx="6" fill="none" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="5 5"/>
-<text x="730" y="415" font-size="13" font-weight="500" text-anchor="middle" fill="#1a1a1a">Red channel</text>
-<text x="730" y="433" font-size="11" text-anchor="middle" fill="#595959">Identical circuit</text>
-<text x="730" y="449" font-size="11" text-anchor="middle" fill="#595959">(R9, LED2, Q2, R10, R11)</text>
-<text x="730" y="465" font-size="11" text-anchor="middle" fill="#595959">driven from PB1</text>
 
 <!-- Battery -->
 <g stroke="#1a1a1a" fill="none">
@@ -1879,7 +2013,7 @@ void loop() {
 <rect x="316" y="62" width="30" height="16" rx="2" stroke-width="1"/>
 </g>
 <text x="331" y="71" font-size="9" text-anchor="middle" fill="#1a1a1a">F1</text>
-<line x1="346" y1="70" x2="780" y2="70" stroke="#1a1a1a"/>
+<line x1="346" y1="70" x2="1020" y2="70" stroke="#1a1a1a"/>
 <text x="316" y="55" font-size="9" text-anchor="middle" fill="#595959">PTC fuse</text>
 
 <!-- Charge status indicator -->
@@ -1923,8 +2057,8 @@ void loop() {
 
 <!-- ATtiny PB5/RST note -->
 <line x1="400" y1="280" x2="420" y2="280" stroke="#1a1a1a"/>
-<text x="395" y="272" font-size="11" text-anchor="end" fill="#1a1a1a">PB5/RST</text>
-<text x="395" y="286" font-size="10" text-anchor="end" fill="#595959">(reserved for programming)</text>
+<text x="395" y="262" font-size="11" text-anchor="end" fill="#1a1a1a">PB5/RST</text>
+<text x="395" y="276" font-size="10" text-anchor="end" fill="#595959">(reserved for programming)</text>
 
 <!-- ISP header -->
 <g stroke="#1a1a1a" fill="none">
@@ -1933,6 +2067,22 @@ void loop() {
 <text x="630" y="122" font-size="10" text-anchor="middle" fill="#1a1a1a" font-weight="500">ISP header (6-pin)</text>
 <text x="630" y="135" font-size="9" text-anchor="middle" fill="#595959">VCC, GND, RST, PB0, PB1, PB2</text>
 <text x="630" y="147" font-size="8" text-anchor="middle" fill="#595959">disconnect TTP223/PB2 before reprogramming</text>
+<g>
+<rect x="735" y="530" width="290" height="180" rx="6" fill="white" stroke="#1a1a1a"/>
+<text x="747" y="548" font-size="11" font-weight="700" fill="#1a1a1a">How to read this schematic</text>
+<line x1="747" y1="562" x2="777" y2="562" stroke="#b7791f" stroke-width="3"/>
+<text x="785" y="566" font-size="10" fill="#1a1a1a"><tspan font-weight="700">WHITE channel:</tspan> PB0 (pin 5), LED1, Q1</text>
+<line x1="747" y1="578" x2="777" y2="578" stroke="#c62828" stroke-width="3"/>
+<text x="785" y="582" font-size="10" fill="#1a1a1a"><tspan font-weight="700">RED channel:</tspan> PB1 (pin 6), LED2, Q2</text>
+<line x1="747" y1="594" x2="777" y2="594" stroke="#1a1a1a" stroke-width="2"/>
+<text x="785" y="598" font-size="10" fill="#1a1a1a">Black: shared power, ground, touch sensor</text>
+<text x="747" y="618" font-size="10" fill="#1a1a1a">A dot = connected. A hump = wires cross, <tspan font-weight="700">NOT</tspan> connected.</text>
+<text x="747" y="640" font-size="10" font-weight="700" fill="#1a1a1a">Q1 and Q2 (IRLZ44N) pins</text>
+<text x="747" y="653" font-size="9" fill="#595959">writing facing you, metal tab up, leads down:</text>
+<text x="747" y="668" font-size="10" fill="#1a1a1a"><tspan font-weight="700">LEFT</tspan> = Gate (G)</text>
+<text x="747" y="683" font-size="10" fill="#1a1a1a"><tspan font-weight="700">MIDDLE</tspan> = Drain (D)</text>
+<text x="747" y="698" font-size="10" fill="#1a1a1a"><tspan font-weight="700">RIGHT</tspan> = Source (S)</text>
+</g>
 </svg></div>
 <h3>Wire this step</h3>
 <div class="item" data-id="s7-1"><input type="checkbox" id="cb-s7-1"><label for="cb-s7-1"><span class="main-text">Add a 6-pin shrouded header: VCC, GND, RST, PB0, PB1, PB2</span></label></div>
