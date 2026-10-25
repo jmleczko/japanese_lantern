@@ -343,7 +343,12 @@ The charge indicator was originally designed with a transistor oscillator for a 
 <circle cx="300" cy="500" r="2.5" fill="#1a1a1a"/>
 <line x1="292" y1="300" x2="308" y2="300" stroke="#1a1a1a" stroke-width="2"/>
 <line x1="292" y1="308" x2="308" y2="308" stroke="#1a1a1a" stroke-width="2"/>
-<text x="270" y="304" font-size="9" text-anchor="end" fill="#1a1a1a">C4: 10&#181;F</text>
+<text x="296" y="298" font-size="12" font-weight="700" text-anchor="end" fill="#1a1a1a">+</text>
+<text x="296" y="318" font-size="12" font-weight="700" text-anchor="end" fill="#1a1a1a">&#8722;</text>
+<text x="286" y="293" font-size="10" font-weight="700" text-anchor="end" fill="#1a1a1a">C4 10&#181;F</text>
+<text x="286" y="305" font-size="9" text-anchor="end" fill="#1a1a1a">+ top = LONG lead</text>
+<text x="286" y="316" font-size="9" text-anchor="end" fill="#1a1a1a">&#8722; bottom = SHORT lead</text>
+<text x="286" y="327" font-size="9" text-anchor="end" fill="#595959">(stripe side)</text>
 
 <!-- R6 current-limit resistor -->
 <rect x="335" y="300" width="30" height="24" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
@@ -784,7 +789,12 @@ void loop() {
 <circle cx="300" cy="500" r="2.5" fill="#1a1a1a"/>
 <line x1="292" y1="300" x2="308" y2="300" stroke="#1a1a1a" stroke-width="2"/>
 <line x1="292" y1="308" x2="308" y2="308" stroke="#1a1a1a" stroke-width="2"/>
-<text x="270" y="304" font-size="9" text-anchor="end" fill="#1a1a1a">C4: 10&#181;F</text>
+<text x="296" y="298" font-size="12" font-weight="700" text-anchor="end" fill="#1a1a1a">+</text>
+<text x="296" y="318" font-size="12" font-weight="700" text-anchor="end" fill="#1a1a1a">&#8722;</text>
+<text x="286" y="293" font-size="10" font-weight="700" text-anchor="end" fill="#1a1a1a">C4 10&#181;F</text>
+<text x="286" y="305" font-size="9" text-anchor="end" fill="#1a1a1a">+ top = LONG lead</text>
+<text x="286" y="316" font-size="9" text-anchor="end" fill="#1a1a1a">&#8722; bottom = SHORT lead</text>
+<text x="286" y="327" font-size="9" text-anchor="end" fill="#595959">(stripe side)</text>
 
 <!-- R6 current-limit resistor -->
 <rect x="335" y="300" width="30" height="24" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
@@ -922,13 +932,44 @@ void loop() {
 </table>
 <div style="font-size:13px;margin-top:8px;color:#444;max-width:520px;">Read from the end <b>opposite</b> the gold band. If yours have <b>5 bands</b> (blue body, metal film), the codes differ: 150&#937; = brown, green, black, black, brown; 220&#937; = red, red, black, black, brown; 10k&#937; = brown, black, black, red, brown. Band colors are easy to misread, so confirm each resistor with your multimeter in resistance mode before wiring it.</div>
 </div>
+<div class="part-key" style="margin:14px 0 6px;padding:12px 14px;border:1px solid #d3d1c7;border-radius:8px;background:#faf9f5;">
+<div style="font-weight:700;margin-bottom:6px;">C4 (10&micro;F electrolytic): which lead is which</div>
+<svg width="520" height="170" viewBox="0 0 520 170" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif" style="display:block;max-width:100%;">
+<title>Electrolytic capacitor polarity and schematic symbol</title>
+<rect x="55" y="10" width="60" height="85" rx="6" fill="#2b4a7a" stroke="#1a1a1a"/>
+<rect x="95" y="10" width="20" height="85" rx="4" fill="#d9d7ce" stroke="#1a1a1a"/>
+<text x="105" y="40" font-size="14" font-weight="700" text-anchor="middle" fill="#1a1a1a">&#8722;</text>
+<text x="105" y="62" font-size="14" font-weight="700" text-anchor="middle" fill="#1a1a1a">&#8722;</text>
+<text x="105" y="84" font-size="14" font-weight="700" text-anchor="middle" fill="#1a1a1a">&#8722;</text>
+<text x="70" y="58" font-size="9" fill="#ffffff">10&#181;F</text>
+<line x1="68" y1="95" x2="68" y2="158" stroke="#1a1a1a" stroke-width="3"/>
+<line x1="105" y1="95" x2="105" y2="132" stroke="#1a1a1a" stroke-width="3"/>
+<text x="68" y="169" font-size="11" font-weight="700" text-anchor="middle" fill="#1a1a1a">+</text>
+<text x="105" y="145" font-size="11" font-weight="700" text-anchor="middle" fill="#1a1a1a">&#8722;</text>
+<text x="2" y="125" font-size="10" fill="#1a1a1a">LONG</text>
+<text x="2" y="137" font-size="10" fill="#1a1a1a">= + (BAT+)</text>
+<text x="118" y="150" font-size="10" fill="#1a1a1a">SHORT = &#8722; (GND)</text>
+<text x="122" y="30" font-size="9" fill="#595959">stripe with minus signs</text>
+<text x="122" y="42" font-size="9" fill="#595959">marks the &#8722; (short) lead</text>
+<!-- symbol -->
+<line x1="320" y1="20" x2="320" y2="60" stroke="#1a1a1a"/>
+<line x1="306" y1="60" x2="334" y2="60" stroke="#1a1a1a" stroke-width="2"/>
+<line x1="306" y1="70" x2="334" y2="70" stroke="#1a1a1a" stroke-width="2"/>
+<line x1="320" y1="70" x2="320" y2="110" stroke="#1a1a1a"/>
+<text x="340" y="58" font-size="12" font-weight="700" fill="#1a1a1a">+</text>
+<text x="354" y="58" font-size="10" fill="#1a1a1a">top plate: to BAT+</text>
+<text x="340" y="80" font-size="12" font-weight="700" fill="#1a1a1a">&#8722;</text>
+<text x="354" y="80" font-size="10" fill="#1a1a1a">bottom plate: to GND</text>
+</svg>
+<div style="font-size:13.5px;margin-top:6px;max-width:520px;"><b>LONG lead = +</b> to the BAT+ rail (Uno 5V for now). <b>SHORT lead = &minus;</b>, on the stripe side, to the GND rail. Electrolytics can leak or pop if connected backwards, so check the stripe before powering on. If yours is a small ceramic disc with no stripe, it has no polarity. C3 (100nF) is a ceramic cap and works either way round.</div>
+</div>
 </div>
 <h3>Wire this step</h3>
 <div class="item" data-id="s3-1"><input type="checkbox" id="cb-s3-1"><label for="cb-s3-1"><span class="main-text">Remove the temporary test LED/resistor from PB0</span></label></div>
 <div class="item" data-id="s3-2"><input type="checkbox" id="cb-s3-2"><label for="cb-s3-2"><span class="main-text">Wire R6 (150&Omega; for 5V testing / 100&Omega; at 4.2V &mdash; see earlier calc) from the BAT+ rail (the Uno 5V pin while testing) to LED1 anode (long lead)</span></label></div>
 <div class="item" data-id="s3-3"><input type="checkbox" id="cb-s3-3"><label for="cb-s3-3"><span class="main-text">LED1 cathode (short lead) to Q1 <b>MIDDLE</b> lead (drain); Q1 <b>RIGHT</b> lead (source) to GND rail</span></label></div>
 <div class="item" data-id="s3-4"><input type="checkbox" id="cb-s3-4"><label for="cb-s3-4"><span class="main-text">Q1 <b>LEFT</b> lead (gate) through R7 (220&Omega;) to ATtiny pin 5 (PB0); R8 (10k&Omega;) from the <b>LEFT</b> lead (gate) to GND (pull-down)</span></label></div>
-<div class="item" data-id="s3-5"><input type="checkbox" id="cb-s3-5"><label for="cb-s3-5"><span class="main-text">Add C4 (10&micro;F) across BAT+/GND near this stage</span></label></div>
+<div class="item" data-id="s3-5"><input type="checkbox" id="cb-s3-5"><label for="cb-s3-5"><span class="main-text">Add C4 (10&micro;F electrolytic): <b>LONG lead</b> to the BAT+ rail (Uno 5V for now), <b>SHORT lead</b> (the stripe side) to the GND rail</span></label></div>
 <div class="expect">Same touch-lights-up behavior as Step 2, but now it's the real warm-white LED switching through the real MOSFET &mdash; not a substitute part. Same sketch as Step 2, no firmware change needed.</div>
 </div>
 <div class="step-section">
@@ -1007,7 +1048,12 @@ void loop() {
 <circle cx="300" cy="500" r="2.5" fill="#1a1a1a"/>
 <line x1="292" y1="300" x2="308" y2="300" stroke="#1a1a1a" stroke-width="2"/>
 <line x1="292" y1="308" x2="308" y2="308" stroke="#1a1a1a" stroke-width="2"/>
-<text x="270" y="304" font-size="9" text-anchor="end" fill="#1a1a1a">C4: 10&#181;F</text>
+<text x="296" y="298" font-size="12" font-weight="700" text-anchor="end" fill="#1a1a1a">+</text>
+<text x="296" y="318" font-size="12" font-weight="700" text-anchor="end" fill="#1a1a1a">&#8722;</text>
+<text x="286" y="293" font-size="10" font-weight="700" text-anchor="end" fill="#1a1a1a">C4 10&#181;F</text>
+<text x="286" y="305" font-size="9" text-anchor="end" fill="#1a1a1a">+ top = LONG lead</text>
+<text x="286" y="316" font-size="9" text-anchor="end" fill="#1a1a1a">&#8722; bottom = SHORT lead</text>
+<text x="286" y="327" font-size="9" text-anchor="end" fill="#595959">(stripe side)</text>
 
 <!-- R6 current-limit resistor -->
 <rect x="335" y="300" width="30" height="24" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
@@ -1180,7 +1226,12 @@ void loop() {
 <circle cx="300" cy="500" r="2.5" fill="#1a1a1a"/>
 <line x1="292" y1="300" x2="308" y2="300" stroke="#1a1a1a" stroke-width="2"/>
 <line x1="292" y1="308" x2="308" y2="308" stroke="#1a1a1a" stroke-width="2"/>
-<text x="270" y="304" font-size="9" text-anchor="end" fill="#1a1a1a">C4: 10&#181;F</text>
+<text x="296" y="298" font-size="12" font-weight="700" text-anchor="end" fill="#1a1a1a">+</text>
+<text x="296" y="318" font-size="12" font-weight="700" text-anchor="end" fill="#1a1a1a">&#8722;</text>
+<text x="286" y="293" font-size="10" font-weight="700" text-anchor="end" fill="#1a1a1a">C4 10&#181;F</text>
+<text x="286" y="305" font-size="9" text-anchor="end" fill="#1a1a1a">+ top = LONG lead</text>
+<text x="286" y="316" font-size="9" text-anchor="end" fill="#1a1a1a">&#8722; bottom = SHORT lead</text>
+<text x="286" y="327" font-size="9" text-anchor="end" fill="#595959">(stripe side)</text>
 
 <!-- R6 current-limit resistor -->
 <rect x="335" y="300" width="30" height="24" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
@@ -1407,7 +1458,12 @@ void loop() {
 <circle cx="300" cy="500" r="2.5" fill="#1a1a1a"/>
 <line x1="292" y1="300" x2="308" y2="300" stroke="#1a1a1a" stroke-width="2"/>
 <line x1="292" y1="308" x2="308" y2="308" stroke="#1a1a1a" stroke-width="2"/>
-<text x="270" y="304" font-size="9" text-anchor="end" fill="#1a1a1a">C4: 10&#181;F</text>
+<text x="296" y="298" font-size="12" font-weight="700" text-anchor="end" fill="#1a1a1a">+</text>
+<text x="296" y="318" font-size="12" font-weight="700" text-anchor="end" fill="#1a1a1a">&#8722;</text>
+<text x="286" y="293" font-size="10" font-weight="700" text-anchor="end" fill="#1a1a1a">C4 10&#181;F</text>
+<text x="286" y="305" font-size="9" text-anchor="end" fill="#1a1a1a">+ top = LONG lead</text>
+<text x="286" y="316" font-size="9" text-anchor="end" fill="#1a1a1a">&#8722; bottom = SHORT lead</text>
+<text x="286" y="327" font-size="9" text-anchor="end" fill="#595959">(stripe side)</text>
 
 <!-- R6 current-limit resistor -->
 <rect x="335" y="300" width="30" height="24" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
@@ -1673,7 +1729,12 @@ void loop() {
 <circle cx="300" cy="500" r="2.5" fill="#1a1a1a"/>
 <line x1="292" y1="300" x2="308" y2="300" stroke="#1a1a1a" stroke-width="2"/>
 <line x1="292" y1="308" x2="308" y2="308" stroke="#1a1a1a" stroke-width="2"/>
-<text x="270" y="304" font-size="9" text-anchor="end" fill="#1a1a1a">C4: 10&#181;F</text>
+<text x="296" y="298" font-size="12" font-weight="700" text-anchor="end" fill="#1a1a1a">+</text>
+<text x="296" y="318" font-size="12" font-weight="700" text-anchor="end" fill="#1a1a1a">&#8722;</text>
+<text x="286" y="293" font-size="10" font-weight="700" text-anchor="end" fill="#1a1a1a">C4 10&#181;F</text>
+<text x="286" y="305" font-size="9" text-anchor="end" fill="#1a1a1a">+ top = LONG lead</text>
+<text x="286" y="316" font-size="9" text-anchor="end" fill="#1a1a1a">&#8722; bottom = SHORT lead</text>
+<text x="286" y="327" font-size="9" text-anchor="end" fill="#595959">(stripe side)</text>
 
 <!-- R6 current-limit resistor -->
 <rect x="335" y="300" width="30" height="24" rx="2" fill="#e6d3a3" stroke="#1a1a1a" stroke-width="1"/>
