@@ -115,6 +115,9 @@
     accent-color: #185FA5; }
 #sec-build .item label { cursor: pointer; font-size: 14px; }
 #sec-build .item.checked label .main-text { text-decoration: line-through; color: #9a9890; }
+#sec-build .subitems { margin: 0 0 10px 34px; border-left: 2px solid #e4e2da; padding-left: 8px; }
+#sec-build .subitems .item { padding: 3px 6px; }
+#sec-build .subitems .item label { font-size: 13px; }
 #sec-build .note { color: #595959; font-style: italic; font-size: 13px; }
 #sec-build .expect { margin-top: 6px;
     font-size: 13px;
@@ -1426,12 +1429,59 @@ void loop() {
 </ul></div>
 <h3>Wire this step</h3>
 <div class="item" data-id="s5f-1"><input type="checkbox" id="cb-s5f-1"><label for="cb-s5f-1"><span class="main-text">Copy the full firmware (shown below this checklist, or <a href="lantern_firmware.ino" download>download lantern_firmware.ino</a>) into a new Arduino IDE window, replacing everything in it, and save it as <code>lantern_firmware</code></span></label></div>
+<div class="subitems">
+<div class="item" data-id="s5f-1a"><input type="checkbox" id="cb-s5f-1a"><label for="cb-s5f-1a"><span class="main-text">Open the Arduino IDE and choose <b>File &rarr; New</b> (a blank sketch window opens)</span></label></div>
+<div class="item" data-id="s5f-1b"><input type="checkbox" id="cb-s5f-1b"><label for="cb-s5f-1b"><span class="main-text">Click inside that window, press <b>Cmd+A</b> to select everything, then Delete</span></label></div>
+<div class="item" data-id="s5f-1c"><input type="checkbox" id="cb-s5f-1c"><label for="cb-s5f-1c"><span class="main-text">Copy the firmware from the box below this checklist (or open the downloaded <code>lantern_firmware.ino</code>) and paste it in with <b>Cmd+V</b></span></label></div>
+<div class="item" data-id="s5f-1d"><input type="checkbox" id="cb-s5f-1d"><label for="cb-s5f-1d"><span class="main-text"><b>File &rarr; Save</b>, name it <code>lantern_firmware</code></span></label></div>
+</div>
 <div class="item" data-id="s5f-2"><input type="checkbox" id="cb-s5f-2"><label for="cb-s5f-2"><span class="main-text">Set Tools: Board ATtiny25/45/85, Processor ATtiny85, Clock Internal 8 MHz, Programmer Arduino as ISP. Click the Verify checkmark: you want &ldquo;Done compiling&rdquo;</span></label></div>
+<div class="subitems">
+<div class="item" data-id="s5f-2a"><input type="checkbox" id="cb-s5f-2a"><label for="cb-s5f-2a"><span class="main-text"><b>Tools &rarr; Board &rarr; ATtiny25/45/85</b></span></label></div>
+<div class="item" data-id="s5f-2b"><input type="checkbox" id="cb-s5f-2b"><label for="cb-s5f-2b"><span class="main-text"><b>Tools &rarr; Processor &rarr; ATtiny85</b></span></label></div>
+<div class="item" data-id="s5f-2c"><input type="checkbox" id="cb-s5f-2c"><label for="cb-s5f-2c"><span class="main-text"><b>Tools &rarr; Clock &rarr; Internal 8 MHz</b> (not External)</span></label></div>
+<div class="item" data-id="s5f-2d"><input type="checkbox" id="cb-s5f-2d"><label for="cb-s5f-2d"><span class="main-text"><b>Tools &rarr; Programmer &rarr; Arduino as ISP</b></span></label></div>
+<div class="item" data-id="s5f-2e"><input type="checkbox" id="cb-s5f-2e"><label for="cb-s5f-2e"><span class="main-text">Click the <b>Verify</b> checkmark (top-left) and wait for &ldquo;Done compiling.&rdquo; If you get errors, stop and send them to me before wiring anything</span></label></div>
+</div>
 <div class="item" data-id="s5f-3"><input type="checkbox" id="cb-s5f-3"><label for="cb-s5f-3"><span class="main-text">Unplug USB. Disconnect the TTP223 OUT wire from ATtiny pin 7</span></label></div>
+<div class="subitems">
+<div class="item" data-id="s5f-3a"><input type="checkbox" id="cb-s5f-3a"><label for="cb-s5f-3a"><span class="main-text">Unplug the USB cable from the Uno</span></label></div>
+<div class="item" data-id="s5f-3b"><input type="checkbox" id="cb-s5f-3b"><label for="cb-s5f-3b"><span class="main-text">Pull the TTP223 OUT wire out of ATtiny <b>pin 7</b></span></label></div>
+<div class="item" data-id="s5f-3c"><input type="checkbox" id="cb-s5f-3c"><label for="cb-s5f-3c"><span class="main-text">Check that nothing else is plugged into pin 7 (the ISP wire goes there next)</span></label></div>
+</div>
 <div class="item" data-id="s5f-4"><input type="checkbox" id="cb-s5f-4"><label for="cb-s5f-4"><span class="main-text">ISP wires: Uno D13 &rarr; pin 7, D12 &rarr; pin 6, D11 &rarr; pin 5, D10 &rarr; pin 1 (RESET). Uno 5V &rarr; pin 8, Uno GND &rarr; pin 4</span></label></div>
+<div class="subitems">
+<div class="item" data-id="s5f-4a"><input type="checkbox" id="cb-s5f-4a"><label for="cb-s5f-4a"><span class="main-text">Find pin 1: hold the ATtiny with the notch (half-circle) at the top. Pin 1 is top-left; pins 1&ndash;4 run down the left side, pins 5&ndash;8 run up the right side</span></label></div>
+<div class="item" data-id="s5f-4b"><input type="checkbox" id="cb-s5f-4b"><label for="cb-s5f-4b"><span class="main-text">Uno <b>D13</b> &rarr; ATtiny <b>pin 7</b></span></label></div>
+<div class="item" data-id="s5f-4c"><input type="checkbox" id="cb-s5f-4c"><label for="cb-s5f-4c"><span class="main-text">Uno <b>D12</b> &rarr; ATtiny <b>pin 6</b></span></label></div>
+<div class="item" data-id="s5f-4d"><input type="checkbox" id="cb-s5f-4d"><label for="cb-s5f-4d"><span class="main-text">Uno <b>D11</b> &rarr; ATtiny <b>pin 5</b></span></label></div>
+<div class="item" data-id="s5f-4e"><input type="checkbox" id="cb-s5f-4e"><label for="cb-s5f-4e"><span class="main-text">Uno <b>D10</b> &rarr; ATtiny <b>pin 1</b> (RESET)</span></label></div>
+<div class="item" data-id="s5f-4f"><input type="checkbox" id="cb-s5f-4f"><label for="cb-s5f-4f"><span class="main-text">Uno <b>5V</b> &rarr; ATtiny <b>pin 8</b></span></label></div>
+<div class="item" data-id="s5f-4g"><input type="checkbox" id="cb-s5f-4g"><label for="cb-s5f-4g"><span class="main-text">Uno <b>GND</b> &rarr; ATtiny <b>pin 4</b></span></label></div>
+</div>
 <div class="item" data-id="s5f-5"><input type="checkbox" id="cb-s5f-5"><label for="cb-s5f-5"><span class="main-text">Last: 10&micro;F cap on the Uno, long lead (+) in RESET, short lead / stripe side (&minus;) in GND. The Uno must be running ArduinoISP (Step 1)</span></label></div>
+<div class="subitems">
+<div class="item" data-id="s5f-5a"><input type="checkbox" id="cb-s5f-5a"><label for="cb-s5f-5a"><span class="main-text">Make sure the Uno is running ArduinoISP. If you are not sure, put it back first: cap out, Tools &rarr; Board &rarr; <b>Arduino Uno</b>, File &rarr; Examples &rarr; 11.ArduinoISP &rarr; ArduinoISP, normal Upload arrow, then repeat the four Tools settings in the second item above</span></label></div>
+<div class="item" data-id="s5f-5b"><input type="checkbox" id="cb-s5f-5b"><label for="cb-s5f-5b"><span class="main-text">Identify the cap&rsquo;s leads: the <b>long lead is +</b>; the <b>short lead / stripe side is &minus;</b></span></label></div>
+<div class="item" data-id="s5f-5c"><input type="checkbox" id="cb-s5f-5c"><label for="cb-s5f-5c"><span class="main-text">Long lead (+) into the Uno <b>RESET</b> pin (on the Uno&rsquo;s power header, marked RESET)</span></label></div>
+<div class="item" data-id="s5f-5d"><input type="checkbox" id="cb-s5f-5d"><label for="cb-s5f-5d"><span class="main-text">Short lead (&minus;) into a Uno <b>GND</b> pin</span></label></div>
+</div>
 <div class="item" data-id="s5f-6"><input type="checkbox" id="cb-s5f-6"><label for="cb-s5f-6"><span class="main-text">Plug in USB, then Sketch &rarr; Upload Using Programmer. Wait for &ldquo;Done uploading&rdquo;</span></label></div>
+<div class="subitems">
+<div class="item" data-id="s5f-6a"><input type="checkbox" id="cb-s5f-6a"><label for="cb-s5f-6a"><span class="main-text">Plug the USB cable into the Uno</span></label></div>
+<div class="item" data-id="s5f-6b"><input type="checkbox" id="cb-s5f-6b"><label for="cb-s5f-6b"><span class="main-text"><b>Tools &rarr; Port</b> &rarr; the entry that ends in (Arduino Uno). Reselect it even if it looks right, since the number can change</span></label></div>
+<div class="item" data-id="s5f-6c"><input type="checkbox" id="cb-s5f-6c"><label for="cb-s5f-6c"><span class="main-text"><b>Sketch &rarr; Upload Using Programmer</b> (not the normal Upload arrow, and not Burn Bootloader)</span></label></div>
+<div class="item" data-id="s5f-6d"><input type="checkbox" id="cb-s5f-6d"><label for="cb-s5f-6d"><span class="main-text">Wait for &ldquo;Done uploading.&rdquo; If it errors, stop and see &ldquo;If the upload fails&rdquo; below</span></label></div>
+</div>
 <div class="item" data-id="s5f-7"><input type="checkbox" id="cb-s5f-7"><label for="cb-s5f-7"><span class="main-text">Unplug USB. Remove the four ISP wires and the cap. Put the TTP223 OUT wire back on pin 7. Keep Uno 5V on pin 8 and GND on pin 4, then plug USB back in</span></label></div>
+<div class="subitems">
+<div class="item" data-id="s5f-7a"><input type="checkbox" id="cb-s5f-7a"><label for="cb-s5f-7a"><span class="main-text">Unplug the USB cable</span></label></div>
+<div class="item" data-id="s5f-7b"><input type="checkbox" id="cb-s5f-7b"><label for="cb-s5f-7b"><span class="main-text">Remove the four ISP wires (Uno D10&ndash;D13 and ATtiny pins 1, 5, 6, 7)</span></label></div>
+<div class="item" data-id="s5f-7c"><input type="checkbox" id="cb-s5f-7c"><label for="cb-s5f-7c"><span class="main-text">Remove the 10&micro;F cap from the Uno</span></label></div>
+<div class="item" data-id="s5f-7d"><input type="checkbox" id="cb-s5f-7d"><label for="cb-s5f-7d"><span class="main-text">Plug the TTP223 OUT wire back into ATtiny <b>pin 7</b></span></label></div>
+<div class="item" data-id="s5f-7e"><input type="checkbox" id="cb-s5f-7e"><label for="cb-s5f-7e"><span class="main-text">Check that Uno 5V &rarr; pin 8 and Uno GND &rarr; pin 4 are still in place</span></label></div>
+<div class="item" data-id="s5f-7f"><input type="checkbox" id="cb-s5f-7f"><label for="cb-s5f-7f"><span class="main-text">Plug USB back in. Both LEDs should be off</span></label></div>
+</div>
 <h3>Test it</h3>
 <div class="item" data-id="s5f-8"><input type="checkbox" id="cb-s5f-8"><label for="cb-s5f-8"><span class="main-text">Both LEDs start off. Single tap: lantern turns on (white, medium brightness). Single tap again: off</span></label></div>
 <div class="item" data-id="s5f-9"><input type="checkbox" id="cb-s5f-9"><label for="cb-s5f-9"><span class="main-text">Double tap while on: switches between white and red. Double tap while off: turns on</span></label></div>
@@ -2702,6 +2752,23 @@ Tap a checkbox to check it off — your progress is saved automatically in this 
       saveState(s);
       applyCheckedClass(cb);
       updateProgress();
+    });
+  });
+  document.querySelectorAll('.subitems').forEach(group => {
+    const parent = group.previousElementSibling.querySelector('input[type="checkbox"]');
+    const subs = Array.from(group.querySelectorAll('input[type="checkbox"]'));
+    let busy = false;
+    const sync = () => {
+      if (busy) return; busy = true;
+      const all = subs.every(c => c.checked);
+      if (parent.checked !== all) { parent.checked = all; parent.dispatchEvent(new Event('change')); }
+      busy = false;
+    };
+    subs.forEach(c => c.addEventListener('change', sync));
+    parent.addEventListener('change', () => {
+      if (busy) return; busy = true;
+      subs.forEach(c => { if (c.checked !== parent.checked) { c.checked = parent.checked; c.dispatchEvent(new Event('change')); } });
+      busy = false;
     });
   });
   updateProgress();
