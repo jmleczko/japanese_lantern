@@ -1195,7 +1195,17 @@ void loop() {
 <div class="item" data-id="s4-3"><input type="checkbox" id="cb-s4-3"><label for="cb-s4-3"><span class="main-text">LED2 cathode (<b>short lead</b>) to Q2 <b>MIDDLE</b> lead (drain); Q2 <b>RIGHT</b> lead (source) to the GND rail</span></label></div>
 <div class="item" data-id="s4-4"><input type="checkbox" id="cb-s4-4"><label for="cb-s4-4"><span class="main-text">Q2 <b>LEFT</b> lead (gate) through R10 (220&Omega;) to ATtiny <b>pin 6 (PB1)</b>; R11 (10k&Omega;) from the <b>LEFT</b> lead (gate) to GND (pull-down)</span></label></div>
 <h3>Quick standalone test (not the final gesture logic yet)</h3>
-<p><b>Before you upload this:</b> disconnect the TTP223 OUT wire from pin 7 (PB2) &mdash; that pin is also the programming clock. Wire Arduino-as-ISP the same way as Step 1 (D10&rarr;pin 1, D11&rarr;pin 5, D12&rarr;pin 6, D13&rarr;pin 7), keep the 10&micro;F cap from RESET to GND on the Uno, and make sure the ArduinoISP sketch is still on the Uno. Then use <b>Upload Using Programmer</b> (not Burn Bootloader). Reconnect the TTP223 wire to pin 7 afterward.</p>
+<p><b>Which sketch:</b> use the PB1 sketch below, not the built-in Blink example. The built-in one fails to compile on the ATtiny85 (&ldquo;LED_BUILTIN was not declared&rdquo;).</p>
+<p><b>Before you upload this:</b></p>
+<ol>
+<li><b>Make sure the Uno is running ArduinoISP.</b> If it already has the ArduinoISP sketch from Step 1, skip to item 3. If you are not sure it does, put it back: take the 10&micro;F cap <b>out</b> of the Uno, set Tools &rarr; Board to <b>Arduino Uno</b>, open File &rarr; Examples &rarr; 11.ArduinoISP &rarr; ArduinoISP, and click the normal Upload arrow (&ldquo;Done uploading&rdquo;). ArduinoISP will not compile with the ATtiny selected.</li>
+<li>Switch Tools to: Board <b>ATtiny25/45/85</b>, Processor <b>ATtiny85</b>, Clock <b>Internal 8 MHz</b> (not External), Programmer <b>Arduino as ISP</b>. Changing the board can reset the others, so check all four.</li>
+<li>Disconnect the TTP223 OUT wire from pin 7 (PB2) &mdash; that pin is also the programming clock.</li>
+<li>Wire Arduino-as-ISP the same way as Step 1: D10&rarr;pin 1, D11&rarr;pin 5, D12&rarr;pin 6, D13&rarr;pin 7, Uno 5V&rarr;pin 8, Uno GND&rarr;pin 4. Only then put the 10&micro;F cap on the Uno: <b>long lead (+) in RESET, short lead / stripe side (&minus;) in GND</b>.</li>
+<li>Use <b>Sketch &rarr; Upload Using Programmer</b>. Do <b>not</b> use the normal Upload arrow, and do <b>not</b> click Burn Bootloader again &mdash; Step 1 already set the fuses.</li>
+<li>Afterward, remove the ISP wires and the cap and reconnect the TTP223 OUT wire to pin 7.</li>
+</ol>
+<p class="note-small"><b>If the upload fails:</b> &ldquo;programmer is not responding&rdquo; means the Uno isn&rsquo;t running ArduinoISP, the cap is missing, or the USB port is stuck (replug, reselect Port, or restart the computer). &ldquo;initialization failed&rdquo; or a signature of 0x000000 means a wiring problem on pins 1, 5, 6, 7, 4 or 8, or the cap is the wrong way around.</p>
 <pre>void setup() {
   pinMode(1, OUTPUT); // PB1
 }
@@ -2137,8 +2147,8 @@ Tap a checkbox to check it off — your progress is saved automatically in this 
 <div class="item" data-id="w1"><input type="checkbox" id="cb-w1"><label for="cb-w1"><span class="main-text">Warm-white LED(s)</span> <span class="note">— ~2700–3000K; confirm forward voltage/current on the datasheet once chosen</span></label></div>
 <div class="buy">Suggested: CHANZON 5mm warm white LED, 3000K, 20mA — <a href="https://www.amazon.com/Chanzon-Lighting-Electronics-Components-Emitting/dp/B01CUGA7TU" target="_blank">Amazon listing</a></div>
 
-<div class="item" data-id="w2"><input type="checkbox" id="cb-w2"><label for="cb-w2"><span class="main-text">Logic-level N-channel MOSFET (from existing stock)</span> <span class="note">— e.g. AO3400; original AO3400 is listed as obsolete at some distributors, clones/equivalents still widely sold</span></label></div>
-<div class="buy">Suggested: AO3400A N-channel MOSFET, SOT-23 — <a href="https://www.amazon.com/20PCS-AO3400A-MOSFET-SOT23-AO3400/dp/B01CCU0TVK" target="_blank">Amazon listing</a></div>
+<div class="item" data-id="w2"><input type="checkbox" id="cb-w2"><label for="cb-w2"><span class="main-text">IRLZ44N logic-level N-channel MOSFET, TO-220 (Q1, white channel)</span> <span class="note">— the part the schematic uses. Through-hole, 3 leads: gate, drain, source</span></label></div>
+<div class="buy">Buy: IRLZ44N, TO-220 package (not SOT-23). Make sure the part number says IRLZ44N; plain IRF44-type parts are not logic-level and will not switch fully on at 5V.</div>
 
 <div class="item" data-id="w3"><input type="checkbox" id="cb-w3"><label for="cb-w3"><span class="main-text">Current-limiting resistor</span> <span class="note">— size using 4.2V full-charge voltage, not 3.7V nominal, see resistor kit below</span></label></div>
 
@@ -2146,7 +2156,7 @@ Tap a checkbox to check it off — your progress is saved automatically in this 
 <div class="item" data-id="r1"><input type="checkbox" id="cb-r1"><label for="cb-r1"><span class="main-text">Red LED(s)</span></label></div>
 <div class="buy">Suggested: CHANZON 5mm red LED, 20mA — <a href="https://www.amazon.com/Transparent-Lighting-Electronics-Components-Emitting/dp/B01AUI4VRE" target="_blank">Amazon listing</a> (similar Chanzon 5mm LED line)</div>
 
-<div class="item" data-id="r2"><input type="checkbox" id="cb-r2"><label for="cb-r2"><span class="main-text">Logic-level N-channel MOSFET (from existing stock)</span> <span class="note">— same part as white channel</span></label></div>
+<div class="item" data-id="r2"><input type="checkbox" id="cb-r2"><label for="cb-r2"><span class="main-text">IRLZ44N logic-level N-channel MOSFET, TO-220 (Q2, red channel)</span> <span class="note">— same part as the white channel. Need a second one</span></label></div>
 <div class="item" data-id="r3"><input type="checkbox" id="cb-r3"><label for="cb-r3"><span class="main-text">Current-limiting resistor</span> <span class="note">— size using 4.2V full-charge voltage, not 3.7V nominal</span></label></div>
 
 <h3>Charge status indicator (steady red/green, TP4056's standard usage)</h3>
