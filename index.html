@@ -1982,10 +1982,52 @@ void loop() {
 </svg></div>
 <h3>Wire this step</h3>
 <div class="item" data-id="s5-0"><input type="checkbox" id="cb-s5-0"><label for="cb-s5-0"><span class="main-text"><b>Unplug the Uno&rsquo;s USB cable</b> and remove the Uno 5V and GND wires from the rail before touching the battery</span></label></div>
-<div class="item" data-id="s5-1"><input type="checkbox" id="cb-s5-1"><label for="cb-s5-1"><span class="main-text"><b>Verify battery JST polarity with a multimeter in DC voltage mode</b> before connecting anything</span> <span class="note">&mdash; not continuity mode &mdash; see the warning box in the diagram</span></label></div>
-<div class="item" data-id="s5-2"><input type="checkbox" id="cb-s5-2"><label for="cb-s5-2"><span class="main-text">Connect battery to TP4056 BAT+/BAT-</span></label></div>
-<div class="item" data-id="s5-3"><input type="checkbox" id="cb-s5-3"><label for="cb-s5-3"><span class="main-text">Wire F1 (PTC fuse) in series between TP4056 OUT+ and the BAT+ rail</span></label></div>
-<div class="item" data-id="s5-4"><input type="checkbox" id="cb-s5-4"><label for="cb-s5-4"><span class="main-text">Remove the bench supply's direct clip to the rail &mdash; TP4056 OUT+ now feeds it instead</span></label></div>
+<div class="subitems">
+<div class="item" data-id="s5-0a"><input type="checkbox" id="cb-s5-0a"><label for="cb-s5-0a"><span class="main-text">Unplug the USB cable from the Uno</span></label></div>
+<div class="item" data-id="s5-0b"><input type="checkbox" id="cb-s5-0b"><label for="cb-s5-0b"><span class="main-text">Pull the wire from Uno <b>5V</b> out of the circuit (it feeds the + rail and ATtiny pin 8)</span></label></div>
+<div class="item" data-id="s5-0c"><input type="checkbox" id="cb-s5-0c"><label for="cb-s5-0c"><span class="main-text">Pull the wire from Uno <b>GND</b> out of the circuit (it feeds the ground rail and ATtiny pin 4)</span></label></div>
+<div class="item" data-id="s5-0d"><input type="checkbox" id="cb-s5-0d"><label for="cb-s5-0d"><span class="main-text">The Uno should now have <b>no wires</b> connected to the lantern circuit</span></label></div>
+</div>
+<div class="item" data-id="s5-1"><input type="checkbox" id="cb-s5-1"><label for="cb-s5-1"><span class="main-text"><b>Verify battery JST polarity with a multimeter in DC voltage mode</b> before connecting anything &mdash; not continuity mode &mdash; see the warning box in the diagram</span></label></div>
+<div class="subitems">
+<div class="item" data-id="s5-1a"><input type="checkbox" id="cb-s5-1a"><label for="cb-s5-1a"><span class="main-text">Set the multimeter to <b>DC volts</b> (V with a straight line, 20 V range), not continuity</span></label></div>
+<div class="item" data-id="s5-1b"><input type="checkbox" id="cb-s5-1b"><label for="cb-s5-1b"><span class="main-text">Red probe on the battery connector&rsquo;s red-wire contact, black probe on the black-wire contact</span></label></div>
+<div class="item" data-id="s5-1c"><input type="checkbox" id="cb-s5-1c"><label for="cb-s5-1c"><span class="main-text">A healthy cell reads a <b>positive</b> number, roughly 3.0&ndash;4.2 V. If it reads well below 3.0 V, stop and tell me</span></label></div>
+<div class="item" data-id="s5-1d"><input type="checkbox" id="cb-s5-1d"><label for="cb-s5-1d"><span class="main-text">If it reads <b>negative</b>, stop: the wire colors do not match the usual convention. Trust the meter, not the colors, and mark which lead is +</span></label></div>
+<div class="item" data-id="s5-1e"><input type="checkbox" id="cb-s5-1e"><label for="cb-s5-1e"><span class="main-text">Put a piece of tape or a marker dot on the battery lead that reads +</span></label></div>
+</div>
+<div class="item" data-id="s5-2"><input type="checkbox" id="cb-s5-2"><label for="cb-s5-2"><span class="main-text">Connect battery to TP4056 BAT+/BAT&minus; (your module may label these B+ / B&minus;)</span></label></div>
+<div class="subitems">
+<div class="item" data-id="s5-2a"><input type="checkbox" id="cb-s5-2a"><label for="cb-s5-2a"><span class="main-text">Make sure <b>nothing</b> is connected to the module&rsquo;s OUT+ / OUT&minus; pads yet, and no USB cable is plugged into it</span></label></div>
+<div class="item" data-id="s5-2b"><input type="checkbox" id="cb-s5-2b"><label for="cb-s5-2b"><span class="main-text">Battery <b>+</b> lead (the one you verified) to the module&rsquo;s <b>BAT+</b> (B+) pad or socket contact</span></label></div>
+<div class="item" data-id="s5-2c"><input type="checkbox" id="cb-s5-2c"><label for="cb-s5-2c"><span class="main-text">Battery <b>&minus;</b> lead to the module&rsquo;s <b>BAT&minus;</b> (B&minus;) pad or socket contact</span></label></div>
+<div class="item" data-id="s5-2d"><input type="checkbox" id="cb-s5-2d"><label for="cb-s5-2d"><span class="main-text">Watch and feel for a few seconds: nothing should smell, smoke or get warm. If it does, unplug the battery at once</span></label></div>
+</div>
+<div class="item" data-id="s5-5"><input type="checkbox" id="cb-s5-5"><label for="cb-s5-5"><span class="main-text">Connect TP4056 <b>OUT&minus;</b> to the common ground rail</span></label></div>
+<div class="subitems">
+<div class="item" data-id="s5-5a"><input type="checkbox" id="cb-s5-5a"><label for="cb-s5-5a"><span class="main-text">One wire from the module&rsquo;s <b>OUT&minus;</b> pad to the ground rail (the rail the ATtiny pin 4, the C3 and C4 caps, and the Q1/Q2 source leads connect to)</span></label></div>
+<div class="item" data-id="s5-5b"><input type="checkbox" id="cb-s5-5b"><label for="cb-s5-5b"><span class="main-text">Check that this wire goes to the GND rail and <b>not</b> the + rail</span></label></div>
+</div>
+<div class="item" data-id="s5-3"><input type="checkbox" id="cb-s5-3"><label for="cb-s5-3"><span class="main-text">Wire F1 (PTC fuse) in series between TP4056 <b>OUT+</b> and the + rail</span></label></div>
+<div class="subitems">
+<div class="item" data-id="s5-3a"><input type="checkbox" id="cb-s5-3a"><label for="cb-s5-3a"><span class="main-text">A PTC fuse has no polarity, so either leg can go either way</span></label></div>
+<div class="item" data-id="s5-3b"><input type="checkbox" id="cb-s5-3b"><label for="cb-s5-3b"><span class="main-text">One F1 leg to the module&rsquo;s <b>OUT+</b> pad</span></label></div>
+<div class="item" data-id="s5-3c"><input type="checkbox" id="cb-s5-3c"><label for="cb-s5-3c"><span class="main-text">The other F1 leg to the + rail (the one ATtiny pin 8, R6, R9 and the TTP223 VCC connect to)</span></label></div>
+<div class="item" data-id="s5-3d"><input type="checkbox" id="cb-s5-3d"><label for="cb-s5-3d"><span class="main-text">Check that no bare F1 leg touches the ground rail</span></label></div>
+</div>
+<div class="item" data-id="s5-4"><input type="checkbox" id="cb-s5-4"><label for="cb-s5-4"><span class="main-text">Confirm the bench supply&rsquo;s direct connection to the rail is gone &mdash; TP4056 OUT+ (through F1) now feeds it instead</span></label></div>
+<div class="subitems">
+<div class="item" data-id="s5-4a"><input type="checkbox" id="cb-s5-4a"><label for="cb-s5-4a"><span class="main-text">Look along the + rail: the only source feeding it should be F1</span></label></div>
+<div class="item" data-id="s5-4b"><input type="checkbox" id="cb-s5-4b"><label for="cb-s5-4b"><span class="main-text">Confirm again that the Uno has no wire to the lantern circuit</span></label></div>
+</div>
+<div class="item" data-id="s5-7"><input type="checkbox" id="cb-s5-7"><label for="cb-s5-7"><span class="main-text">First power-up on battery (lantern circuit only; no USB plugged into the TP4056)</span></label></div>
+<div class="subitems">
+<div class="item" data-id="s5-7a"><input type="checkbox" id="cb-s5-7a"><label for="cb-s5-7a"><span class="main-text">Multimeter on DC volts between the + rail and the ground rail: expect about the battery voltage, 3.0&ndash;4.2 V, minus a small drop across F1</span></label></div>
+<div class="item" data-id="s5-7b"><input type="checkbox" id="cb-s5-7b"><label for="cb-s5-7b"><span class="main-text">Tap the touch sensor: the lantern should turn on (white). Tap again: off</span></label></div>
+<div class="item" data-id="s5-7c"><input type="checkbox" id="cb-s5-7c"><label for="cb-s5-7c"><span class="main-text">Double tap: switches between white and red. Hold: brightness ramps</span></label></div>
+<div class="item" data-id="s5-7d"><input type="checkbox" id="cb-s5-7d"><label for="cb-s5-7d"><span class="main-text">If anything gets hot or smells, disconnect the battery immediately</span></label></div>
+</div>
+<p><b>Optional, not required:</b> on the 4.2 V battery the LEDs get slightly less current through the Uno-era resistors (R6 150&Omega;, R9 220&Omega;). The diagram shows 100&Omega; and 150&Omega; for a brighter result on battery power. Those values are my calculations from the LED labels (the white LED&rsquo;s forward voltage is an assumption, about 3 V), not measurements. Leave the resistors alone unless the brightness is not enough.</p>
 <div class="expect">Everything from Steps 1&ndash;5 continues working exactly as before, just now powered through the battery/charger instead of the Uno. <b>Remember the rule: keep the lantern off while charging</b> &mdash; this charger has no power-path management.</div>
 </div>
 <div class="step-section">
